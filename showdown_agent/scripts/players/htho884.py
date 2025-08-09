@@ -1,7 +1,12 @@
-from poke_env.battle import AbstractBattle
+from poke_env.battle import AbstractBattle, side_condition, pokemon_type
 from poke_env.player import Player
-import random
+from poke_env.battle.pokemon_type import PokemonType
 
+
+
+import poke_env.battle as battle
+
+import re
 
 
 
@@ -72,156 +77,106 @@ Timid Nature
 - Tera Blast  
 """
     # === FULL TYPE EFFECTIVENESS MATRIX ===
-type_effectiveness = {
-        "Normal": {"Rock": 0.5, "Ghost": 0.0, "Steel": 0.5},
-        "Fire": {"Fire": 0.5, "Water": 0.5, "Grass": 2.0, "Ice": 2.0, "Bug": 2.0, "Rock": 0.5, "Dragon": 0.5, "Steel": 2.0},
-        "Water": {"Fire": 2.0, "Water": 0.5, "Grass": 0.5, "Ground": 2.0, "Rock": 2.0, "Dragon": 0.5},
-        "Electric": {"Water": 2.0, "Electric": 0.5, "Grass": 0.5, "Ground": 0.0, "Flying": 2.0, "Dragon": 0.5},
-        "Grass": {"Fire": 0.5, "Water": 2.0, "Grass": 0.5, "Poison": 0.5, "Ground": 2.0, "Flying": 0.5, "Bug": 0.5, "Rock": 2.0, "Dragon": 0.5, "Steel": 0.5},
-        "Ice": {"Fire": 0.5, "Water": 0.5, "Grass": 2.0, "Ice": 0.5, "Ground": 2.0, "Flying": 2.0, "Dragon": 2.0, "Steel": 0.5},
-        "Fighting": {"Normal": 2.0, "Ice": 2.0, "Rock": 2.0, "Dark": 2.0, "Steel": 2.0, "Poison": 0.5, "Flying": 0.5, "Psychic": 0.5, "Bug": 0.5, "Ghost": 0.0, "Fairy": 0.5},
-        "Poison": {"Grass": 2.0, "Fairy": 2.0, "Poison": 0.5, "Ground": 0.5, "Rock": 0.5, "Ghost": 0.5, "Steel": 0.0},
-        "Ground": {"Fire": 2.0, "Electric": 2.0, "Poison": 2.0, "Rock": 2.0, "Steel": 2.0, "Grass": 0.5, "Bug": 0.5, "Flying": 0.0},
-        "Flying": {"Grass": 2.0, "Fighting": 2.0, "Bug": 2.0, "Electric": 0.5, "Rock": 0.5, "Steel": 0.5},
-        "Psychic": {"Fighting": 2.0, "Poison": 2.0, "Psychic": 0.5, "Steel": 0.5, "Dark": 0.0},
-        "Bug": {"Grass": 2.0, "Psychic": 2.0, "Dark": 2.0, "Fire": 0.5, "Fighting": 0.5, "Poison": 0.5, "Flying": 0.5, "Ghost": 0.5, "Steel": 0.5, "Fairy": 0.5},
-        "Rock": {"Fire": 2.0, "Ice": 2.0, "Flying": 2.0, "Bug": 2.0, "Fighting": 0.5, "Ground": 0.5, "Steel": 0.5},
-        "Ghost": {"Psychic": 2.0, "Ghost": 2.0, "Normal": 0.0, "Dark": 0.5},
-        "Dragon": {"Dragon": 2.0, "Steel": 0.5, "Fairy": 0.0},
-        "Dark": {"Psychic": 2.0, "Ghost": 2.0, "Fighting": 0.5, "Dark": 0.5, "Fairy": 0.5},
-        "Steel": {"Ice": 2.0, "Rock": 2.0, "Fairy": 2.0, "Fire": 0.5, "Water": 0.5, "Electric": 0.5, "Steel": 0.5},
-        "Fairy": {"Fighting": 2.0, "Dragon": 2.0, "Dark": 2.0, "Fire": 0.5, "Poison": 0.5, "Steel": 0.5},
-    }
+TYPE_EFFECTIVENESS = {
+    PokemonType.NORMAL:  {PokemonType.ROCK: 0.5, PokemonType.GHOST: 0.0, PokemonType.STEEL: 0.5},
+    PokemonType.FIRE:    {PokemonType.FIRE: 0.5, PokemonType.WATER: 0.5, PokemonType.GRASS: 2.0, PokemonType.ICE: 2.0, PokemonType.BUG: 2.0, PokemonType.ROCK: 0.5, PokemonType.DRAGON: 0.5, PokemonType.STEEL: 2.0},
+    PokemonType.WATER:   {PokemonType.FIRE: 2.0, PokemonType.WATER: 0.5, PokemonType.GRASS: 0.5, PokemonType.GROUND: 2.0, PokemonType.ROCK: 2.0, PokemonType.DRAGON: 0.5},
+    PokemonType.ELECTRIC:{PokemonType.WATER: 2.0, PokemonType.ELECTRIC: 0.5, PokemonType.GRASS: 0.5, PokemonType.GROUND: 0.0, PokemonType.FLYING: 2.0, PokemonType.DRAGON: 0.5},
+    PokemonType.GRASS:   {PokemonType.FIRE: 0.5, PokemonType.WATER: 2.0, PokemonType.GRASS: 0.5, PokemonType.POISON: 0.5, PokemonType.GROUND: 2.0, PokemonType.FLYING: 0.5, PokemonType.BUG: 0.5, PokemonType.ROCK: 2.0, PokemonType.DRAGON: 0.5, PokemonType.STEEL: 0.5},
+    PokemonType.ICE:     {PokemonType.FIRE: 0.5, PokemonType.WATER: 0.5, PokemonType.GRASS: 2.0, PokemonType.ICE: 0.5, PokemonType.GROUND: 2.0, PokemonType.FLYING: 2.0, PokemonType.DRAGON: 2.0, PokemonType.STEEL: 0.5},
+    PokemonType.FIGHTING:{PokemonType.NORMAL: 2.0, PokemonType.ICE: 2.0, PokemonType.ROCK: 2.0, PokemonType.DARK: 2.0, PokemonType.STEEL: 2.0, PokemonType.POISON: 0.5, PokemonType.FLYING: 0.5, PokemonType.PSYCHIC: 0.5, PokemonType.BUG: 0.5, PokemonType.GHOST: 0.0, PokemonType.FAIRY: 0.5},
+    PokemonType.POISON:  {PokemonType.GRASS: 2.0, PokemonType.FAIRY: 2.0, PokemonType.POISON: 0.5, PokemonType.GROUND: 0.5, PokemonType.ROCK: 0.5, PokemonType.GHOST: 0.5, PokemonType.STEEL: 0.0},
+    PokemonType.GROUND:  {PokemonType.FIRE: 2.0, PokemonType.ELECTRIC: 2.0, PokemonType.POISON: 2.0, PokemonType.ROCK: 2.0, PokemonType.STEEL: 2.0, PokemonType.GRASS: 0.5, PokemonType.BUG: 0.5, PokemonType.FLYING: 0.0},
+    PokemonType.FLYING:  {PokemonType.GRASS: 2.0, PokemonType.FIGHTING: 2.0, PokemonType.BUG: 2.0, PokemonType.ELECTRIC: 0.5, PokemonType.ROCK: 0.5, PokemonType.STEEL: 0.5},
+    PokemonType.PSYCHIC: {PokemonType.FIGHTING: 2.0, PokemonType.POISON: 2.0, PokemonType.PSYCHIC: 0.5, PokemonType.STEEL: 0.5, PokemonType.DARK: 0.0},
+    PokemonType.BUG:     {PokemonType.GRASS: 2.0, PokemonType.PSYCHIC: 2.0, PokemonType.DARK: 2.0, PokemonType.FIRE: 0.5, PokemonType.FIGHTING: 0.5, PokemonType.POISON: 0.5, PokemonType.FLYING: 0.5, PokemonType.GHOST: 0.5, PokemonType.STEEL: 0.5, PokemonType.FAIRY: 0.5},
+    PokemonType.ROCK:    {PokemonType.FIRE: 2.0, PokemonType.ICE: 2.0, PokemonType.FLYING: 2.0, PokemonType.BUG: 2.0, PokemonType.FIGHTING: 0.5, PokemonType.GROUND: 0.5, PokemonType.STEEL: 0.5},
+    PokemonType.GHOST:   {PokemonType.PSYCHIC: 2.0, PokemonType.GHOST: 2.0, PokemonType.NORMAL: 0.0, PokemonType.DARK: 0.5},
+    PokemonType.DRAGON:  {PokemonType.DRAGON: 2.0, PokemonType.STEEL: 0.5, PokemonType.FAIRY: 0.0},
+    PokemonType.DARK:    {PokemonType.PSYCHIC: 2.0, PokemonType.GHOST: 2.0, PokemonType.FIGHTING: 0.5, PokemonType.DARK: 0.5, PokemonType.FAIRY: 0.5},
+    PokemonType.STEEL:   {PokemonType.ICE: 2.0, PokemonType.ROCK: 2.0, PokemonType.FAIRY: 2.0, PokemonType.FIRE: 0.5, PokemonType.WATER: 0.5, PokemonType.ELECTRIC: 0.5, PokemonType.STEEL: 0.5},
+    PokemonType.FAIRY:   {PokemonType.FIGHTING: 2.0, PokemonType.DRAGON: 2.0, PokemonType.DARK: 2.0, PokemonType.FIRE: 0.5, PokemonType.POISON: 0.5, PokemonType.STEEL: 0.5},
+}
 
 class CustomAgent(Player):
     def __init__(self, *args, **kwargs):
+        global team
+        if "team" not in globals():
+            team = ""
         super().__init__(team=team, *args, **kwargs)
 
     def team_preview(self, battle: AbstractBattle) -> int:
-        for i, (poke_id, pokemon) in enumerate(battle.team.items()):
-            print(f"Slot {i}: {pokemon.name}")
-            if pokemon.name.lower() == "groudon":
-                print(f"-> Groudon selected at slot {i}")
+        for i, (_, p) in enumerate(battle.team.items()):
+            if p.name and p.name.lower() == "groudon":
                 return i
-        print("-> Groudon not found, defaulting to slot 0")
         return 0
 
-    def estimated_effectiveness(self, move_type, opponent_types):
-        type_chart = {
-            "Fire": ["Grass", "Bug", "Ice", "Steel"],
-            "Water": ["Fire", "Ground", "Rock"],
-            "Ground": ["Fire", "Steel", "Rock", "Electric", "Poison"],
-            "Fairy": ["Dark", "Dragon", "Fighting"],
-            "Poison": ["Fairy", "Grass"],
-            "Ghost": ["Ghost", "Psychic"],
-            "Dragon": ["Dragon"]
-        }
-        effectiveness = 1.0
-        for opp_type in opponent_types:
-            if move_type in type_chart and opp_type in type_chart[move_type]:
-                effectiveness *= 2
-        return effectiveness
+    def type_multiplier(self, atk_type, def_types):
+        mult = 1.0
+        for t in def_types:
+            mult *= TYPE_EFFECTIVENESS.get(atk_type, {}).get(t, 1.0)
+        return mult
+
+    def estimated_effectiveness(self, move_type, opp_types, my_types):
+        eff = self.type_multiplier(move_type, opp_types)
+        if move_type in my_types:
+            eff *= 1.5  # STAB
+        return eff
+
+    def estimate_damage_frac(self, move, my_types, opp_types):
+        if not move.base_power or move.base_power <= 0:
+            return 0.0
+        eff = self.estimated_effectiveness(move.type, opp_types, my_types)
+        return max(0.0, min((move.base_power / 100.0) * eff, 1.0))
+
+    def pick_best_switch(self, battle, opp_types):
+        best_mon, best_score = None, float("-inf")
+        for mon in battle.available_switches:
+            worst_incoming = max(self.type_multiplier(otype, mon.types) for otype in opp_types)
+            best_offense = max(1.5 * self.type_multiplier(ct, opp_types) for ct in mon.types)
+            score = best_offense / (worst_incoming + 1e-6)
+            if score > best_score:
+                best_score, best_mon = score, mon
+        return best_mon
 
     def choose_move(self, battle: AbstractBattle):
+        opp = battle.opponent_active_pokemon
+        me = battle.active_pokemon
+        opp_types = opp.types
+        my_types = me.types
+        opp_hp = opp.current_hp_fraction or 1.0
 
-        # if battle.turn == 1:
-        #     print("=== ACTIVE POKÉMON ATTRIBUTES ===")
-        #     for attr in dir(battle.active_pokemon):
-        #         if not attr.startswith("__"):
-        #             try:
-        #                 value = getattr(battle.active_pokemon, attr)      ###For debugging ### for pokemon attributes
-        #                 if not callable(value):
-        #                     print(f"{attr}: {value}")
-        #             except Exception as e:
-        #                 print(f"{attr}: <error: {e}>")
+        moves = []
+        for mv in battle.available_moves:
+            if not mv.base_power or mv.base_power <= 0:
+                continue
+            raw_mult = self.type_multiplier(mv.type, opp_types)
+            if raw_mult == 0.0:  # skip immune
+                continue
+            dmg = self.estimate_damage_frac(mv, my_types, opp_types)
+            moves.append((mv, dmg, raw_mult))
 
+        # KO check
+        for m, dmg, _ in sorted(moves, key=lambda x: x[1], reverse=True):
+            if dmg >= opp_hp - 1e-6:
+                return self.create_order(m)
 
-        # if battle.turn == 1 and battle.active_pokemon != "Groudon":
-        #     for pokemon in battle.available_switches:
-        #         if pokemon == "Groudon":                                      # to send groudon to the field
-        #             return self.create_order(pokemon) 
-        # 1. Set up hazards if available and not already active\
+        # Prefer SE > neutral > resisted
+        se = [(m, dmg) for m, dmg, raw in moves if raw > 1.0]
+        nt = [(m, dmg) for m, dmg, raw in moves if abs(raw - 1.0) < 1e-9]
+        if se:
+            return self.create_order(max(se, key=lambda x: x[1])[0])
+        if nt:
+            return self.create_order(max(nt, key=lambda x: x[1])[0])
 
-        print(f"\n=== BATTLE OBJECT DEBUG: Turn {battle.turn} ===")
-        for attr in dir(battle):
-            if not attr.startswith("__"):
-                try:
-                    value = getattr(battle, attr)                   ###For debugging ### for battle attributes
-                    if callable(value):
-                        continue  # Skip methods
-                    print(f"{attr}: {value}")
-                except Exception:
-                    print(f"{attr}: <unreadable>")
+        # Switch if only resisted and switch available
+        if moves and battle.available_switches:
+            counter = self.pick_best_switch(battle, opp_types)
+            if counter:
+                return self.create_order(counter)
 
-        hazard_moves = {"stealthrock", "spikes"}
-        for move in battle.available_moves:
-            if move.id in hazard_moves:
-                if move.id == "stealthrock" and not battle.opponent_side_conditions.get("stealthrock"):
-                    return self.create_order(move)
-                if move.id == "spikes" and battle.opponent_side_conditions.get("spikes", 0) < 3:
-                    return self.create_order(move)
+        # Else best damage
+        if moves:
+            return self.create_order(max(moves, key=lambda x: x[1])[0])
 
-        # 2. Use best super-effective damaging move
-        best_move = None
-        best_effectiveness = 1.0
-        for move in battle.available_moves:
-            if move.base_power > 0:
-                move_type = move.type
-                opp_types = battle.opponent_active_pokemon.types
-                effectiveness = self.estimated_effectiveness(move_type, opp_types)
-                if effectiveness > best_effectiveness:
-                    best_effectiveness = effectiveness
-                    best_move = move
-
-        if best_move:
-            return self.create_order(best_move)
-
-        # 3. Switch if at type disadvantage
-        if battle.available_switches:
-            my_types = battle.active_pokemon.types
-            opp_types = battle.opponent_active_pokemon.types
-            for my_type in my_types:
-                for opp_type in opp_types:
-                    if self.estimated_effectiveness(opp_type, [my_type]) > 1.0:
-                        return self.create_order(random.choice(battle.available_switches))
-
-        # 4. Otherwise, use the move with highest base power
-        damaging_moves = [m for m in battle.available_moves if m.base_power > 0]
-        if damaging_moves:
-            move = max(damaging_moves, key=lambda m: m.base_power)
-            return self.create_order(move)
-
-        # 5. Fallback
         return self.choose_random_move(battle)
-    
-# if __name__ == "__main__":
-#     print("Testing CustomAgent class...")
-#     from poke_env.battle import AbstractBattle
-
-#     dummy_battle = None  # You can't create a real Battle object outside a server
-
-#     agent = CustomAgent()
-#     print("CustomAgent initialized.")
-#     print("Team preview slot if Groudon exists:")
-
-#     # Simulate dummy team dictionary
-#     class DummyPokemon:
-#         def __init__(self, name):
-#             self.name = name
-
-#     dummy_team = {
-#         "p1: 1": DummyPokemon("Flutter Mane"),
-#         "p1: 2": DummyPokemon("Charizard"),
-#         "p1: 3": DummyPokemon("Charizard"),
-#         "p1: 4": DummyPokemon("Groudon"),
-#         "p1: 5": DummyPokemon("Charizard")
-#     }
-
-#     # Simulate the AbstractBattle object
-#     class DummyBattle:
-#         def __init__(self, team_dict):
-#             self.team = team_dict
-
-#     battle = DummyBattle(dummy_team)
-#     chosen_slot = agent.team_preview(battle)
-#     print(f"-> Groudon selected at slot {chosen_slot}")
