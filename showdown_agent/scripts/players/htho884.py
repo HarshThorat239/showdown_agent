@@ -5,15 +5,25 @@ import poke_env.battle as battle
 
 
 team = """
-Groudon @ Heat Rock
-Ability: Drought
-Tera Type: Fire
-EVs: 252 Atk / 4 SpD / 252 Spe
-Jolly Nature
-- Spikes
-- Stealth Rock
-- Precipice Blades
-- Heat Crash
+Ting-Lu @ Leftovers  
+Ability: Vessel of Ruin  
+Tera Type: Poison  
+EVs: 252 HP / 4 Atk / 252 SpD  
+Sassy Nature  
+- Spikes  
+- Earthquake  
+- Ruination  
+- Whirlwind  
+
+Koraidon @ Life Orb  
+Ability: Orichalcum Pulse  
+Tera Type: Fighting  
+EVs: 252 Atk / 4 SpD / 252 Spe  
+Adamant Nature  
+- Collision Course  
+- Dragon Claw  
+- Flare Blitz  
+- Wild Charge  
 
 Flutter Mane @ Life Orb  
 Ability: Protosynthesis  
@@ -24,7 +34,7 @@ IVs: 0 Atk
 - Moonblast  
 - Shadow Ball  
 - Mystical Fire  
-- Power Gem 
+- Power Gem  
 
 Arceus-Fairy @ Pixie Plate  
 Ability: Multitype  
@@ -37,17 +47,6 @@ IVs: 0 Atk
 - Psychic  
 - Aura Sphere  
 
-Dialga-Origin @ Adamant Crystal  
-Ability: Pressure  
-Tera Type: Stellar  
-EVs: 252 Def / 4 SpA / 252 SpD  
-Relaxed Nature  
-IVs: 0 Atk  
-- Flash Cannon  
-- Roar of Time  
-- Flamethrower  
-- Thunderbolt  
-
 Zacian-Crowned @ Rusted Sword  
 Ability: Intrepid Sword  
 Tera Type: Fairy  
@@ -58,15 +57,15 @@ Jolly Nature
 - Play Rough  
 - Ice Fang  
 
-Hoopa-Unbound
-Ability: Magician
-Tera Type: Fighting
-EVs: 140 Atk / 116 SpA / 252 Spe
-Naughty Nature
-- Hyperspace Fury
-- Phantom Force
-- Drain Punch
-- Future Sight
+Iron Bundle @ Booster Energy  
+Ability: Quark Drive  
+Tera Type: Ice  
+EVs: 252 SpA / 4 SpD / 252 Spe  
+Timid Nature  
+- Freeze-Dry  
+- Hydro Pump  
+- Flip Turn  
+- Ice Beam  
 """
     # === FULL TYPE EFFECTIVENESS MATRIX ===
 TYPE_EFFECTIVENESS = {
@@ -212,6 +211,16 @@ class CustomAgent(Player):
                 return self.create_order(counter)
             return self.create_order(list(battle.available_switches)[0])
 
+        # Check if current Pokemon is Ting-Lu and prioritize setup moves
+        current_species = getattr(me, 'species', '').lower()
+        if 'ting-lu' in current_species or 'tinglu' in current_species:
+            setup_moves = ['spikes']
+            for mv in battle.available_moves:
+                move_name = getattr(mv, 'name', getattr(mv, 'display_name', '')).lower().replace(' ', '')
+                if move_name in setup_moves:
+                    print(f"DEBUG: Ting-Lu using setup move: {move_name}")
+                    return self.create_order(mv)
+
         # --- PALAFIN (base form): always Flip Turn on first appearance ---
        # species = (getattr(me, "species", "") or getattr(me, "name", "")).lower()
        # is_palafin_base = ("palafin" in species) and ("hero" not in species)
@@ -226,6 +235,7 @@ class CustomAgent(Player):
         # --- NEW PRIORITY-BASED MOVE SELECTION ---
         moves = []
         super_effective_moves = []
+        
         neutral_moves = []
         resisted_moves = []
         
