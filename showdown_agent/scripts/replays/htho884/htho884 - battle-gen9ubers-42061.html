@@ -237,15 +237,15 @@
     <h1 style="font-weight:normal;text-align:center"><strong>poke-env battle replay</strong><br />battle-gen9ubers-42061<br /><a
             href="http://pokemonshowdown.com/users/randomplayer1" class="subtle" target="_blank">htho884</a>
         vs. <a href="http://pokemonshowdown.com/users/randomplayer2" class="subtle"
-            target="_blank">random-ou</a></h1>
+            target="_blank">simple-ou</a></h1>
     <script type="text/plain" class="battle-log-data">
     >battle-gen9ubers-42061|init|battle
-|title|htho884 vs. random-ou
+|title|htho884 vs. simple-ou
 |j|☆htho884
-|j|☆random-ou
+|j|☆simple-ou
 |gametype|singles
-|player|p1|htho884|266|
-|player|p2|random-ou|265|
+|player|p1|htho884|2|
+|player|p2|simple-ou|101|
 |gen|9
 |tier|[Gen 9] Ubers
 |rule|HP Percentage Mod: HP is shown in percentages
@@ -256,14 +256,14 @@
 |rule|Evasion Items Clause: Evasion items are banned
 |rule|Evasion Moves Clause: Evasion moves are banned
 |clearpoke
-|poke|p1|Groudon|
+|poke|p1|Ting-Lu|
+|poke|p1|Koraidon|
 |poke|p1|Flutter Mane|
 |poke|p1|Arceus-Fairy|
-|poke|p1|Dialga-Origin|
 |poke|p1|Zacian-*|
-|poke|p1|Hoopa-Unbound|
+|poke|p1|Iron Bundle|
 |poke|p2|Ogerpon-Wellspring, F|
-|poke|p2|Garganacl, F|
+|poke|p2|Garganacl, M|
 |poke|p2|Great Tusk|
 |poke|p2|Dragonite, F|
 |poke|p2|Moltres|
@@ -273,97 +273,140 @@
 |teamsize|p1|6
 |teamsize|p2|6
 |start
-|switch|p1a: Groudon|Groudon|341/341
-|switch|p2a: Great Tusk|Great Tusk|100/100
-|-weather|SunnyDay|[from] ability: Drought|[of] p1a: Groudon
-|-activate|p2a: Great Tusk|ability: Protosynthesis
-|-start|p2a: Great Tusk|protosynthesisatk
+|switch|p1a: Ting-Lu|Ting-Lu|514/514
+|switch|p2a: Garganacl|Garganacl, M|100/100
+|-ability|p1a: Ting-Lu|Vessel of Ruin
 |turn|1
 |
-|-terastallize|p2a: Great Tusk|Ice
-|move|p1a: Groudon|Precipice Blades|p2a: Great Tusk
-|-damage|p2a: Great Tusk|50/100
-|move|p2a: Great Tusk|Knock Off|p1a: Groudon
-|-damage|p1a: Groudon|237/341
-|-enditem|p1a: Groudon|Heat Rock|[from] move: Knock Off|[of] p2a: Great Tusk
+|move|p1a: Ting-Lu|Earthquake|p2a: Garganacl
+|-supereffective|p2a: Garganacl
+|-damage|p2a: Garganacl|51/100
+|move|p2a: Garganacl|Salt Cure|p1a: Ting-Lu
+|-resisted|p1a: Ting-Lu
+|-damage|p1a: Ting-Lu|496/514
+|-start|p1a: Ting-Lu|Salt Cure
 |
-|-weather|SunnyDay|[upkeep]
+|-heal|p1a: Ting-Lu|514/514|[from] item: Leftovers
+|-heal|p2a: Garganacl|58/100|[from] item: Leftovers
+|-damage|p1a: Ting-Lu|450/514|[from] Salt Cure
 |upkeep
 |turn|2
 |
-|-end|p2a: Great Tusk|Protosynthesis|[silent]
-|switch|p2a: Darkrai|Darkrai|100/100
-|move|p1a: Groudon|Precipice Blades|p2a: Darkrai
-|-damage|p2a: Darkrai|16/100
+|move|p1a: Ting-Lu|Earthquake|p2a: Garganacl
+|-supereffective|p2a: Garganacl
+|-damage|p2a: Garganacl|13/100
+|move|p2a: Garganacl|Salt Cure|p1a: Ting-Lu
+|-resisted|p1a: Ting-Lu
+|-damage|p1a: Ting-Lu|432/514
 |
-|-weather|SunnyDay|[upkeep]
+|-heal|p1a: Ting-Lu|464/514|[from] item: Leftovers
+|-heal|p2a: Garganacl|19/100|[from] item: Leftovers
+|-damage|p1a: Ting-Lu|400/514|[from] Salt Cure
 |upkeep
 |turn|3
 |
-|switch|p2a: Garganacl|Garganacl, F|100/100
-|move|p1a: Groudon|Precipice Blades|p2a: Garganacl
+|move|p1a: Ting-Lu|Earthquake|p2a: Garganacl
 |-supereffective|p2a: Garganacl
-|-damage|p2a: Garganacl|17/100
+|-damage|p2a: Garganacl|0 fnt
+|faint|p2a: Garganacl
 |
-|-weather|SunnyDay|[upkeep]
-|-heal|p2a: Garganacl|23/100|[from] item: Leftovers
+|-heal|p1a: Ting-Lu|432/514|[from] item: Leftovers
+|-damage|p1a: Ting-Lu|368/514|[from] Salt Cure
 |upkeep
+|
+|switch|p2a: Great Tusk|Great Tusk|100/100
 |turn|4
 |
-|move|p2a: Garganacl|Protect|p2a: Garganacl
-|-singleturn|p2a: Garganacl|Protect
-|move|p1a: Groudon|Precipice Blades|p2a: Garganacl
-|-activate|p2a: Garganacl|move: Protect
+|switch|p1a: Flutter Mane|Flutter Mane|251/251
+|move|p2a: Great Tusk|Headlong Rush|p1a: Flutter Mane
+|-damage|p1a: Flutter Mane|0 fnt
+|-unboost|p2a: Great Tusk|def|1
+|-unboost|p2a: Great Tusk|spd|1
+|faint|p1a: Flutter Mane
+|-end|p1a: Flutter Mane|Protosynthesis|[silent]
 |
-|-weather|SunnyDay|[upkeep]
-|-heal|p2a: Garganacl|29/100|[from] item: Leftovers
 |upkeep
+|
+|switch|p1a: Arceus|Arceus-Fairy|381/381
 |turn|5
 |
-|move|p1a: Groudon|Precipice Blades|p2a: Garganacl|[miss]
-|-miss|p1a: Groudon|p2a: Garganacl
-|move|p2a: Garganacl|Recover|p2a: Garganacl
-|-heal|p2a: Garganacl|79/100
+|move|p1a: Arceus|Psychic|p2a: Great Tusk
+|-supereffective|p2a: Great Tusk
+|-damage|p2a: Great Tusk|0 fnt
+|faint|p2a: Great Tusk
+|-end|p2a: Great Tusk|Protosynthesis|[silent]
 |
-|-weather|SunnyDay|[upkeep]
-|-heal|p2a: Garganacl|85/100|[from] item: Leftovers
 |upkeep
+|
+|switch|p2a: Moltres|Moltres|100/100
 |turn|6
 |
-|switch|p2a: Dragonite|Dragonite, F|100/100
-|move|p1a: Groudon|Precipice Blades|p2a: Dragonite
-|-immune|p2a: Dragonite
+|move|p1a: Arceus|Judgment|p2a: Moltres
+|-resisted|p2a: Moltres
+|-damage|p2a: Moltres|72/100
+|move|p2a: Moltres|Brave Bird|p1a: Arceus
+|-damage|p1a: Arceus|251/381
+|-damage|p2a: Moltres|60/100|[from] Recoil
 |
-|-weather|SunnyDay|[upkeep]
 |upkeep
 |turn|7
 |
-|switch|p1a: Zacian|Zacian-Crowned|360/360
-|-ability|p1a: Zacian|Intrepid Sword|boost
-|-boost|p1a: Zacian|atk|1
-|switch|p2a: Darkrai|Darkrai|16/100
+|move|p1a: Arceus|Judgment|p2a: Moltres
+|-resisted|p2a: Moltres
+|-damage|p2a: Moltres|32/100
+|move|p2a: Moltres|Brave Bird|p1a: Arceus
+|-damage|p1a: Arceus|124/381
+|-damage|p2a: Moltres|21/100|[from] Recoil
 |
-|-weather|SunnyDay|[upkeep]
 |upkeep
 |turn|8
 |
-|switch|p2a: Garganacl|Garganacl, F|85/100
-|move|p1a: Zacian|Sacred Sword|p2a: Garganacl
-|-supereffective|p2a: Garganacl
-|-damage|p2a: Garganacl|18/100
+|move|p1a: Arceus|Judgment|p2a: Moltres
+|-resisted|p2a: Moltres
+|-damage|p2a: Moltres|0 fnt
+|faint|p2a: Moltres
 |
-|-weather|none
-|-heal|p2a: Garganacl|24/100|[from] item: Leftovers
 |upkeep
+|
+|switch|p2a: Ogerpon|Ogerpon-Wellspring, F|100/100
 |turn|9
 |
-|switch|p2a: Dragonite|Dragonite, F|100/100
-|move|p1a: Zacian|Sacred Sword|p2a: Dragonite
-|-resisted|p2a: Dragonite
-|-damage|p2a: Dragonite|86/100
+|move|p1a: Arceus|Judgment|p2a: Ogerpon
+|-damage|p2a: Ogerpon|38/100
+|move|p2a: Ogerpon|Spikes|p1a: Arceus
+|-sidestart|p1: htho884|Spikes
 |
 |upkeep
 |turn|10
+|
+|move|p1a: Arceus|Judgment|p2a: Ogerpon
+|-damage|p2a: Ogerpon|0 fnt
+|faint|p2a: Ogerpon
+|
+|upkeep
+|
+|switch|p2a: Dragonite|Dragonite, F|100/100
+|turn|11
+|
+|switch|p1a: Zacian|Zacian-Crowned|360/360
+|-damage|p1a: Zacian|315/360|[from] Spikes
+|-ability|p1a: Zacian|Intrepid Sword|boost
+|-boost|p1a: Zacian|atk|1
+|move|p2a: Dragonite|Earthquake|p1a: Zacian
+|-supereffective|p1a: Zacian
+|-damage|p1a: Zacian|73/360
+|
+|upkeep
+|turn|12
+|
+|move|p1a: Zacian|Ice Fang|p2a: Dragonite
+|-supereffective|p2a: Dragonite
+|-damage|p2a: Dragonite|19/100
+|-status|p2a: Dragonite|frz
+|cant|p2a: Dragonite|frz
+|
+|upkeep
+|turn|13
 |
 |move|p1a: Zacian|Behemoth Blade|p2a: Dragonite
 |-damage|p2a: Dragonite|0 fnt
@@ -371,121 +414,16 @@
 |
 |upkeep
 |
-|switch|p2a: Darkrai|Darkrai|16/100
-|turn|11
+|switch|p2a: Darkrai|Darkrai|100/100
+|turn|14
 |
-|move|p2a: Darkrai|Sludge Bomb|p1a: Zacian
-|-immune|p1a: Zacian
+|move|p2a: Darkrai|Dark Pulse|p1a: Zacian
+|-resisted|p1a: Zacian
+|-damage|p1a: Zacian|5/360
 |move|p1a: Zacian|Sacred Sword|p2a: Darkrai
 |-supereffective|p2a: Darkrai
 |-damage|p2a: Darkrai|0 fnt
 |faint|p2a: Darkrai
-|
-|upkeep
-|
-|switch|p2a: Ogerpon|Ogerpon-Wellspring, F|100/100
-|turn|12
-|
-|switch|p2a: Moltres|Moltres|100/100
-|move|p1a: Zacian|Play Rough|p2a: Moltres
-|-resisted|p2a: Moltres
-|-damage|p2a: Moltres|73/100
-|-status|p1a: Zacian|brn|[from] ability: Flame Body|[of] p2a: Moltres
-|
-|-damage|p1a: Zacian|338/360 brn|[from] brn
-|upkeep
-|turn|13
-|
-|switch|p2a: Garganacl|Garganacl, F|24/100
-|move|p1a: Zacian|Behemoth Blade|p2a: Garganacl
-|-supereffective|p2a: Garganacl
-|-damage|p2a: Garganacl|0 fnt
-|faint|p2a: Garganacl
-|
-|-damage|p1a: Zacian|316/360 brn|[from] brn
-|upkeep
-|
-|switch|p2a: Ogerpon|Ogerpon-Wellspring, F|100/100
-|turn|14
-|
-|move|p1a: Zacian|Play Rough|p2a: Ogerpon
-|-damage|p2a: Ogerpon|46/100
-|move|p2a: Ogerpon|Spikes|p1a: Zacian
-|-sidestart|p1: htho884|Spikes
-|
-|-damage|p1a: Zacian|294/360 brn|[from] brn
-|upkeep
-|turn|15
-|
-|switch|p2a: Moltres|Moltres|73/100
-|move|p1a: Zacian|Play Rough|p2a: Moltres
-|-resisted|p2a: Moltres
-|-damage|p2a: Moltres|58/100
-|
-|-damage|p1a: Zacian|272/360 brn|[from] brn
-|upkeep
-|turn|16
-|
-|switch|p2a: Ogerpon|Ogerpon-Wellspring, F|46/100
-|move|p1a: Zacian|Behemoth Blade|p2a: Ogerpon
-|-resisted|p2a: Ogerpon
-|-damage|p2a: Ogerpon|19/100
-|
-|-damage|p1a: Zacian|250/360 brn|[from] brn
-|upkeep
-|turn|17
-|
-|move|p1a: Zacian|Play Rough|p2a: Ogerpon
-|-damage|p2a: Ogerpon|0 fnt
-|faint|p2a: Ogerpon
-|
-|-damage|p1a: Zacian|228/360 brn|[from] brn
-|upkeep
-|
-|switch|p2a: Great Tusk|Great Tusk, tera:Ice|50/100
-|turn|18
-|
-|-end|p2a: Great Tusk|Protosynthesis|[silent]
-|switch|p2a: Moltres|Moltres|58/100
-|move|p1a: Zacian|Sacred Sword|p2a: Moltres
-|-resisted|p2a: Moltres
-|-damage|p2a: Moltres|47/100
-|
-|-damage|p1a: Zacian|206/360 brn|[from] brn
-|upkeep
-|turn|19
-|
-|move|p1a: Zacian|Behemoth Blade|p2a: Moltres
-|-resisted|p2a: Moltres
-|-damage|p2a: Moltres|31/100
-|move|p2a: Moltres|Flamethrower|p1a: Zacian
-|-supereffective|p1a: Zacian
-|-damage|p1a: Zacian|6/360 brn
-|
-|-damage|p1a: Zacian|0 fnt|[from] brn
-|faint|p1a: Zacian
-|upkeep
-|
-|switch|p1a: Flutter Mane|Flutter Mane|251/251
-|-damage|p1a: Flutter Mane|220/251|[from] Spikes
-|turn|20
-|
-|switch|p2a: Great Tusk|Great Tusk, tera:Ice|50/100
-|move|p1a: Flutter Mane|Shadow Ball|p2a: Great Tusk
-|-damage|p2a: Great Tusk|0 fnt
-|faint|p2a: Great Tusk
-|-end|p2a: Great Tusk|Protosynthesis|[silent]
-|-damage|p1a: Flutter Mane|195/251|[from] item: Life Orb
-|
-|upkeep
-|
-|switch|p2a: Moltres|Moltres|31/100
-|turn|21
-|
-|move|p1a: Flutter Mane|Shadow Ball|p2a: Moltres
-|-damage|p2a: Moltres|0 fnt
-|faint|p2a: Moltres
-|-damage|p1a: Flutter Mane|170/251|[from] item: Life Orb
 |
     </script>
 </div>
