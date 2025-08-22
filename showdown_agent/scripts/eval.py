@@ -12,7 +12,7 @@ from poke_env import AccountConfiguration, LocalhostServerConfiguration
 from poke_env.player.player import Player
 from tabulate import tabulate
 
-N_CHALLENGES = 3  # battles per opponent
+N_CHALLENGES = 10  # battles per opponent
 
 def load_htho884() -> Player:
     base_dir = os.path.dirname(__file__)
@@ -127,7 +127,7 @@ async def quick_smoke_test(me: Player, one_bot: Player):
     me_key = _resolve_key(res, me)
     bot_key = _resolve_key(res[me_key], one_bot)
     wr = res[me_key][bot_key]
-    print(f"  => wr={wr:.2f} (1.00=win, 0.00=loss, 0.50=draw)")
+    print(f"  => wr={wr * 100:.1f}% (100%=win, 0%=loss, 50%=draw)")
 
 async def evaluate_vs_all(me: Player, bots: List[Player], n_challenges: int) -> Dict[Player, float]:
     """Evaluate only `me` vs each bot; return map opponent -> winrate."""
@@ -175,10 +175,10 @@ def main():
     username_by_agent = {me: me.username, **{b: b.username for b in bots}}
 
     # Pretty table of my winrates vs each bot
-    headers = ["Opponent", "Winrate"]
-    table = [[username_by_agent[b], wr_against_all[b]] for b in bots]
+    headers = ["Opponent", "Winrate (%)"]
+    table = [[username_by_agent[b], wr_against_all[b] * 100] for b in bots]
     print("Winrates vs each opponent:")
-    print(tabulate(table, headers=headers, floatfmt=".2f"))
+    print(tabulate(table, headers=headers, floatfmt=".1f"))
 
     # My results grouped
     my_row = wr_against_all
@@ -207,7 +207,7 @@ def main():
             print("  (none)")
         else:
             for name, wr in items:
-                print(f"  - {name}: winrate {wr:.2f}")
+                print(f"  - {name}: winrate {wr * 100:.1f}%")
         print()
 
     block("✅ Wins (wr > 0.50):", wins)

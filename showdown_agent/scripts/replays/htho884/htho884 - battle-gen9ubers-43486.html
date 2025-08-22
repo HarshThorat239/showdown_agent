@@ -244,7 +244,7 @@
 |j|☆htho884
 |j|☆max_damage-ou
 |gametype|singles
-|player|p1|htho884|266|
+|player|p1|htho884|101|
 |player|p2|max_damage-ou|101|
 |gen|9
 |tier|[Gen 9] Ubers
@@ -256,12 +256,12 @@
 |rule|Evasion Items Clause: Evasion items are banned
 |rule|Evasion Moves Clause: Evasion moves are banned
 |clearpoke
-|poke|p1|Groudon|
+|poke|p1|Ting-Lu|
+|poke|p1|Koraidon|
 |poke|p1|Flutter Mane|
-|poke|p1|Arceus-Fairy|
-|poke|p1|Dialga-Origin|
+|poke|p1|Arceus-Water|
 |poke|p1|Zacian-*|
-|poke|p1|Hoopa-Unbound|
+|poke|p1|Giratina-Origin|
 |poke|p2|Ogerpon-Wellspring, F|
 |poke|p2|Garganacl, M|
 |poke|p2|Great Tusk|
@@ -273,194 +273,192 @@
 |teamsize|p1|6
 |teamsize|p2|6
 |start
-|switch|p1a: Groudon|Groudon|341/341
-|switch|p2a: Great Tusk|Great Tusk|100/100
-|-weather|SunnyDay|[from] ability: Drought|[of] p1a: Groudon
-|-activate|p2a: Great Tusk|ability: Protosynthesis
-|-start|p2a: Great Tusk|protosynthesisatk
-|turn|1
-|
-|move|p1a: Groudon|Precipice Blades|p2a: Great Tusk
-|-damage|p2a: Great Tusk|47/100
-|move|p2a: Great Tusk|Headlong Rush|p1a: Groudon
-|-damage|p1a: Groudon|145/341
-|-unboost|p2a: Great Tusk|def|1
-|-unboost|p2a: Great Tusk|spd|1
-|
-|-weather|SunnyDay|[upkeep]
-|upkeep
-|turn|2
-|
-|move|p1a: Groudon|Precipice Blades|p2a: Great Tusk
-|-damage|p2a: Great Tusk|0 fnt
-|faint|p2a: Great Tusk
-|-end|p2a: Great Tusk|Protosynthesis|[silent]
-|
-|-weather|SunnyDay|[upkeep]
-|upkeep
-|
+|switch|p1a: Ting-Lu|Ting-Lu|514/514
 |switch|p2a: Dragonite|Dragonite, F|100/100
-|turn|3
+|-ability|p1a: Ting-Lu|Vessel of Ruin
+|turn|1
 |
 |switch|p1a: Zacian|Zacian-Crowned|360/360
 |-ability|p1a: Zacian|Intrepid Sword|boost
 |-boost|p1a: Zacian|atk|1
 |move|p2a: Dragonite|Earthquake|p1a: Zacian
 |-supereffective|p1a: Zacian
-|-damage|p1a: Zacian|136/360
+|-damage|p1a: Zacian|126/360
 |
-|-weather|SunnyDay|[upkeep]
 |upkeep
-|turn|4
+|turn|2
+|
+|move|p1a: Zacian|Ice Fang|p2a: Dragonite
+|-supereffective|p2a: Dragonite
+|-damage|p2a: Dragonite|15/100
+|cant|p2a: Dragonite|flinch
+|
+|upkeep
+|turn|3
 |
 |move|p1a: Zacian|Behemoth Blade|p2a: Dragonite
-|-damage|p2a: Dragonite|56/100
-|move|p2a: Dragonite|Earthquake|p1a: Zacian
-|-supereffective|p1a: Zacian
-|-damage|p1a: Zacian|0 fnt
-|faint|p1a: Zacian
-|
-|-weather|SunnyDay|[upkeep]
-|upkeep
-|
-|switch|p1a: Flutter Mane|Flutter Mane|251/251
-|-activate|p1a: Flutter Mane|ability: Protosynthesis
-|-start|p1a: Flutter Mane|protosynthesisspe
-|turn|5
-|
-|move|p1a: Flutter Mane|Moonblast|p2a: Dragonite
-|-supereffective|p2a: Dragonite
 |-damage|p2a: Dragonite|0 fnt
 |faint|p2a: Dragonite
-|-damage|p1a: Flutter Mane|226/251|[from] item: Life Orb
 |
-|-weather|SunnyDay|[upkeep]
-|upkeep
-|
-|switch|p2a: Garganacl|Garganacl, M|100/100
-|turn|6
-|
-|move|p1a: Flutter Mane|Moonblast|p2a: Garganacl
-|-damage|p2a: Garganacl|57/100
-|-damage|p1a: Flutter Mane|201/251|[from] item: Life Orb
-|move|p2a: Garganacl|Salt Cure|p1a: Flutter Mane
-|-damage|p1a: Flutter Mane|128/251
-|-start|p1a: Flutter Mane|Salt Cure
-|
-|-weather|SunnyDay|[upkeep]
-|-heal|p2a: Garganacl|63/100|[from] item: Leftovers
-|-damage|p1a: Flutter Mane|97/251|[from] Salt Cure
-|upkeep
-|turn|7
-|
-|move|p1a: Flutter Mane|Moonblast|p2a: Garganacl
-|-damage|p2a: Garganacl|16/100
-|-damage|p1a: Flutter Mane|72/251|[from] item: Life Orb
-|move|p2a: Garganacl|Salt Cure|p1a: Flutter Mane
-|-damage|p1a: Flutter Mane|0 fnt
-|faint|p1a: Flutter Mane
-|-end|p1a: Flutter Mane|Protosynthesis|[silent]
-|
-|-weather|SunnyDay|[upkeep]
-|-heal|p2a: Garganacl|22/100|[from] item: Leftovers
-|upkeep
-|
-|switch|p1a: Dialga|Dialga-Origin|341/341
-|-ability|p1a: Dialga|Pressure
-|turn|8
-|
-|move|p1a: Dialga|Flash Cannon|p2a: Garganacl
-|-supereffective|p2a: Garganacl
-|-damage|p2a: Garganacl|0 fnt
-|faint|p2a: Garganacl
-|
-|-weather|none
 |upkeep
 |
 |switch|p2a: Moltres|Moltres|100/100
-|turn|9
+|turn|4
 |
-|move|p2a: Moltres|Brave Bird|p1a: Dialga
-|-resisted|p1a: Dialga
-|-damage|p1a: Dialga|287/341
-|-damage|p2a: Moltres|96/100|[from] Recoil
-|move|p1a: Dialga|Roar of Time|p2a: Moltres
-|-damage|p2a: Moltres|6/100
-|-mustrecharge|p1a: Dialga
+|switch|p1a: Arceus|Arceus-Water|443/443
+|move|p2a: Moltres|Brave Bird|p1a: Arceus
+|-damage|p1a: Arceus|311/443
+|-damage|p2a: Moltres|89/100|[from] Recoil
 |
 |upkeep
-|turn|10
+|turn|5
 |
-|move|p2a: Moltres|Brave Bird|p1a: Dialga
-|-resisted|p1a: Dialga
-|-damage|p1a: Dialga|235/341
-|-damage|p2a: Moltres|2/100|[from] Recoil
-|cant|p1a: Dialga|recharge
-|
-|upkeep
-|turn|11
-|
-|move|p2a: Moltres|Brave Bird|p1a: Dialga
-|-resisted|p1a: Dialga
-|-damage|p1a: Dialga|181/341
-|-damage|p2a: Moltres|0 fnt|[from] Recoil
+|move|p1a: Arceus|Judgment|p2a: Moltres
+|-supereffective|p2a: Moltres
+|-damage|p2a: Moltres|0 fnt
 |faint|p2a: Moltres
-|move|p1a: Dialga|Roar of Time|p2: Moltres|[notarget]
-|-fail|p1a: Dialga
 |
 |upkeep
 |
 |switch|p2a: Darkrai|Darkrai|100/100
-|turn|12
+|turn|6
 |
-|move|p2a: Darkrai|Ice Beam|p1a: Dialga
-|-damage|p1a: Dialga|108/341
-|-status|p1a: Dialga|frz
-|cant|p1a: Dialga|frz
+|switch|p1a: Koraidon|Koraidon|341/341
+|-weather|SunnyDay|[from] ability: Orichalcum Pulse|[of] p1a: Koraidon
+|-activate|p1a: Koraidon|Orichalcum Pulse|[source]
+|move|p2a: Darkrai|Ice Beam|p1a: Koraidon
+|-supereffective|p1a: Koraidon
+|-damage|p1a: Koraidon|103/341
 |
+|-weather|SunnyDay|[upkeep]
 |upkeep
-|turn|13
+|turn|7
 |
-|move|p2a: Darkrai|Ice Beam|p1a: Dialga
-|-damage|p1a: Dialga|33/341 frz
-|cant|p1a: Dialga|frz
+|move|p2a: Darkrai|Ice Beam|p1a: Koraidon
+|-supereffective|p1a: Koraidon
+|-damage|p1a: Koraidon|0 fnt
+|faint|p1a: Koraidon
 |
-|upkeep
-|turn|14
-|
-|move|p2a: Darkrai|Ice Beam|p1a: Dialga
-|-damage|p1a: Dialga|0 fnt
-|faint|p1a: Dialga
-|
+|-weather|SunnyDay|[upkeep]
 |upkeep
 |
-|switch|p1a: Arceus|Arceus-Fairy|381/381
-|turn|15
+|switch|p1a: Zacian|Zacian-Crowned|126/360
+|turn|8
 |
-|move|p2a: Darkrai|Ice Beam|p1a: Arceus
-|-damage|p1a: Arceus|292/381
-|move|p1a: Arceus|Judgment|p2a: Darkrai
+|move|p2a: Darkrai|Ice Beam|p1a: Zacian
+|-resisted|p1a: Zacian
+|-damage|p1a: Zacian|76/360
+|move|p1a: Zacian|Sacred Sword|p2a: Darkrai
+|-supereffective|p2a: Darkrai
+|-damage|p2a: Darkrai|4/100
+|
+|-weather|SunnyDay|[upkeep]
+|upkeep
+|turn|9
+|
+|move|p2a: Darkrai|Ice Beam|p1a: Zacian
+|-resisted|p1a: Zacian
+|-damage|p1a: Zacian|27/360
+|move|p1a: Zacian|Sacred Sword|p2a: Darkrai
 |-supereffective|p2a: Darkrai
 |-damage|p2a: Darkrai|0 fnt
 |faint|p2a: Darkrai
 |
+|-weather|SunnyDay|[upkeep]
 |upkeep
 |
 |switch|p2a: Ogerpon|Ogerpon-Wellspring, F|100/100
+|turn|10
+|
+|move|p1a: Zacian|Play Rough|p2a: Ogerpon
+|-damage|p2a: Ogerpon|26/100
+|-unboost|p2a: Ogerpon|atk|1
+|move|p2a: Ogerpon|Ivy Cudgel|p1a: Zacian|[anim] Ivy Cudgel Water
+|-damage|p1a: Zacian|0 fnt
+|faint|p1a: Zacian
+|
+|-weather|none
+|upkeep
+|
+|switch|p1a: Giratina|Giratina-Origin|504/504
+|turn|11
+|
+|move|p2a: Ogerpon|Ivy Cudgel|p1a: Giratina|[anim] Ivy Cudgel Water
+|-resisted|p1a: Giratina
+|-damage|p1a: Giratina|453/504
+|move|p1a: Giratina|Dragon Tail|p2a: Ogerpon
+|-damage|p2a: Ogerpon|0 fnt
+|faint|p2a: Ogerpon
+|
+|upkeep
+|
+|switch|p2a: Garganacl|Garganacl, M|100/100
+|turn|12
+|
+|switch|p1a: Ting-Lu|Ting-Lu|514/514
+|-ability|p1a: Ting-Lu|Vessel of Ruin
+|move|p2a: Garganacl|Salt Cure|p1a: Ting-Lu
+|-resisted|p1a: Ting-Lu
+|-damage|p1a: Ting-Lu|496/514
+|-start|p1a: Ting-Lu|Salt Cure
+|
+|-heal|p1a: Ting-Lu|514/514|[from] item: Leftovers
+|-damage|p1a: Ting-Lu|450/514|[from] Salt Cure
+|upkeep
+|turn|13
+|
+|move|p1a: Ting-Lu|Earthquake|p2a: Garganacl
+|-supereffective|p2a: Garganacl
+|-damage|p2a: Garganacl|50/100
+|move|p2a: Garganacl|Salt Cure|p1a: Ting-Lu
+|-resisted|p1a: Ting-Lu
+|-damage|p1a: Ting-Lu|431/514
+|
+|-heal|p1a: Ting-Lu|463/514|[from] item: Leftovers
+|-heal|p2a: Garganacl|56/100|[from] item: Leftovers
+|-damage|p1a: Ting-Lu|399/514|[from] Salt Cure
+|upkeep
+|turn|14
+|
+|move|p1a: Ting-Lu|Earthquake|p2a: Garganacl
+|-supereffective|p2a: Garganacl
+|-damage|p2a: Garganacl|5/100
+|move|p2a: Garganacl|Salt Cure|p1a: Ting-Lu
+|-resisted|p1a: Ting-Lu
+|-damage|p1a: Ting-Lu|380/514
+|
+|-heal|p1a: Ting-Lu|412/514|[from] item: Leftovers
+|-heal|p2a: Garganacl|11/100|[from] item: Leftovers
+|-damage|p1a: Ting-Lu|348/514|[from] Salt Cure
+|upkeep
+|turn|15
+|
+|move|p1a: Ting-Lu|Earthquake|p2a: Garganacl
+|-supereffective|p2a: Garganacl
+|-damage|p2a: Garganacl|0 fnt
+|faint|p2a: Garganacl
+|
+|-heal|p1a: Ting-Lu|380/514|[from] item: Leftovers
+|-damage|p1a: Ting-Lu|316/514|[from] Salt Cure
+|upkeep
+|
+|switch|p2a: Great Tusk|Great Tusk|100/100
 |turn|16
 |
-|move|p1a: Arceus|Judgment|p2a: Ogerpon
-|-damage|p2a: Ogerpon|41/100
-|move|p2a: Ogerpon|Ivy Cudgel|p1a: Arceus|[anim] Ivy Cudgel Water
-|-crit|p1a: Arceus
-|-damage|p1a: Arceus|43/381
+|switch|p1a: Arceus|Arceus-Water|311/443
+|move|p2a: Great Tusk|Headlong Rush|p1a: Arceus
+|-damage|p1a: Arceus|115/443
+|-unboost|p2a: Great Tusk|def|1
+|-unboost|p2a: Great Tusk|spd|1
 |
 |upkeep
 |turn|17
 |
-|move|p1a: Arceus|Judgment|p2a: Ogerpon
-|-damage|p2a: Ogerpon|0 fnt
-|faint|p2a: Ogerpon
+|move|p1a: Arceus|Ice Beam|p2a: Great Tusk
+|-supereffective|p2a: Great Tusk
+|-damage|p2a: Great Tusk|0 fnt
+|faint|p2a: Great Tusk
+|-end|p2a: Great Tusk|Protosynthesis|[silent]
 |
     </script>
 </div>

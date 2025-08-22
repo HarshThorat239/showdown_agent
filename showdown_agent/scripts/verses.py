@@ -105,7 +105,7 @@ async def run_battle(
 
 def main():
     parser = argparse.ArgumentParser(description="Fight your agent with your own team via local Showdown.")
-    parser.add_argument("--agent-module", required=True, help="Path to your agent file, e.g. players/htho884.py")
+    parser.add_argument("--agent-module", required=True, help="Path to your agent file, e.g. players/simpleboy.py")
     parser.add_argument("--agent-class", default="CustomAgent", help="Agent class name (default: CustomAgent)")
     parser.add_argument("--agent-username", required=True, help="Showdown username for the agent (bot) account")
     parser.add_argument("--human-username", required=True, help="Your human username (used in browser)")

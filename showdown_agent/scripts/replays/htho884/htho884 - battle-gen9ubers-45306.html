@@ -237,15 +237,15 @@
     <h1 style="font-weight:normal;text-align:center"><strong>poke-env battle replay</strong><br />battle-gen9ubers-45306<br /><a
             href="http://pokemonshowdown.com/users/randomplayer1" class="subtle" target="_blank">htho884</a>
         vs. <a href="http://pokemonshowdown.com/users/randomplayer2" class="subtle"
-            target="_blank">random-uber</a></h1>
+            target="_blank">simple-uber</a></h1>
     <script type="text/plain" class="battle-log-data">
     >battle-gen9ubers-45306|init|battle
-|title|htho884 vs. random-uber
+|title|htho884 vs. simple-uber
 |j|☆htho884
-|j|☆random-uber
+|j|☆simple-uber
 |gametype|singles
 |player|p1|htho884|266|
-|player|p2|random-uber|101|
+|player|p2|simple-uber|266|
 |gen|9
 |tier|[Gen 9] Ubers
 |rule|HP Percentage Mod: HP is shown in percentages
@@ -257,13 +257,13 @@
 |rule|Evasion Moves Clause: Evasion moves are banned
 |clearpoke
 |poke|p1|Groudon|
+|poke|p1|Koraidon|
 |poke|p1|Flutter Mane|
-|poke|p1|Arceus-Fairy|
-|poke|p1|Dialga-Origin|
+|poke|p1|Scizor, M|
 |poke|p1|Zacian-*|
-|poke|p1|Hoopa-Unbound|
+|poke|p1|Giratina-Origin|
 |poke|p2|Deoxys-Speed|
-|poke|p2|Kingambit, M|
+|poke|p2|Kingambit, F|
 |poke|p2|Zacian-*|
 |poke|p2|Arceus-Fairy|
 |poke|p2|Eternatus|
@@ -274,168 +274,251 @@
 |teamsize|p2|6
 |start
 |switch|p1a: Groudon|Groudon|341/341
-|switch|p2a: Koraidon|Koraidon|100/100
-|-weather|SunnyDay|[from] ability: Orichalcum Pulse|[of] p2a: Koraidon
-|-activate|p2a: Koraidon|Orichalcum Pulse|[source]
+|switch|p2a: Arceus|Arceus-Fairy|100/100
+|-weather|SunnyDay|[from] ability: Drought|[of] p1a: Groudon
 |turn|1
 |
-|switch|p2a: Deoxys|Deoxys-Speed|100/100
-|-ability|p2a: Deoxys|Pressure
-|move|p1a: Groudon|Precipice Blades|p2a: Deoxys|[miss]
-|-miss|p1a: Groudon|p2a: Deoxys
+|switch|p1a: Scizor|Scizor, M|282/282
+|move|p2a: Arceus|Judgment|p1a: Scizor
+|-resisted|p1a: Scizor
+|-damage|p1a: Scizor|180/282
 |
 |-weather|SunnyDay|[upkeep]
 |upkeep
 |turn|2
 |
-|move|p2a: Deoxys|Psycho Boost|p1a: Groudon
-|-damage|p1a: Groudon|175/341
-|-unboost|p2a: Deoxys|spa|2
-|move|p1a: Groudon|Precipice Blades|p2a: Deoxys
-|-crit|p2a: Deoxys
-|-enditem|p2a: Deoxys|Focus Sash
-|-damage|p2a: Deoxys|1/100
+|move|p2a: Arceus|Judgment|p1a: Scizor
+|-resisted|p1a: Scizor
+|-damage|p1a: Scizor|75/282
+|move|p1a: Scizor|Iron Head|p2a: Arceus
+|-supereffective|p2a: Arceus
+|-damage|p2a: Arceus|38/100
+|-damage|p1a: Scizor|47/282|[from] item: Life Orb
 |
 |-weather|SunnyDay|[upkeep]
 |upkeep
 |turn|3
 |
-|switch|p2a: Koraidon|Koraidon|100/100
-|-activate|p2a: Koraidon|ability: Orichalcum Pulse
-|move|p1a: Groudon|Precipice Blades|p2a: Koraidon
-|-damage|p2a: Koraidon|36/100
-|
-|-weather|SunnyDay|[upkeep]
-|upkeep
-|turn|4
-|
-|move|p2a: Koraidon|Flame Charge|p1a: Groudon
-|-damage|p1a: Groudon|53/341
-|-boost|p2a: Koraidon|spe|1
-|-damage|p2a: Koraidon|26/100|[from] item: Life Orb
-|move|p1a: Groudon|Precipice Blades|p2a: Koraidon
-|-damage|p2a: Koraidon|0 fnt
-|faint|p2a: Koraidon
+|move|p2a: Arceus|Judgment|p1a: Scizor
+|-resisted|p1a: Scizor
+|-damage|p1a: Scizor|0 fnt
+|faint|p1a: Scizor
 |
 |-weather|SunnyDay|[upkeep]
 |upkeep
 |
-|switch|p2a: Deoxys|Deoxys-Speed|1/100
-|-ability|p2a: Deoxys|Pressure
-|turn|5
-|
-|move|p2a: Deoxys|Psycho Boost|p1a: Groudon
-|-damage|p1a: Groudon|0 fnt
-|-unboost|p2a: Deoxys|spa|2
-|faint|p1a: Groudon
-|
-|-weather|none
-|upkeep
-|
-|switch|p1a: Hoopa|Hoopa-Unbound|301/301
-|turn|6
-|
-|-terastallize|p2a: Deoxys|Ghost
-|move|p2a: Deoxys|Thunder Wave|p1a: Hoopa
-|-status|p1a: Hoopa|par
-|move|p1a: Hoopa|Hyperspace Fury|p2a: Deoxys
-|-supereffective|p2a: Deoxys
-|-damage|p2a: Deoxys|0 fnt
-|-unboost|p1a: Hoopa|def|1
-|faint|p2a: Deoxys
-|
-|upkeep
-|
-|switch|p2a: Kingambit|Kingambit, M|100/100
-|-activate|p2a: Kingambit|ability: Supreme Overlord
-|-start|p2a: Kingambit|fallen2|[silent]
-|turn|7
-|
-|-end|p2a: Kingambit|fallen2|[silent]
-|switch|p2a: Arceus|Arceus-Fairy|100/100
-|move|p1a: Hoopa|Drain Punch|p2a: Arceus
-|-resisted|p2a: Arceus
-|-damage|p2a: Arceus|91/100
-|
-|upkeep
-|turn|8
-|
-|switch|p2a: Eternatus|Eternatus|100/100
-|-ability|p2a: Eternatus|Pressure
-|move|p1a: Hoopa|Future Sight|p2a: Eternatus
-|-start|p1a: Hoopa|move: Future Sight
-|
-|upkeep
-|turn|9
-|
-|move|p2a: Eternatus|Dynamax Cannon|p1a: Hoopa
-|-damage|p1a: Hoopa|124/301 par
-|move|p1a: Hoopa|Hyperspace Fury|p2a: Eternatus
-|-damage|p2a: Eternatus|53/100
-|-unboost|p1a: Hoopa|def|1
-|-item|p1a: Hoopa|Power Herb|[from] ability: Magician|[of] p2a: Eternatus
-|
-|upkeep
-|turn|10
-|
-|move|p2a: Eternatus|Agility|p2a: Eternatus
-|-boost|p2a: Eternatus|spe|2
-|move|p1a: Hoopa|Hyperspace Fury|p2a: Eternatus
-|-damage|p2a: Eternatus|3/100
-|-unboost|p1a: Hoopa|def|1
-|
-|-end|p2a: Eternatus|move: Future Sight
-|-supereffective|p2a: Eternatus
-|-damage|p2a: Eternatus|0 fnt
-|faint|p2a: Eternatus
-|upkeep
-|
-|switch|p2a: Kingambit|Kingambit, M|100/100
-|-activate|p2a: Kingambit|ability: Supreme Overlord
-|-start|p2a: Kingambit|fallen3|[silent]
-|turn|11
-|
-|move|p2a: Kingambit|Iron Head|p1a: Hoopa
-|-damage|p1a: Hoopa|0 fnt
-|faint|p1a: Hoopa
-|
-|upkeep
-|
-|switch|p1a: Zacian|Zacian-Crowned|360/360
+|switch|p1a: Zacian|Zacian-Crowned|357/357
 |-ability|p1a: Zacian|Intrepid Sword|boost
 |-boost|p1a: Zacian|atk|1
-|turn|12
-|
-|move|p1a: Zacian|Sacred Sword|p2a: Kingambit
-|-supereffective|p2a: Kingambit
-|-damage|p2a: Kingambit|0 fnt
-|faint|p2a: Kingambit
-|-end|p2a: Kingambit|fallen3|[silent]
-|
-|upkeep
-|
-|switch|p2a: Zacian|Zacian-Crowned|100/100
-|-ability|p2a: Zacian|Intrepid Sword|boost
-|-boost|p2a: Zacian|atk|1
-|turn|13
-|
-|move|p2a: Zacian|Close Combat|p1a: Zacian
-|-damage|p1a: Zacian|137/360
-|-unboost|p2a: Zacian|def|1
-|-unboost|p2a: Zacian|spd|1
-|move|p1a: Zacian|Behemoth Blade|p2a: Zacian
-|-damage|p2a: Zacian|0 fnt
-|faint|p2a: Zacian
-|
-|upkeep
-|
-|switch|p2a: Arceus|Arceus-Fairy|91/100
-|turn|14
+|turn|4
 |
 |move|p1a: Zacian|Behemoth Blade|p2a: Arceus
 |-supereffective|p2a: Arceus
 |-damage|p2a: Arceus|0 fnt
 |faint|p2a: Arceus
+|
+|-weather|SunnyDay|[upkeep]
+|upkeep
+|
+|switch|p2a: Zacian|Zacian-Crowned|100/100
+|-ability|p2a: Zacian|Intrepid Sword|boost
+|-boost|p2a: Zacian|atk|1
+|turn|5
+|
+|move|p2a: Zacian|Behemoth Blade|p1a: Zacian
+|-damage|p1a: Zacian|93/357
+|move|p1a: Zacian|Behemoth Blade|p2a: Zacian
+|-damage|p2a: Zacian|16/100
+|
+|-weather|SunnyDay|[upkeep]
+|upkeep
+|turn|6
+|
+|move|p2a: Zacian|Behemoth Blade|p1a: Zacian
+|-damage|p1a: Zacian|0 fnt
+|faint|p1a: Zacian
+|
+|-weather|SunnyDay|[upkeep]
+|upkeep
+|
+|switch|p1a: Groudon|Groudon|341/341
+|turn|7
+|
+|move|p2a: Zacian|Behemoth Blade|p1a: Groudon
+|-damage|p1a: Groudon|137/341
+|move|p1a: Groudon|Earthquake|p2a: Zacian
+|-supereffective|p2a: Zacian
+|-damage|p2a: Zacian|0 fnt
+|faint|p2a: Zacian
+|
+|-weather|SunnyDay|[upkeep]
+|upkeep
+|
+|switch|p2a: Deoxys|Deoxys-Speed|100/100
+|-ability|p2a: Deoxys|Pressure
+|turn|8
+|
+|move|p2a: Deoxys|Spikes|p1a: Groudon
+|-sidestart|p1: htho884|Spikes
+|move|p1a: Groudon|Crunch|p2a: Deoxys
+|-supereffective|p2a: Deoxys
+|-damage|p2a: Deoxys|22/100
+|
+|-weather|none
+|upkeep
+|turn|9
+|
+|switch|p1a: Giratina|Giratina-Origin|504/504
+|move|p2a: Deoxys|Psycho Boost|p1a: Giratina
+|-damage|p1a: Giratina|339/504
+|-unboost|p2a: Deoxys|spa|2
+|
+|upkeep
+|turn|10
+|
+|move|p2a: Deoxys|Psycho Boost|p1a: Giratina
+|-damage|p1a: Giratina|255/504
+|-unboost|p2a: Deoxys|spa|2
+|move|p1a: Giratina|Defog|p2a: Deoxys
+|-unboost|p2a: Deoxys|evasion|1
+|-sideend|p1: htho884|Spikes|[from] move: Defog|[of] p1a: Giratina
+|
+|upkeep
+|turn|11
+|
+|switch|p2a: Kingambit|Kingambit, F|100/100
+|-activate|p2a: Kingambit|ability: Supreme Overlord
+|-start|p2a: Kingambit|fallen2|[silent]
+|move|p1a: Giratina|Poltergeist|p2a: Kingambit|[miss]
+|-miss|p1a: Giratina|p2a: Kingambit
+|
+|upkeep
+|turn|12
+|
+|switch|p1a: Koraidon|Koraidon|341/341
+|-weather|SunnyDay|[from] ability: Orichalcum Pulse|[of] p1a: Koraidon
+|-activate|p1a: Koraidon|Orichalcum Pulse|[source]
+|move|p2a: Kingambit|Kowtow Cleave|p1a: Koraidon
+|-resisted|p1a: Koraidon
+|-damage|p1a: Koraidon|234/341
+|
+|-weather|SunnyDay|[upkeep]
+|upkeep
+|turn|13
+|
+|-end|p2a: Kingambit|fallen2|[silent]
+|switch|p2a: Deoxys|Deoxys-Speed|22/100
+|-ability|p2a: Deoxys|Pressure
+|move|p1a: Koraidon|Collision Course|p2a: Deoxys
+|-resisted|p2a: Deoxys
+|-damage|p2a: Deoxys|0 fnt
+|faint|p2a: Deoxys
+|-damage|p1a: Koraidon|200/341|[from] item: Life Orb
+|
+|-weather|SunnyDay|[upkeep]
+|upkeep
+|
+|switch|p2a: Koraidon|Koraidon|100/100
+|-activate|p2a: Koraidon|ability: Orichalcum Pulse
+|turn|14
+|
+|switch|p1a: Flutter Mane|Flutter Mane|251/251
+|-activate|p1a: Flutter Mane|ability: Protosynthesis
+|-start|p1a: Flutter Mane|protosynthesisspe
+|move|p2a: Koraidon|Scale Shot|p1a: Flutter Mane
+|-immune|p1a: Flutter Mane
+|
+|-weather|SunnyDay|[upkeep]
+|upkeep
+|turn|15
+|
+|switch|p2a: Kingambit|Kingambit, F|100/100
+|-activate|p2a: Kingambit|ability: Supreme Overlord
+|-start|p2a: Kingambit|fallen3|[silent]
+|move|p1a: Flutter Mane|Moonblast|p2a: Kingambit
+|-damage|p2a: Kingambit|22/100
+|-damage|p1a: Flutter Mane|226/251|[from] item: Life Orb
+|
+|-weather|SunnyDay|[upkeep]
+|upkeep
+|turn|16
+|
+|move|p1a: Flutter Mane|Moonblast|p2a: Kingambit
+|-damage|p2a: Kingambit|0 fnt
+|faint|p2a: Kingambit
+|-end|p2a: Kingambit|fallen3|[silent]
+|-damage|p1a: Flutter Mane|201/251|[from] item: Life Orb
+|
+|-weather|none
+|-end|p1a: Flutter Mane|Protosynthesis
+|upkeep
+|
+|switch|p2a: Eternatus|Eternatus|100/100
+|-ability|p2a: Eternatus|Pressure
+|turn|17
+|
+|move|p1a: Flutter Mane|Moonblast|p2a: Eternatus
+|-crit|p2a: Eternatus
+|-damage|p2a: Eternatus|28/100
+|-damage|p1a: Flutter Mane|176/251|[from] item: Life Orb
+|move|p2a: Eternatus|Meteor Beam||[still]
+|-prepare|p2a: Eternatus|Meteor Beam
+|-boost|p2a: Eternatus|spa|1
+|-enditem|p2a: Eternatus|Power Herb
+|-anim|p2a: Eternatus|Meteor Beam|p1a: Flutter Mane
+|-damage|p1a: Flutter Mane|0 fnt
+|faint|p1a: Flutter Mane
+|-end|p1a: Flutter Mane|Protosynthesis|[silent]
+|
+|upkeep
+|
+|switch|p1a: Groudon|Groudon|137/341
+|-weather|SunnyDay|[from] ability: Drought|[of] p1a: Groudon
+|turn|18
+|
+|move|p2a: Eternatus|Dynamax Cannon|p1a: Groudon
+|-damage|p1a: Groudon|0 fnt
+|faint|p1a: Groudon
+|
+|-weather|SunnyDay|[upkeep]
+|upkeep
+|
+|switch|p1a: Giratina|Giratina-Origin|255/504
+|turn|19
+|
+|move|p2a: Eternatus|Dynamax Cannon|p1a: Giratina
+|-supereffective|p1a: Giratina
+|-damage|p1a: Giratina|0 fnt
+|faint|p1a: Giratina
+|
+|-weather|SunnyDay|[upkeep]
+|upkeep
+|
+|switch|p1a: Koraidon|Koraidon|200/341
+|-activate|p1a: Koraidon|ability: Orichalcum Pulse
+|turn|20
+|
+|move|p1a: Koraidon|Dragon Claw|p2a: Eternatus
+|-supereffective|p2a: Eternatus
+|-damage|p2a: Eternatus|0 fnt
+|faint|p2a: Eternatus
+|-damage|p1a: Koraidon|166/341|[from] item: Life Orb
+|
+|-weather|SunnyDay|[upkeep]
+|upkeep
+|
+|switch|p2a: Koraidon|Koraidon|100/100
+|-activate|p2a: Koraidon|ability: Orichalcum Pulse
+|turn|21
+|
+|move|p2a: Koraidon|Scale Shot|p1a: Koraidon
+|-supereffective|p1a: Koraidon
+|-damage|p1a: Koraidon|33/341
+|-supereffective|p1a: Koraidon
+|-damage|p1a: Koraidon|0 fnt
+|faint|p1a: Koraidon
+|-hitcount|p1: Koraidon|2
+|-damage|p2a: Koraidon|91/100|[from] item: Life Orb
 |
     </script>
 </div>

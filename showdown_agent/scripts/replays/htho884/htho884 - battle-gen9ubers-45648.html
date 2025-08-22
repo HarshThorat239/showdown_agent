@@ -245,7 +245,7 @@
 |j|☆max_damage-ru
 |gametype|singles
 |player|p1|htho884|266|
-|player|p2|max_damage-ru|101|
+|player|p2|max_damage-ru|102|
 |gen|9
 |tier|[Gen 9] Ubers
 |rule|HP Percentage Mod: HP is shown in percentages
@@ -257,15 +257,15 @@
 |rule|Evasion Moves Clause: Evasion moves are banned
 |clearpoke
 |poke|p1|Groudon|
+|poke|p1|Koraidon|
 |poke|p1|Flutter Mane|
-|poke|p1|Arceus-Fairy|
-|poke|p1|Dialga-Origin|
+|poke|p1|Charizard, M|
 |poke|p1|Zacian-*|
-|poke|p1|Hoopa-Unbound|
+|poke|p1|Giratina-Origin|
 |poke|p2|Rotom-Heat|
-|poke|p2|Krookodile, F|
+|poke|p2|Krookodile, M|
 |poke|p2|Slowbro, F|
-|poke|p2|Cyclizar, M|
+|poke|p2|Cyclizar, F|
 |poke|p2|Jirachi|
 |poke|p2|Zapdos-Galar|
 |teampreview
@@ -274,127 +274,102 @@
 |teamsize|p2|6
 |start
 |switch|p1a: Groudon|Groudon|341/341
-|switch|p2a: Jirachi|Jirachi|100/100
+|switch|p2a: Cyclizar|Cyclizar, F|100/100
 |-weather|SunnyDay|[from] ability: Drought|[of] p1a: Groudon
 |turn|1
-|
-|move|p2a: Jirachi|Thunderbolt|p1a: Groudon
-|-immune|p1a: Groudon
-|move|p1a: Groudon|Precipice Blades|p2a: Jirachi
-|-supereffective|p2a: Jirachi
-|-damage|p2a: Jirachi|0 fnt
-|faint|p2a: Jirachi
-|
-|-weather|SunnyDay|[upkeep]
-|upkeep
-|
-|switch|p2a: Slowbro|Slowbro, F|100/100
-|turn|2
-|
-|move|p1a: Groudon|Precipice Blades|p2a: Slowbro
-|-damage|p2a: Slowbro|59/100
-|move|p2a: Slowbro|Future Sight|p1a: Groudon
-|-start|p2a: Slowbro|move: Future Sight
-|
-|-weather|SunnyDay|[upkeep]
-|upkeep
-|turn|3
-|
-|move|p1a: Groudon|Precipice Blades|p2a: Slowbro
-|-damage|p2a: Slowbro|22/100
-|move|p2a: Slowbro|Future Sight||[still]
-|-fail|p2a: Slowbro
-|
-|-weather|SunnyDay|[upkeep]
-|upkeep
-|turn|4
-|
-|move|p1a: Groudon|Precipice Blades|p2a: Slowbro
-|-damage|p2a: Slowbro|0 fnt
-|faint|p2a: Slowbro
-|
-|-weather|SunnyDay|[upkeep]
-|-end|p1a: Groudon|move: Future Sight
-|-damage|p1a: Groudon|194/341
-|upkeep
-|
-|switch|p2a: Krookodile|Krookodile, F|100/100
-|-ability|p2a: Krookodile|Intimidate|boost
-|-unboost|p1a: Groudon|atk|1
-|turn|5
-|
-|move|p1a: Groudon|Precipice Blades|p2a: Krookodile
-|-damage|p2a: Krookodile|46/100
-|move|p2a: Krookodile|Earthquake|p1a: Groudon
-|-damage|p1a: Groudon|98/341
-|
-|-weather|SunnyDay|[upkeep]
-|-heal|p2a: Krookodile|53/100|[from] item: Leftovers
-|upkeep
-|turn|6
-|
-|move|p1a: Groudon|Precipice Blades|p2a: Krookodile
-|-damage|p2a: Krookodile|0 fnt
-|faint|p2a: Krookodile
-|
-|-weather|SunnyDay|[upkeep]
-|upkeep
-|
-|switch|p2a: Zapdos|Zapdos-Galar|100/100
-|turn|7
-|
-|move|p2a: Zapdos|Close Combat|p1a: Groudon
-|-damage|p1a: Groudon|0 fnt
-|-unboost|p2a: Zapdos|def|1
-|-unboost|p2a: Zapdos|spd|1
-|faint|p1a: Groudon
-|
-|-weather|SunnyDay|[upkeep]
-|upkeep
 |
 |switch|p1a: Flutter Mane|Flutter Mane|251/251
 |-activate|p1a: Flutter Mane|ability: Protosynthesis
 |-start|p1a: Flutter Mane|protosynthesisspe
-|turn|8
+|move|p2a: Cyclizar|Double-Edge|p1a: Flutter Mane
+|-immune|p1a: Flutter Mane
 |
-|move|p1a: Flutter Mane|Moonblast|p2a: Zapdos
-|-supereffective|p2a: Zapdos
-|-damage|p2a: Zapdos|0 fnt
-|faint|p2a: Zapdos
-|-damage|p1a: Flutter Mane|226/251|[from] item: Life Orb
-|
-|-weather|none
-|-end|p1a: Flutter Mane|Protosynthesis
+|-weather|SunnyDay|[upkeep]
 |upkeep
-|
-|switch|p2a: Cyclizar|Cyclizar, M|100/100
-|turn|9
+|turn|2
 |
 |move|p1a: Flutter Mane|Moonblast|p2a: Cyclizar
 |-supereffective|p2a: Cyclizar
 |-damage|p2a: Cyclizar|0 fnt
 |faint|p2a: Cyclizar
+|-damage|p1a: Flutter Mane|226/251|[from] item: Life Orb
+|
+|-weather|SunnyDay|[upkeep]
+|upkeep
+|
+|switch|p2a: Krookodile|Krookodile, M|100/100
+|-ability|p2a: Krookodile|Intimidate|boost
+|-unboost|p1a: Flutter Mane|atk|1
+|turn|3
+|
+|move|p1a: Flutter Mane|Moonblast|p2a: Krookodile
+|-supereffective|p2a: Krookodile
+|-damage|p2a: Krookodile|0 fnt
+|faint|p2a: Krookodile
 |-damage|p1a: Flutter Mane|201/251|[from] item: Life Orb
 |
+|-weather|SunnyDay|[upkeep]
+|upkeep
+|
+|switch|p2a: Slowbro|Slowbro, F|100/100
+|turn|4
+|
+|move|p1a: Flutter Mane|Shadow Ball|p2a: Slowbro
+|-supereffective|p2a: Slowbro
+|-damage|p2a: Slowbro|0 fnt
+|faint|p2a: Slowbro
+|-damage|p1a: Flutter Mane|176/251|[from] item: Life Orb
+|
+|-weather|SunnyDay|[upkeep]
+|upkeep
+|
+|switch|p2a: Zapdos|Zapdos-Galar|100/100
+|turn|5
+|
+|move|p1a: Flutter Mane|Moonblast|p2a: Zapdos
+|-supereffective|p2a: Zapdos
+|-damage|p2a: Zapdos|0 fnt
+|faint|p2a: Zapdos
+|-damage|p1a: Flutter Mane|151/251|[from] item: Life Orb
+|
+|-weather|SunnyDay|[upkeep]
 |upkeep
 |
 |switch|p2a: Rotom|Rotom-Heat|100/100
-|turn|10
+|turn|6
 |
-|move|p1a: Flutter Mane|Shadow Ball|p2a: Rotom
-|-damage|p2a: Rotom|45/100
-|-damage|p1a: Flutter Mane|176/251|[from] item: Life Orb
+|move|p1a: Flutter Mane|Power Gem|p2a: Rotom
+|-supereffective|p2a: Rotom
+|-damage|p2a: Rotom|16/100
+|-damage|p1a: Flutter Mane|126/251|[from] item: Life Orb
 |move|p2a: Rotom|Overheat|p1a: Flutter Mane
-|-damage|p1a: Flutter Mane|62/251
+|-damage|p1a: Flutter Mane|0 fnt
 |-unboost|p2a: Rotom|spa|2
+|faint|p1a: Flutter Mane
+|-end|p1a: Flutter Mane|Protosynthesis|[silent]
 |
+|-weather|SunnyDay|[upkeep]
 |upkeep
-|turn|11
 |
-|move|p1a: Flutter Mane|Shadow Ball|p2a: Rotom
+|switch|p1a: Groudon|Groudon|341/341
+|turn|7
+|
+|move|p1a: Groudon|Crunch|p2a: Rotom
 |-damage|p2a: Rotom|0 fnt
 |faint|p2a: Rotom
-|-damage|p1a: Flutter Mane|37/251|[from] item: Life Orb
+|
+|-weather|SunnyDay|[upkeep]
+|upkeep
+|
+|switch|p2a: Jirachi|Jirachi|100/100
+|turn|8
+|
+|move|p2a: Jirachi|Thunderbolt|p1a: Groudon
+|-immune|p1a: Groudon
+|move|p1a: Groudon|Earthquake|p2a: Jirachi
+|-supereffective|p2a: Jirachi
+|-damage|p2a: Jirachi|0 fnt
+|faint|p2a: Jirachi
 |
     </script>
 </div>

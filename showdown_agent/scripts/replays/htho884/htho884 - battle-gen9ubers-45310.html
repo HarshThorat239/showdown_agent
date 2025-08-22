@@ -237,15 +237,15 @@
     <h1 style="font-weight:normal;text-align:center"><strong>poke-env battle replay</strong><br />battle-gen9ubers-45310<br /><a
             href="http://pokemonshowdown.com/users/randomplayer1" class="subtle" target="_blank">htho884</a>
         vs. <a href="http://pokemonshowdown.com/users/randomplayer2" class="subtle"
-            target="_blank">random-uu</a></h1>
+            target="_blank">simple-uu</a></h1>
     <script type="text/plain" class="battle-log-data">
     >battle-gen9ubers-45310|init|battle
-|title|htho884 vs. random-uu
+|title|htho884 vs. simple-uu
 |j|☆htho884
-|j|☆random-uu
+|j|☆simple-uu
 |gametype|singles
 |player|p1|htho884|266|
-|player|p2|random-uu|2|
+|player|p2|simple-uu|266|
 |gen|9
 |tier|[Gen 9] Ubers
 |rule|HP Percentage Mod: HP is shown in percentages
@@ -257,11 +257,11 @@
 |rule|Evasion Moves Clause: Evasion moves are banned
 |clearpoke
 |poke|p1|Groudon|
+|poke|p1|Koraidon|
 |poke|p1|Flutter Mane|
-|poke|p1|Arceus-Fairy|
-|poke|p1|Dialga-Origin|
+|poke|p1|Scizor, F|
 |poke|p1|Zacian-*|
-|poke|p1|Hoopa-Unbound|
+|poke|p1|Giratina-Origin|
 |poke|p2|Tornadus-Therian, M|
 |poke|p2|Clodsire, F|
 |poke|p2|Metagross|
@@ -274,320 +274,163 @@
 |teamsize|p2|6
 |start
 |switch|p1a: Groudon|Groudon|341/341
-|switch|p2a: Zarude|Zarude-Dada|100/100
+|switch|p2a: Rotom|Rotom-Wash|100/100
 |-weather|SunnyDay|[from] ability: Drought|[of] p1a: Groudon
 |turn|1
 |
-|switch|p1a: Zacian|Zacian-Crowned|360/360
-|-ability|p1a: Zacian|Intrepid Sword|boost
-|-boost|p1a: Zacian|atk|1
-|move|p2a: Zarude|Power Whip|p1a: Zacian
-|-resisted|p1a: Zacian
-|-damage|p1a: Zacian|267/360
+|switch|p1a: Koraidon|Koraidon|341/341
+|-activate|p1a: Koraidon|ability: Orichalcum Pulse
+|move|p2a: Rotom|Hydro Pump|p1a: Koraidon
+|-resisted|p1a: Koraidon
+|-crit|p1a: Koraidon
+|-damage|p1a: Koraidon|293/341
 |
 |-weather|SunnyDay|[upkeep]
 |upkeep
 |turn|2
 |
-|-terastallize|p2a: Zarude|Fairy
-|move|p1a: Zacian|Sacred Sword|p2a: Zarude
-|-resisted|p2a: Zarude
-|-damage|p2a: Zarude|76/100
-|move|p2a: Zarude|Power Whip|p1a: Zacian
-|-resisted|p1a: Zacian
-|-damage|p1a: Zacian|174/360
+|move|p1a: Koraidon|Collision Course|p2a: Rotom
+|-damage|p2a: Rotom|0 fnt
+|faint|p2a: Rotom
+|-damage|p1a: Koraidon|259/341|[from] item: Life Orb
 |
 |-weather|SunnyDay|[upkeep]
 |upkeep
+|
+|switch|p2a: Tornadus|Tornadus-Therian, M|100/100
 |turn|3
 |
-|switch|p2a: Cobalion|Cobalion|100/100
-|move|p1a: Zacian|Behemoth Blade|p2a: Cobalion
-|-resisted|p2a: Cobalion
-|-damage|p2a: Cobalion|73/100
-|-damage|p1a: Zacian|114/360|[from] item: Rocky Helmet|[of] p2a: Cobalion
+|move|p1a: Koraidon|Wild Charge|p2a: Tornadus
+|-supereffective|p2a: Tornadus
+|-damage|p2a: Tornadus|0 fnt
+|faint|p2a: Tornadus
+|-damage|p1a: Koraidon|176/341|[from] Recoil
+|-damage|p1a: Koraidon|142/341|[from] item: Life Orb
 |
 |-weather|SunnyDay|[upkeep]
 |upkeep
-|turn|4
 |
 |switch|p2a: Metagross|Metagross|100/100
-|move|p1a: Zacian|Sacred Sword|p2a: Metagross
-|-damage|p2a: Metagross|51/100
+|turn|4
+|
+|switch|p1a: Groudon|Groudon|341/341
+|move|p2a: Metagross|Psychic Fangs|p1a: Groudon
+|-damage|p1a: Groudon|140/341
 |
 |-weather|SunnyDay|[upkeep]
 |upkeep
 |turn|5
 |
-|switch|p2a: Zarude|Zarude-Dada, tera:Fairy|76/100
-|move|p1a: Zacian|Sacred Sword|p2a: Zarude
-|-resisted|p2a: Zarude
-|-damage|p2a: Zarude|53/100
+|move|p1a: Groudon|Earthquake|p2a: Metagross
+|-supereffective|p2a: Metagross
+|-damage|p2a: Metagross|6/100
+|move|p2a: Metagross|Psychic Fangs|p1a: Groudon
+|-damage|p1a: Groudon|0 fnt
+|faint|p1a: Groudon
 |
 |-weather|SunnyDay|[upkeep]
 |upkeep
+|
+|switch|p1a: Giratina|Giratina-Origin|504/504
 |turn|6
 |
-|move|p1a: Zacian|Behemoth Blade|p2a: Zarude
-|-supereffective|p2a: Zarude
-|-damage|p2a: Zarude|0 fnt
-|faint|p2a: Zarude
+|move|p2a: Metagross|Psychic Fangs|p1a: Giratina
+|-damage|p1a: Giratina|251/504
+|move|p1a: Giratina|Poltergeist|p2a: Metagross
+|-activate|p2a: Metagross|move: Poltergeist|Choice Band
+|-supereffective|p2a: Metagross
+|-crit|p2a: Metagross
+|-damage|p2a: Metagross|0 fnt
+|faint|p2a: Metagross
 |
 |-weather|SunnyDay|[upkeep]
 |upkeep
 |
-|switch|p2a: Metagross|Metagross|51/100
+|switch|p2a: Zarude|Zarude-Dada|100/100
 |turn|7
 |
-|move|p1a: Zacian|Sacred Sword|p2a: Metagross
-|-damage|p2a: Metagross|6/100
-|move|p2a: Metagross|Knock Off|p1a: Zacian
-|-resisted|p1a: Zacian
-|-damage|p1a: Zacian|59/360
+|switch|p1a: Scizor|Scizor, F|282/282
+|move|p2a: Zarude|Knock Off|p1a: Scizor
+|-damage|p1a: Scizor|110/282
+|-enditem|p1a: Scizor|Life Orb|[from] move: Knock Off|[of] p2a: Zarude
 |
 |-weather|SunnyDay|[upkeep]
 |upkeep
 |turn|8
 |
-|switch|p2a: Clodsire|Clodsire, F|100/100
-|move|p1a: Zacian|Sacred Sword|p2a: Clodsire
-|-resisted|p2a: Clodsire
-|-damage|p2a: Clodsire|75/100
+|switch|p2a: Cobalion|Cobalion|100/100
+|switch|p1a: Koraidon|Koraidon|142/341
+|-activate|p1a: Koraidon|ability: Orichalcum Pulse
 |
 |-weather|none
 |upkeep
 |turn|9
 |
-|switch|p2a: Metagross|Metagross|6/100
-|move|p1a: Zacian|Behemoth Blade|p2a: Metagross
-|-resisted|p2a: Metagross
-|-damage|p2a: Metagross|0 fnt
-|faint|p2a: Metagross
+|move|p1a: Koraidon|Collision Course|p2a: Cobalion
+|-supereffective|p2a: Cobalion
+|-damage|p2a: Cobalion|0 fnt
+|-damage|p1a: Koraidon|86/341|[from] item: Rocky Helmet|[of] p2a: Cobalion
+|faint|p2a: Cobalion
+|-damage|p1a: Koraidon|52/341|[from] item: Life Orb
 |
 |upkeep
 |
-|switch|p2a: Tornadus|Tornadus-Therian, M|100/100
+|switch|p2a: Clodsire|Clodsire, F|100/100
 |turn|10
 |
-|move|p1a: Zacian|Behemoth Blade|p2a: Tornadus
-|-damage|p2a: Tornadus|0 fnt
-|faint|p2a: Tornadus
+|move|p1a: Koraidon|Dragon Claw|p2a: Clodsire
+|-damage|p2a: Clodsire|45/100
+|-damage|p1a: Koraidon|18/341|[from] item: Life Orb
+|move|p2a: Clodsire|Spikes|p1a: Koraidon
+|-sidestart|p1: htho884|Spikes
 |
 |upkeep
-|
-|switch|p2a: Clodsire|Clodsire, F|75/100
 |turn|11
 |
-|move|p1a: Zacian|Behemoth Blade|p2a: Clodsire
+|switch|p1a: Giratina|Giratina-Origin|251/504
+|move|p2a: Clodsire|Earthquake|p1a: Giratina
+|-immune|p1a: Giratina|[from] ability: Levitate
+|
+|upkeep
+|turn|12
+|
+|move|p1a: Giratina|Defog|p2a: Clodsire
+|-unboost|p2a: Clodsire|evasion|1
+|-sideend|p1: htho884|Spikes|[from] move: Defog|[of] p1a: Giratina
+|move|p2a: Clodsire|Earthquake|p1a: Giratina
+|-immune|p1a: Giratina|[from] ability: Levitate
+|
+|upkeep
+|turn|13
+|
+|move|p1a: Giratina|Poltergeist|p2a: Clodsire
+|-activate|p2a: Clodsire|move: Poltergeist|Heavy-Duty Boots
 |-damage|p2a: Clodsire|0 fnt
 |faint|p2a: Clodsire
 |
 |upkeep
 |
-|switch|p2a: Cobalion|Cobalion|73/100
-|turn|12
-|
-|move|p1a: Zacian|Sacred Sword|p2a: Cobalion
-|-supereffective|p2a: Cobalion
-|-damage|p2a: Cobalion|0 fnt
-|-damage|p1a: Zacian|0 fnt|[from] item: Rocky Helmet|[of] p2a: Cobalion
-|faint|p2a: Cobalion
-|faint|p1a: Zacian
-|
-|upkeep
-|
-|switch|p1a: Groudon|Groudon|341/341
-|switch|p2a: Rotom|Rotom-Wash|100/100
-|-weather|SunnyDay|[from] ability: Drought|[of] p1a: Groudon
-|turn|13
-|
-|move|p1a: Groudon|Precipice Blades|p2a: Rotom
-|-immune|p2a: Rotom|[from] ability: Levitate
-|move|p2a: Rotom|Pain Split|p1a: Groudon
-|-sethp|p1a: Groudon|322/341|[from] move: Pain Split|[silent]
-|-sethp|p2a: Rotom|100/100|[from] move: Pain Split
-|
-|-weather|SunnyDay|[upkeep]
-|upkeep
+|switch|p2a: Zarude|Zarude-Dada|100/100
 |turn|14
 |
-|move|p1a: Groudon|Precipice Blades|p2a: Rotom
-|-immune|p2a: Rotom|[from] ability: Levitate
-|move|p2a: Rotom|Hydro Pump|p1a: Groudon|[miss]
-|-miss|p2a: Rotom|p1a: Groudon
+|switch|p1a: Scizor|Scizor, F|110/282
+|move|p2a: Zarude|Knock Off|p1a: Scizor
+|-damage|p1a: Scizor|0 fnt
+|faint|p1a: Scizor
 |
-|-weather|SunnyDay|[upkeep]
 |upkeep
+|
+|switch|p1a: Koraidon|Koraidon|18/341
+|-weather|SunnyDay|[from] ability: Orichalcum Pulse|[of] p1a: Koraidon
+|-activate|p1a: Koraidon|Orichalcum Pulse|[source]
 |turn|15
 |
-|move|p1a: Groudon|Precipice Blades|p2a: Rotom
-|-immune|p2a: Rotom|[from] ability: Levitate
-|move|p2a: Rotom|Thunder Wave|p1a: Groudon
-|-immune|p1a: Groudon
-|
-|-weather|SunnyDay|[upkeep]
-|upkeep
-|turn|16
-|
-|move|p1a: Groudon|Precipice Blades|p2a: Rotom
-|-immune|p2a: Rotom|[from] ability: Levitate
-|move|p2a: Rotom|Volt Switch|p1a: Groudon
-|-immune|p1a: Groudon
-|
-|-weather|SunnyDay|[upkeep]
-|upkeep
-|turn|17
-|
-|move|p1a: Groudon|Precipice Blades|p2a: Rotom
-|-immune|p2a: Rotom|[from] ability: Levitate
-|move|p2a: Rotom|Hydro Pump|p1a: Groudon
-|-supereffective|p1a: Groudon
-|-damage|p1a: Groudon|176/341
-|
-|-weather|SunnyDay|[upkeep]
-|upkeep
-|turn|18
-|
-|move|p1a: Groudon|Precipice Blades|p2a: Rotom
-|-immune|p2a: Rotom|[from] ability: Levitate
-|move|p2a: Rotom|Hydro Pump|p1a: Groudon|[miss]
-|-miss|p2a: Rotom|p1a: Groudon
-|
-|-weather|SunnyDay|[upkeep]
-|upkeep
-|turn|19
-|
-|move|p1a: Groudon|Precipice Blades|p2a: Rotom
-|-immune|p2a: Rotom|[from] ability: Levitate
-|move|p2a: Rotom|Volt Switch|p1a: Groudon
-|-immune|p1a: Groudon
-|
-|-weather|SunnyDay|[upkeep]
-|upkeep
-|turn|20
-|
-|move|p1a: Groudon|Precipice Blades|p2a: Rotom
-|-immune|p2a: Rotom|[from] ability: Levitate
-|move|p2a: Rotom|Pain Split|p1a: Groudon
-|-sethp|p1a: Groudon|239/341|[from] move: Pain Split|[silent]
-|-sethp|p2a: Rotom|79/100|[from] move: Pain Split
-|
-|-weather|none
-|-heal|p2a: Rotom|85/100|[from] item: Leftovers
-|upkeep
-|turn|21
-|
-|move|p1a: Groudon|Precipice Blades|p2a: Rotom
-|-immune|p2a: Rotom|[from] ability: Levitate
-|move|p2a: Rotom|Volt Switch|p1a: Groudon
-|-immune|p1a: Groudon
-|
-|-heal|p2a: Rotom|91/100|[from] item: Leftovers
-|upkeep
-|turn|22
-|
-|move|p1a: Groudon|Precipice Blades|p2a: Rotom
-|-immune|p2a: Rotom|[from] ability: Levitate
-|move|p2a: Rotom|Pain Split|p1a: Groudon
-|-sethp|p1a: Groudon|257/341|[from] move: Pain Split|[silent]
-|-sethp|p2a: Rotom|85/100|[from] move: Pain Split
-|
-|-heal|p2a: Rotom|91/100|[from] item: Leftovers
-|upkeep
-|turn|23
-|
-|move|p1a: Groudon|Precipice Blades|p2a: Rotom
-|-immune|p2a: Rotom|[from] ability: Levitate
-|move|p2a: Rotom|Pain Split|p1a: Groudon
-|-sethp|p1a: Groudon|266/341|[from] move: Pain Split|[silent]
-|-sethp|p2a: Rotom|88/100|[from] move: Pain Split
-|
-|-heal|p2a: Rotom|94/100|[from] item: Leftovers
-|upkeep
-|turn|24
-|
-|move|p1a: Groudon|Precipice Blades|p2a: Rotom
-|-immune|p2a: Rotom|[from] ability: Levitate
-|move|p2a: Rotom|Thunder Wave|p1a: Groudon
-|-immune|p1a: Groudon
-|
-|-heal|p2a: Rotom|99/100|[from] item: Leftovers
-|upkeep
-|turn|25
-|
-|move|p1a: Groudon|Precipice Blades|p2a: Rotom
-|-immune|p2a: Rotom|[from] ability: Levitate
-|move|p2a: Rotom|Volt Switch|p1a: Groudon
-|-immune|p1a: Groudon
-|
-|-heal|p2a: Rotom|100/100|[from] item: Leftovers
-|upkeep
-|turn|26
-|
-|move|p1a: Groudon|Precipice Blades|p2a: Rotom
-|-immune|p2a: Rotom|[from] ability: Levitate
-|move|p2a: Rotom|Volt Switch|p1a: Groudon
-|-immune|p1a: Groudon
-|
-|upkeep
-|turn|27
-|
-|move|p1a: Groudon|Precipice Blades|p2a: Rotom
-|-immune|p2a: Rotom|[from] ability: Levitate
-|move|p2a: Rotom|Thunder Wave|p1a: Groudon
-|-immune|p1a: Groudon
-|
-|upkeep
-|turn|28
-|
-|move|p1a: Groudon|Precipice Blades|p2a: Rotom
-|-immune|p2a: Rotom|[from] ability: Levitate
-|move|p2a: Rotom|Volt Switch|p1a: Groudon
-|-immune|p1a: Groudon
-|
-|upkeep
-|turn|29
-|
-|move|p1a: Groudon|Spikes|p2a: Rotom
-|-sidestart|p2: random-uu|Spikes
-|move|p2a: Rotom|Hydro Pump|p1a: Groudon
-|-supereffective|p1a: Groudon
-|-damage|p1a: Groudon|0 fnt
-|faint|p1a: Groudon
-|
-|upkeep
-|
-|switch|p1a: Dialga|Dialga-Origin|341/341
-|-ability|p1a: Dialga|Pressure
-|turn|30
-|
-|move|p2a: Rotom|Pain Split|p1a: Dialga
-|-sethp|p1a: Dialga|322/341|[from] move: Pain Split|[silent]
-|-sethp|p2a: Rotom|100/100|[from] move: Pain Split
-|move|p1a: Dialga|Roar of Time|p2a: Rotom
-|-damage|p2a: Rotom|19/100
-|-mustrecharge|p1a: Dialga
-|
-|-heal|p2a: Rotom|25/100|[from] item: Leftovers
-|upkeep
-|turn|31
-|
-|move|p2a: Rotom|Hydro Pump|p1a: Dialga
-|-resisted|p1a: Dialga
-|-damage|p1a: Dialga|273/341
-|cant|p1a: Dialga|recharge
-|
-|-heal|p2a: Rotom|31/100|[from] item: Leftovers
-|upkeep
-|turn|32
-|
-|move|p2a: Rotom|Pain Split|p1a: Dialga
-|-sethp|p1a: Dialga|182/341|[from] move: Pain Split|[silent]
-|-sethp|p2a: Rotom|61/100|[from] move: Pain Split
-|move|p1a: Dialga|Roar of Time|p2a: Rotom
-|-damage|p2a: Rotom|0 fnt
-|-mustrecharge|p1a: Dialga
-|faint|p2a: Rotom
+|move|p1a: Koraidon|Collision Course|p2a: Zarude
+|-supereffective|p2a: Zarude
+|-damage|p2a: Zarude|0 fnt
+|faint|p2a: Zarude
+|-damage|p1a: Koraidon|0 fnt|[from] item: Life Orb
+|faint|p1a: Koraidon
 |
     </script>
 </div>

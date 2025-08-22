@@ -237,15 +237,15 @@
     <h1 style="font-weight:normal;text-align:center"><strong>poke-env battle replay</strong><br />battle-gen9ubers-42435<br /><a
             href="http://pokemonshowdown.com/users/randomplayer1" class="subtle" target="_blank">htho884</a>
         vs. <a href="http://pokemonshowdown.com/users/randomplayer2" class="subtle"
-            target="_blank">simple-ou</a></h1>
+            target="_blank">max_damage-ou</a></h1>
     <script type="text/plain" class="battle-log-data">
     >battle-gen9ubers-42435|init|battle
-|title|htho884 vs. simple-ou
+|title|htho884 vs. max_damage-ou
 |j|☆htho884
-|j|☆simple-ou
+|j|☆max_damage-ou
 |gametype|singles
-|player|p1|htho884|266|
-|player|p2|simple-ou|101|
+|player|p1|htho884|170|
+|player|p2|max_damage-ou|101|
 |gen|9
 |tier|[Gen 9] Ubers
 |rule|HP Percentage Mod: HP is shown in percentages
@@ -256,12 +256,12 @@
 |rule|Evasion Items Clause: Evasion items are banned
 |rule|Evasion Moves Clause: Evasion moves are banned
 |clearpoke
-|poke|p1|Groudon|
+|poke|p1|Ting-Lu|
+|poke|p1|Koraidon|
 |poke|p1|Flutter Mane|
 |poke|p1|Arceus-Fairy|
-|poke|p1|Dialga-Origin|
 |poke|p1|Zacian-*|
-|poke|p1|Hoopa-Unbound|
+|poke|p1|Gliscor, M|
 |poke|p2|Ogerpon-Wellspring, F|
 |poke|p2|Garganacl, F|
 |poke|p2|Great Tusk|
@@ -273,181 +273,212 @@
 |teamsize|p1|6
 |teamsize|p2|6
 |start
-|switch|p1a: Groudon|Groudon|341/341
-|switch|p2a: Great Tusk|Great Tusk|100/100
-|-weather|SunnyDay|[from] ability: Drought|[of] p1a: Groudon
-|-activate|p2a: Great Tusk|ability: Protosynthesis
-|-start|p2a: Great Tusk|protosynthesisatk
+|switch|p1a: Ting-Lu|Ting-Lu|514/514
+|switch|p2a: Darkrai|Darkrai|100/100
+|-ability|p1a: Ting-Lu|Vessel of Ruin
 |turn|1
 |
-|move|p1a: Groudon|Precipice Blades|p2a: Great Tusk
-|-damage|p2a: Great Tusk|53/100
-|move|p2a: Great Tusk|Headlong Rush|p1a: Groudon
-|-damage|p1a: Groudon|127/341
-|-unboost|p2a: Great Tusk|def|1
-|-unboost|p2a: Great Tusk|spd|1
+|move|p2a: Darkrai|Ice Beam|p1a: Ting-Lu
+|-supereffective|p1a: Ting-Lu
+|-crit|p1a: Ting-Lu
+|-damage|p1a: Ting-Lu|304/514
+|move|p1a: Ting-Lu|Earthquake|p2a: Darkrai
+|-damage|p2a: Darkrai|54/100
 |
-|-weather|SunnyDay|[upkeep]
+|-heal|p1a: Ting-Lu|336/514|[from] item: Leftovers
 |upkeep
 |turn|2
 |
-|move|p1a: Groudon|Precipice Blades|p2a: Great Tusk
+|move|p2a: Darkrai|Ice Beam|p1a: Ting-Lu
+|-supereffective|p1a: Ting-Lu
+|-damage|p1a: Ting-Lu|196/514
+|move|p1a: Ting-Lu|Earthquake|p2a: Darkrai
+|-damage|p2a: Darkrai|4/100
+|
+|-heal|p1a: Ting-Lu|228/514|[from] item: Leftovers
+|upkeep
+|turn|3
+|
+|move|p2a: Darkrai|Ice Beam|p1a: Ting-Lu
+|-supereffective|p1a: Ting-Lu
+|-damage|p1a: Ting-Lu|96/514
+|-status|p1a: Ting-Lu|frz
+|cant|p1a: Ting-Lu|frz
+|
+|-heal|p1a: Ting-Lu|128/514 frz|[from] item: Leftovers
+|upkeep
+|turn|4
+|
+|move|p2a: Darkrai|Ice Beam|p1a: Ting-Lu
+|-supereffective|p1a: Ting-Lu
+|-damage|p1a: Ting-Lu|0 fnt
+|faint|p1a: Ting-Lu
+|
+|upkeep
+|
+|switch|p1a: Koraidon|Koraidon|341/341
+|-weather|SunnyDay|[from] ability: Orichalcum Pulse|[of] p1a: Koraidon
+|-activate|p1a: Koraidon|Orichalcum Pulse|[source]
+|turn|5
+|
+|move|p2a: Darkrai|Ice Beam|p1a: Koraidon
+|-supereffective|p1a: Koraidon
+|-damage|p1a: Koraidon|107/341
+|move|p1a: Koraidon|Collision Course|p2a: Darkrai
+|-supereffective|p2a: Darkrai
+|-damage|p2a: Darkrai|0 fnt
+|faint|p2a: Darkrai
+|-damage|p1a: Koraidon|73/341|[from] item: Life Orb
+|
+|-weather|SunnyDay|[upkeep]
+|upkeep
+|
+|switch|p2a: Great Tusk|Great Tusk|100/100
+|-activate|p2a: Great Tusk|ability: Protosynthesis
+|-start|p2a: Great Tusk|protosynthesisatk
+|turn|6
+|
+|switch|p1a: Gliscor|Gliscor, M|354/354
+|move|p2a: Great Tusk|Headlong Rush|p1a: Gliscor
+|-immune|p1a: Gliscor
+|
+|-weather|SunnyDay|[upkeep]
+|-status|p1a: Gliscor|tox|[from] item: Toxic Orb
+|upkeep
+|turn|7
+|
+|move|p2a: Great Tusk|Headlong Rush|p1a: Gliscor
+|-immune|p1a: Gliscor
+|move|p1a: Gliscor|Crabhammer|p2a: Great Tusk
+|-supereffective|p2a: Great Tusk
+|-crit|p2a: Great Tusk
+|-damage|p2a: Great Tusk|72/100
+|
+|-weather|SunnyDay|[upkeep]
+|upkeep
+|turn|8
+|
+|move|p2a: Great Tusk|Headlong Rush|p1a: Gliscor
+|-immune|p1a: Gliscor
+|move|p1a: Gliscor|Crabhammer|p2a: Great Tusk
+|-supereffective|p2a: Great Tusk
+|-damage|p2a: Great Tusk|56/100
+|
+|-weather|SunnyDay|[upkeep]
+|upkeep
+|turn|9
+|
+|move|p2a: Great Tusk|Headlong Rush|p1a: Gliscor
+|-immune|p1a: Gliscor
+|move|p1a: Gliscor|Crabhammer|p2a: Great Tusk
+|-supereffective|p2a: Great Tusk
+|-crit|p2a: Great Tusk
+|-damage|p2a: Great Tusk|30/100
+|
+|-weather|none
+|-end|p2a: Great Tusk|Protosynthesis
+|upkeep
+|turn|10
+|
+|move|p2a: Great Tusk|Headlong Rush|p1a: Gliscor
+|-immune|p1a: Gliscor
+|move|p1a: Gliscor|Crabhammer|p2a: Great Tusk
+|-supereffective|p2a: Great Tusk
 |-damage|p2a: Great Tusk|0 fnt
 |faint|p2a: Great Tusk
 |-end|p2a: Great Tusk|Protosynthesis|[silent]
 |
-|-weather|SunnyDay|[upkeep]
-|upkeep
-|
-|switch|p2a: Ogerpon|Ogerpon-Wellspring, F|100/100
-|turn|3
-|
-|switch|p1a: Dialga|Dialga-Origin|341/341
-|-ability|p1a: Dialga|Pressure
-|move|p2a: Ogerpon|Spikes|p1a: Dialga
-|-sidestart|p1: htho884|Spikes
-|
-|-weather|SunnyDay|[upkeep]
-|upkeep
-|turn|4
-|
-|move|p2a: Ogerpon|Knock Off|p1a: Dialga
-|-damage|p1a: Dialga|282/341
-|move|p1a: Dialga|Roar of Time|p2a: Ogerpon
-|-damage|p2a: Ogerpon|0 fnt
-|-mustrecharge|p1a: Dialga
-|faint|p2a: Ogerpon
-|
-|-weather|SunnyDay|[upkeep]
-|upkeep
-|
-|switch|p2a: Darkrai|Darkrai|100/100
-|turn|5
-|
-|move|p2a: Darkrai|Dark Pulse|p1a: Dialga
-|-damage|p1a: Dialga|179/341
-|cant|p1a: Dialga|recharge
-|
-|-weather|SunnyDay|[upkeep]
-|upkeep
-|turn|6
-|
-|move|p2a: Darkrai|Dark Pulse|p1a: Dialga
-|-damage|p1a: Dialga|68/341
-|move|p1a: Dialga|Flash Cannon|p2a: Darkrai
-|-damage|p2a: Darkrai|39/100
-|
-|-weather|SunnyDay|[upkeep]
-|upkeep
-|turn|7
-|
-|move|p2a: Darkrai|Dark Pulse|p1a: Dialga
-|-damage|p1a: Dialga|0 fnt
-|faint|p1a: Dialga
-|
-|-weather|SunnyDay|[upkeep]
-|upkeep
-|
-|switch|p1a: Arceus|Arceus-Fairy|381/381
-|-damage|p1a: Arceus|334/381|[from] Spikes
-|turn|8
-|
-|move|p2a: Darkrai|Dark Pulse|p1a: Arceus
-|-resisted|p1a: Arceus
-|-damage|p1a: Arceus|271/381
-|move|p1a: Arceus|Judgment|p2a: Darkrai
-|-supereffective|p2a: Darkrai
-|-damage|p2a: Darkrai|0 fnt
-|faint|p2a: Darkrai
-|
-|-weather|none
 |upkeep
 |
 |switch|p2a: Moltres|Moltres|100/100
-|turn|9
-|
-|move|p1a: Arceus|Judgment|p2a: Moltres
-|-resisted|p2a: Moltres
-|-damage|p2a: Moltres|73/100
-|move|p2a: Moltres|Brave Bird|p1a: Arceus
-|-damage|p1a: Arceus|150/381
-|-damage|p2a: Moltres|63/100|[from] Recoil
-|
-|upkeep
-|turn|10
-|
-|move|p1a: Arceus|Judgment|p2a: Moltres
-|-resisted|p2a: Moltres
-|-crit|p2a: Moltres
-|-damage|p2a: Moltres|22/100
-|move|p2a: Moltres|Brave Bird|p1a: Arceus
-|-damage|p1a: Arceus|29/381
-|-damage|p2a: Moltres|12/100|[from] Recoil
-|
-|upkeep
 |turn|11
 |
-|move|p1a: Arceus|Judgment|p2a: Moltres
-|-resisted|p2a: Moltres
+|move|p1a: Gliscor|Crabhammer|p2a: Moltres
+|-supereffective|p2a: Moltres
+|-damage|p2a: Moltres|61/100
+|move|p2a: Moltres|Brave Bird|p1a: Gliscor
+|-damage|p1a: Gliscor|249/354 tox
+|-damage|p2a: Moltres|52/100|[from] Recoil
+|
+|-heal|p1a: Gliscor|293/354 tox|[from] ability: Poison Heal
+|upkeep
+|turn|12
+|
+|move|p1a: Gliscor|Crabhammer|p2a: Moltres
+|-supereffective|p2a: Moltres
+|-damage|p2a: Moltres|15/100
+|move|p2a: Moltres|Brave Bird|p1a: Gliscor
+|-damage|p1a: Gliscor|196/354 tox
+|-damage|p2a: Moltres|6/100|[from] Recoil
+|
+|-heal|p1a: Gliscor|240/354 tox|[from] ability: Poison Heal
+|upkeep
+|turn|13
+|
+|move|p1a: Gliscor|Crabhammer|p2a: Moltres
+|-supereffective|p2a: Moltres
 |-damage|p2a: Moltres|0 fnt
 |faint|p2a: Moltres
 |
-|upkeep
-|
-|switch|p2a: Garganacl|Garganacl, F|100/100
-|turn|12
-|
-|move|p1a: Arceus|Aura Sphere|p2a: Garganacl
-|-supereffective|p2a: Garganacl
-|-damage|p2a: Garganacl|67/100
-|move|p2a: Garganacl|Salt Cure|p1a: Arceus
-|-damage|p1a: Arceus|0 fnt
-|faint|p1a: Arceus
-|
-|-heal|p2a: Garganacl|73/100|[from] item: Leftovers
-|upkeep
-|
-|switch|p1a: Groudon|Groudon|127/341
-|-damage|p1a: Groudon|85/341|[from] Spikes
-|-weather|SunnyDay|[from] ability: Drought|[of] p1a: Groudon
-|turn|13
-|
-|move|p1a: Groudon|Precipice Blades|p2a: Garganacl
-|-supereffective|p2a: Garganacl
-|-damage|p2a: Garganacl|0 fnt
-|faint|p2a: Garganacl
-|
-|-weather|SunnyDay|[upkeep]
+|-heal|p1a: Gliscor|284/354 tox|[from] ability: Poison Heal
 |upkeep
 |
 |switch|p2a: Dragonite|Dragonite, F|100/100
 |turn|14
 |
 |switch|p1a: Zacian|Zacian-Crowned|360/360
-|-damage|p1a: Zacian|315/360|[from] Spikes
 |-ability|p1a: Zacian|Intrepid Sword|boost
 |-boost|p1a: Zacian|atk|1
-|move|p2a: Dragonite|Ice Spinner|p1a: Zacian
-|-resisted|p1a: Zacian
-|-damage|p1a: Zacian|271/360
+|move|p2a: Dragonite|Earthquake|p1a: Zacian
+|-supereffective|p1a: Zacian
+|-damage|p1a: Zacian|134/360
 |
-|-weather|SunnyDay|[upkeep]
 |upkeep
 |turn|15
 |
-|move|p1a: Zacian|Behemoth Blade|p2a: Dragonite
-|-damage|p2a: Dragonite|52/100
-|move|p2a: Dragonite|Earthquake|p1a: Zacian
-|-supereffective|p1a: Zacian
-|-damage|p1a: Zacian|45/360
+|move|p1a: Zacian|Ice Fang|p2a: Dragonite
+|-supereffective|p2a: Dragonite
+|-damage|p2a: Dragonite|22/100
+|cant|p2a: Dragonite|flinch
 |
-|-weather|SunnyDay|[upkeep]
 |upkeep
 |turn|16
 |
 |move|p1a: Zacian|Behemoth Blade|p2a: Dragonite
 |-damage|p2a: Dragonite|0 fnt
 |faint|p2a: Dragonite
+|
+|upkeep
+|
+|switch|p2a: Ogerpon|Ogerpon-Wellspring, F|100/100
+|turn|17
+|
+|move|p1a: Zacian|Play Rough|p2a: Ogerpon
+|-damage|p2a: Ogerpon|0 fnt
+|faint|p2a: Ogerpon
+|
+|upkeep
+|
+|switch|p2a: Garganacl|Garganacl, F|100/100
+|turn|18
+|
+|move|p1a: Zacian|Sacred Sword|p2a: Garganacl
+|-supereffective|p2a: Garganacl
+|-damage|p2a: Garganacl|30/100
+|move|p2a: Garganacl|Salt Cure|p1a: Zacian
+|-resisted|p1a: Zacian
+|-damage|p1a: Zacian|115/360
+|-start|p1a: Zacian|Salt Cure
+|
+|-heal|p2a: Garganacl|36/100|[from] item: Leftovers
+|-damage|p1a: Zacian|25/360|[from] Salt Cure
+|upkeep
+|turn|19
+|
+|move|p1a: Zacian|Sacred Sword|p2a: Garganacl
+|-supereffective|p2a: Garganacl
+|-damage|p2a: Garganacl|0 fnt
+|faint|p2a: Garganacl
 |
     </script>
 </div>

@@ -244,8 +244,8 @@
 |j|☆htho884
 |j|☆random-nu
 |gametype|singles
-|player|p1|htho884|266|
-|player|p2|random-nu|265|
+|player|p1|htho884|101|
+|player|p2|random-nu|101|
 |gen|9
 |tier|[Gen 9] Ubers
 |rule|HP Percentage Mod: HP is shown in percentages
@@ -256,12 +256,12 @@
 |rule|Evasion Items Clause: Evasion items are banned
 |rule|Evasion Moves Clause: Evasion moves are banned
 |clearpoke
-|poke|p1|Groudon|
+|poke|p1|Ting-Lu|
+|poke|p1|Koraidon|
 |poke|p1|Flutter Mane|
-|poke|p1|Arceus-Fairy|
-|poke|p1|Dialga-Origin|
+|poke|p1|Arceus-Water|
 |poke|p1|Zacian-*|
-|poke|p1|Hoopa-Unbound|
+|poke|p1|Giratina-Origin|
 |poke|p2|Entei|
 |poke|p2|Chesnaught, F|
 |poke|p2|Volcanion|
@@ -273,181 +273,209 @@
 |teamsize|p1|6
 |teamsize|p2|6
 |start
-|switch|p1a: Groudon|Groudon|341/341
+|switch|p1a: Ting-Lu|Ting-Lu|514/514
 |switch|p2a: Volcanion|Volcanion|100/100
-|-weather|SunnyDay|[from] ability: Drought|[of] p1a: Groudon
+|-ability|p1a: Ting-Lu|Vessel of Ruin
 |turn|1
 |
-|switch|p2a: Entei|Entei|100/100
-|move|p1a: Groudon|Precipice Blades|p2a: Entei|[miss]
-|-miss|p1a: Groudon|p2a: Entei
+|move|p2a: Volcanion|Earth Power|p1a: Ting-Lu
+|-damage|p1a: Ting-Lu|434/514
+|move|p1a: Ting-Lu|Earthquake|p2a: Volcanion
+|-supereffective|p2a: Volcanion
+|-damage|p2a: Volcanion|32/100
 |
-|-weather|SunnyDay|[upkeep]
+|-heal|p1a: Ting-Lu|466/514|[from] item: Leftovers
 |upkeep
 |turn|2
 |
-|switch|p2a: Bronzong|Bronzong|100/100
-|move|p1a: Groudon|Precipice Blades|p2a: Bronzong
-|-immune|p2a: Bronzong|[from] ability: Levitate
+|switch|p2a: Chesnaught|Chesnaught, F|100/100
+|move|p1a: Ting-Lu|Earthquake|p2a: Chesnaught
+|-resisted|p2a: Chesnaught
+|-damage|p2a: Chesnaught|90/100
 |
-|-weather|SunnyDay|[upkeep]
+|-heal|p1a: Ting-Lu|498/514|[from] item: Leftovers
 |upkeep
 |turn|3
 |
-|move|p1a: Groudon|Precipice Blades|p2a: Bronzong
-|-immune|p2a: Bronzong|[from] ability: Levitate
-|move|p2a: Bronzong|Body Press|p1a: Groudon
-|-damage|p1a: Groudon|266/341
+|switch|p1a: Flutter Mane|Flutter Mane|251/251
+|move|p2a: Chesnaught|Body Press|p1a: Flutter Mane
+|-immune|p1a: Flutter Mane
 |
-|-weather|SunnyDay|[upkeep]
 |upkeep
 |turn|4
 |
+|-terastallize|p2a: Chesnaught|Ghost
+|move|p1a: Flutter Mane|Moonblast|p2a: Chesnaught
+|-damage|p2a: Chesnaught|12/100
+|-damage|p1a: Flutter Mane|226/251|[from] item: Life Orb
+|move|p2a: Chesnaught|Knock Off|p1a: Flutter Mane
+|-damage|p1a: Flutter Mane|98/251
+|-enditem|p1a: Flutter Mane|Life Orb|[from] move: Knock Off|[of] p2a: Chesnaught
+|
+|upkeep
+|turn|5
+|
+|move|p1a: Flutter Mane|Moonblast|p2a: Chesnaught
+|-damage|p2a: Chesnaught|0 fnt
+|faint|p2a: Chesnaught
+|
+|upkeep
+|
+|switch|p2a: Volcanion|Volcanion|32/100
+|turn|6
+|
+|move|p1a: Flutter Mane|Shadow Ball|p2a: Volcanion
+|-damage|p2a: Volcanion|0 fnt
+|faint|p2a: Volcanion
+|
+|upkeep
+|
 |switch|p2a: Muk|Muk-Alola, M|100/100
-|move|p1a: Groudon|Precipice Blades|p2a: Muk
+|turn|7
+|
+|-end|p1a: Flutter Mane|Protosynthesis|[silent]
+|switch|p1a: Ting-Lu|Ting-Lu|498/514
+|-ability|p1a: Ting-Lu|Vessel of Ruin
+|move|p2a: Muk|Sleep Talk||[still]
+|-fail|p2a: Muk
+|
+|-heal|p1a: Ting-Lu|514/514|[from] item: Leftovers
+|upkeep
+|turn|8
+|
+|move|p2a: Muk|Knock Off|p1a: Ting-Lu
+|-resisted|p1a: Ting-Lu
+|-crit|p1a: Ting-Lu
+|-damage|p1a: Ting-Lu|438/514
+|-enditem|p1a: Ting-Lu|Leftovers|[from] move: Knock Off|[of] p2a: Muk
+|move|p1a: Ting-Lu|Earthquake|p2a: Muk
+|-supereffective|p2a: Muk
+|-damage|p2a: Muk|19/100
+|
+|-heal|p2a: Muk|25/100|[from] item: Leftovers
+|upkeep
+|turn|9
+|
+|move|p2a: Muk|Knock Off|p1a: Ting-Lu
+|-resisted|p1a: Ting-Lu
+|-damage|p1a: Ting-Lu|408/514
+|move|p1a: Ting-Lu|Earthquake|p2a: Muk
 |-supereffective|p2a: Muk
 |-damage|p2a: Muk|0 fnt
 |faint|p2a: Muk
 |
-|-weather|SunnyDay|[upkeep]
-|upkeep
-|
-|switch|p2a: Entei|Entei|100/100
-|turn|5
-|
-|move|p1a: Groudon|Precipice Blades|p2a: Entei
-|-supereffective|p2a: Entei
-|-damage|p2a: Entei|0 fnt
-|faint|p2a: Entei
-|
-|-weather|SunnyDay|[upkeep]
 |upkeep
 |
 |switch|p2a: Bronzong|Bronzong|100/100
-|turn|6
-|
-|-terastallize|p2a: Bronzong|Fairy
-|move|p1a: Groudon|Precipice Blades|p2a: Bronzong
-|-immune|p2a: Bronzong|[from] ability: Levitate
-|move|p2a: Bronzong|Iron Defense|p2a: Bronzong
-|-boost|p2a: Bronzong|def|2
-|
-|-weather|SunnyDay|[upkeep]
-|upkeep
-|turn|7
-|
-|move|p1a: Groudon|Precipice Blades|p2a: Bronzong
-|-immune|p2a: Bronzong|[from] ability: Levitate
-|move|p2a: Bronzong|Iron Defense|p2a: Bronzong
-|-boost|p2a: Bronzong|def|2
-|
-|-weather|SunnyDay|[upkeep]
-|upkeep
-|turn|8
-|
-|switch|p2a: Volcanion|Volcanion|100/100
-|move|p1a: Groudon|Precipice Blades|p2a: Volcanion|[miss]
-|-miss|p1a: Groudon|p2a: Volcanion
-|
-|-weather|none
-|upkeep
-|turn|9
-|
-|switch|p2a: Zapdos|Zapdos-Galar|100/100
-|move|p1a: Groudon|Precipice Blades|p2a: Zapdos
-|-immune|p2a: Zapdos
-|
-|upkeep
 |turn|10
 |
-|move|p2a: Zapdos|Brave Bird|p1a: Groudon
-|-damage|p1a: Groudon|104/341
-|-damage|p2a: Zapdos|84/100|[from] Recoil
-|move|p1a: Groudon|Stealth Rock|p2a: Zapdos
-|-sidestart|p2: random-nu|move: Stealth Rock
+|move|p1a: Ting-Lu|Earthquake|p2a: Bronzong
+|-immune|p2a: Bronzong|[from] ability: Levitate
+|move|p2a: Bronzong|Psychic Noise|p1a: Ting-Lu
+|-immune|p1a: Ting-Lu
 |
 |upkeep
 |turn|11
 |
-|move|p2a: Zapdos|Brave Bird|p1a: Groudon
-|-damage|p1a: Groudon|0 fnt
-|faint|p1a: Groudon
-|-damage|p2a: Zapdos|73/100|[from] Recoil
+|move|p1a: Ting-Lu|Ruination|p2a: Bronzong
+|-damage|p2a: Bronzong|50/100
+|move|p2a: Bronzong|Psychic Noise|p1a: Ting-Lu
+|-immune|p1a: Ting-Lu
 |
+|-heal|p2a: Bronzong|57/100|[from] item: Leftovers
 |upkeep
-|
-|switch|p1a: Flutter Mane|Flutter Mane|251/251
 |turn|12
 |
-|switch|p2a: Chesnaught|Chesnaught, F|100/100
-|-damage|p2a: Chesnaught|94/100|[from] Stealth Rock
-|move|p1a: Flutter Mane|Moonblast|p2a: Chesnaught
-|-supereffective|p2a: Chesnaught
-|-damage|p2a: Chesnaught|0 fnt
-|faint|p2a: Chesnaught
-|-damage|p1a: Flutter Mane|226/251|[from] item: Life Orb
+|move|p1a: Ting-Lu|Ruination|p2a: Bronzong
+|-damage|p2a: Bronzong|29/100
+|move|p2a: Bronzong|Iron Defense|p2a: Bronzong
+|-boost|p2a: Bronzong|def|2
 |
+|-heal|p2a: Bronzong|35/100|[from] item: Leftovers
 |upkeep
-|
-|switch|p2a: Zapdos|Zapdos-Galar|73/100
-|-damage|p2a: Zapdos|61/100|[from] Stealth Rock
 |turn|13
 |
-|move|p2a: Zapdos|Close Combat|p1a: Flutter Mane
-|-immune|p1a: Flutter Mane
-|move|p1a: Flutter Mane|Moonblast|p2a: Zapdos
-|-supereffective|p2a: Zapdos
-|-damage|p2a: Zapdos|0 fnt
-|faint|p2a: Zapdos
-|-damage|p1a: Flutter Mane|201/251|[from] item: Life Orb
+|move|p1a: Ting-Lu|Ruination|p2a: Bronzong
+|-damage|p2a: Bronzong|18/100
+|move|p2a: Bronzong|Psychic Noise|p1a: Ting-Lu
+|-immune|p1a: Ting-Lu
 |
+|-heal|p2a: Bronzong|24/100|[from] item: Leftovers
 |upkeep
-|
-|switch|p2a: Bronzong|Bronzong, tera:Fairy|100/100
-|-damage|p2a: Bronzong|88/100|[from] Stealth Rock
 |turn|14
 |
-|move|p1a: Flutter Mane|Moonblast|p2a: Bronzong
-|-damage|p2a: Bronzong|34/100
-|-damage|p1a: Flutter Mane|176/251|[from] item: Life Orb
-|move|p2a: Bronzong|Psychic Noise|p1a: Flutter Mane
-|-damage|p1a: Flutter Mane|124/251
-|-start|p1a: Flutter Mane|move: Heal Block
+|move|p1a: Ting-Lu|Ruination|p2a: Bronzong
+|-damage|p2a: Bronzong|12/100
+|move|p2a: Bronzong|Psychic Noise|p1a: Ting-Lu
+|-immune|p1a: Ting-Lu
 |
-|-heal|p2a: Bronzong|40/100|[from] item: Leftovers
+|-heal|p2a: Bronzong|19/100|[from] item: Leftovers
 |upkeep
 |turn|15
 |
-|move|p1a: Flutter Mane|Moonblast|p2a: Bronzong
-|-damage|p2a: Bronzong|0 fnt
-|faint|p2a: Bronzong
-|-damage|p1a: Flutter Mane|99/251|[from] item: Life Orb
+|switch|p2a: Entei|Entei|100/100
+|move|p1a: Ting-Lu|Ruination|p2a: Entei
+|-damage|p2a: Entei|51/100
 |
-|-end|p1a: Flutter Mane|move: Heal Block
 |upkeep
-|
-|switch|p2a: Volcanion|Volcanion|100/100
 |turn|16
 |
-|move|p1a: Flutter Mane|Shadow Ball|p2a: Volcanion
-|-damage|p2a: Volcanion|30/100
-|-unboost|p2a: Volcanion|spd|1
-|-damage|p1a: Flutter Mane|74/251|[from] item: Life Orb
-|move|p2a: Volcanion|Roar|p1a: Flutter Mane
-|-end|p1a: Flutter Mane|Protosynthesis|[silent]
-|drag|p1a: Dialga|Dialga-Origin|341/341
-|-ability|p1a: Dialga|Pressure
+|switch|p2a: Zapdos|Zapdos-Galar|100/100
+|move|p1a: Ting-Lu|Earthquake|p2a: Zapdos
+|-immune|p2a: Zapdos
 |
 |upkeep
 |turn|17
 |
-|move|p2a: Volcanion|Earth Power|p1a: Dialga
-|-supereffective|p1a: Dialga
-|-damage|p1a: Dialga|175/341
-|move|p1a: Dialga|Roar of Time|p2a: Volcanion
-|-damage|p2a: Volcanion|0 fnt
-|-mustrecharge|p1a: Dialga
-|faint|p2a: Volcanion
+|switch|p2a: Bronzong|Bronzong|19/100
+|switch|p1a: Flutter Mane|Flutter Mane|98/251
+|
+|-heal|p2a: Bronzong|25/100|[from] item: Leftovers
+|upkeep
+|turn|18
+|
+|move|p1a: Flutter Mane|Shadow Ball|p2a: Bronzong
+|-supereffective|p2a: Bronzong
+|-damage|p2a: Bronzong|0 fnt
+|faint|p2a: Bronzong
+|
+|upkeep
+|
+|switch|p2a: Entei|Entei|51/100
+|turn|19
+|
+|move|p2a: Entei|Extreme Speed|p1a: Flutter Mane
+|-immune|p1a: Flutter Mane
+|move|p1a: Flutter Mane|Shadow Ball|p2a: Entei
+|-damage|p2a: Entei|0 fnt
+|faint|p2a: Entei
+|
+|upkeep
+|
+|switch|p2a: Zapdos|Zapdos-Galar|100/100
+|turn|20
+|
+|move|p2a: Zapdos|Brave Bird|p1a: Flutter Mane
+|-damage|p1a: Flutter Mane|0 fnt
+|faint|p1a: Flutter Mane
+|-end|p1a: Flutter Mane|Protosynthesis|[silent]
+|-damage|p2a: Zapdos|91/100|[from] Recoil
+|
+|upkeep
+|
+|switch|p1a: Zacian|Zacian-Crowned|360/360
+|-ability|p1a: Zacian|Intrepid Sword|boost
+|-boost|p1a: Zacian|atk|1
+|turn|21
+|
+|move|p2a: Zapdos|Brave Bird|p1a: Zacian
+|-resisted|p1a: Zacian
+|-damage|p1a: Zacian|262/360
+|-damage|p2a: Zapdos|81/100|[from] Recoil
+|move|p1a: Zacian|Play Rough|p2a: Zapdos
+|-supereffective|p2a: Zapdos
+|-damage|p2a: Zapdos|0 fnt
+|faint|p2a: Zapdos
 |
     </script>
 </div>

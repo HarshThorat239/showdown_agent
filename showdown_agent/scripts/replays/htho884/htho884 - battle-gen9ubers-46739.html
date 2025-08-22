@@ -245,7 +245,7 @@
 |j|☆random-ou
 |gametype|singles
 |player|p1|htho884|266|
-|player|p2|random-ou|265|
+|player|p2|random-ou|170|
 |gen|9
 |tier|[Gen 9] Ubers
 |rule|HP Percentage Mod: HP is shown in percentages
@@ -256,12 +256,12 @@
 |rule|Evasion Items Clause: Evasion items are banned
 |rule|Evasion Moves Clause: Evasion moves are banned
 |clearpoke
-|poke|p1|Groudon|
+|poke|p1|Ting-Lu|
+|poke|p1|Koraidon|
 |poke|p1|Flutter Mane|
 |poke|p1|Arceus-Fairy|
-|poke|p1|Dialga-Origin|
 |poke|p1|Zacian-*|
-|poke|p1|Hoopa-Unbound|
+|poke|p1|Kyurem|
 |poke|p2|Ogerpon-Wellspring, F|
 |poke|p2|Garganacl, M|
 |poke|p2|Great Tusk|
@@ -273,172 +273,162 @@
 |teamsize|p1|6
 |teamsize|p2|6
 |start
-|switch|p1a: Groudon|Groudon|341/341
-|switch|p2a: Darkrai|Darkrai|100/100
-|-weather|SunnyDay|[from] ability: Drought|[of] p1a: Groudon
+|switch|p1a: Ting-Lu|Ting-Lu|514/514
+|switch|p2a: Ogerpon|Ogerpon-Wellspring, F|100/100
+|-ability|p1a: Ting-Lu|Vessel of Ruin
 |turn|1
 |
-|switch|p2a: Garganacl|Garganacl, M|100/100
-|move|p1a: Groudon|Precipice Blades|p2a: Garganacl
-|-supereffective|p2a: Garganacl
-|-damage|p2a: Garganacl|5/100
+|switch|p2a: Great Tusk|Great Tusk|100/100
+|switch|p1a: Koraidon|Koraidon|341/341
+|-weather|SunnyDay|[from] ability: Orichalcum Pulse|[of] p1a: Koraidon
+|-activate|p2a: Great Tusk|ability: Protosynthesis
+|-start|p2a: Great Tusk|protosynthesisatk
+|-activate|p1a: Koraidon|Orichalcum Pulse|[source]
 |
 |-weather|SunnyDay|[upkeep]
-|-heal|p2a: Garganacl|11/100|[from] item: Leftovers
 |upkeep
 |turn|2
 |
-|-terastallize|p2a: Garganacl|Fairy
-|move|p1a: Groudon|Precipice Blades|p2a: Garganacl
-|-damage|p2a: Garganacl|0 fnt
-|faint|p2a: Garganacl
+|-end|p2a: Great Tusk|Protosynthesis|[silent]
+|switch|p2a: Moltres|Moltres|100/100
+|move|p1a: Koraidon|Collision Course|p2a: Moltres
+|-resisted|p2a: Moltres
+|-damage|p2a: Moltres|63/100
+|-damage|p1a: Koraidon|307/341|[from] item: Life Orb
 |
 |-weather|SunnyDay|[upkeep]
 |upkeep
-|
-|switch|p2a: Ogerpon|Ogerpon-Wellspring, F|100/100
 |turn|3
 |
-|switch|p2a: Dragonite|Dragonite, M|100/100
-|switch|p1a: Dialga|Dialga-Origin|341/341
-|-ability|p1a: Dialga|Pressure
+|-terastallize|p2a: Moltres|Fairy
+|move|p1a: Koraidon|Dragon Claw|p2a: Moltres
+|-immune|p2a: Moltres
+|move|p2a: Moltres|Will-O-Wisp|p1a: Koraidon|[miss]
+|-miss|p2a: Moltres|p1a: Koraidon
 |
 |-weather|SunnyDay|[upkeep]
 |upkeep
 |turn|4
 |
-|switch|p2a: Ogerpon|Ogerpon-Wellspring, F|100/100
-|move|p1a: Dialga|Flash Cannon|p2a: Ogerpon
-|-resisted|p2a: Ogerpon
-|-damage|p2a: Ogerpon|75/100
+|switch|p2a: Darkrai|Darkrai|100/100
+|move|p1a: Koraidon|Flare Blitz|p2a: Darkrai
+|-damage|p2a: Darkrai|0 fnt
+|faint|p2a: Darkrai
+|-damage|p1a: Koraidon|214/341|[from] Recoil
+|-damage|p1a: Koraidon|180/341|[from] item: Life Orb
 |
 |-weather|SunnyDay|[upkeep]
 |upkeep
+|
+|switch|p2a: Garganacl|Garganacl, M|100/100
 |turn|5
 |
-|switch|p2a: Great Tusk|Great Tusk|100/100
-|-activate|p2a: Great Tusk|ability: Protosynthesis
-|-start|p2a: Great Tusk|protosynthesisatk
-|move|p1a: Dialga|Roar of Time|p2a: Great Tusk
-|-damage|p2a: Great Tusk|0 fnt
-|-mustrecharge|p1a: Dialga
-|faint|p2a: Great Tusk
-|-end|p2a: Great Tusk|Protosynthesis|[silent]
-|
-|-weather|SunnyDay|[upkeep]
-|upkeep
-|
-|switch|p2a: Ogerpon|Ogerpon-Wellspring, F|75/100
-|turn|6
-|
-|switch|p2a: Moltres|Moltres|100/100
-|cant|p1a: Dialga|recharge
-|
-|-weather|SunnyDay|[upkeep]
-|upkeep
-|turn|7
-|
-|switch|p2a: Darkrai|Darkrai|100/100
-|move|p1a: Dialga|Roar of Time|p2a: Darkrai
-|-damage|p2a: Darkrai|0 fnt
-|-mustrecharge|p1a: Dialga
-|faint|p2a: Darkrai
-|
-|-weather|SunnyDay|[upkeep]
-|upkeep
-|
-|switch|p2a: Ogerpon|Ogerpon-Wellspring, F|75/100
-|turn|8
-|
-|move|p2a: Ogerpon|Ivy Cudgel|p1a: Dialga|[anim] Ivy Cudgel Water
-|-resisted|p1a: Dialga
-|-damage|p1a: Dialga|309/341
-|cant|p1a: Dialga|recharge
+|switch|p2a: Moltres|Moltres, tera:Fairy|63/100
+|move|p1a: Koraidon|Collision Course|p2a: Moltres
+|-resisted|p2a: Moltres
+|-damage|p2a: Moltres|25/100
+|-damage|p1a: Koraidon|146/341|[from] item: Life Orb
 |
 |-weather|none
 |upkeep
-|turn|9
+|turn|6
+|
+|switch|p2a: Great Tusk|Great Tusk|100/100
+|move|p1a: Koraidon|Flare Blitz|p2a: Great Tusk
+|-damage|p2a: Great Tusk|55/100
+|-damage|p1a: Koraidon|91/341|[from] Recoil
+|-damage|p1a: Koraidon|57/341|[from] item: Life Orb
+|
+|upkeep
+|turn|7
+|
+|move|p1a: Koraidon|Collision Course|p2a: Great Tusk
+|-damage|p2a: Great Tusk|0 fnt
+|faint|p2a: Great Tusk
+|-end|p2a: Great Tusk|Protosynthesis|[silent]
+|-damage|p1a: Koraidon|23/341|[from] item: Life Orb
+|
+|upkeep
 |
 |switch|p2a: Dragonite|Dragonite, M|100/100
-|move|p1a: Dialga|Roar of Time|p2a: Dragonite
-|-supereffective|p2a: Dragonite
-|-damage|p2a: Dragonite|6/100
-|-mustrecharge|p1a: Dialga
+|turn|8
 |
+|switch|p1a: Zacian|Zacian-Crowned|357/357
+|-ability|p1a: Zacian|Intrepid Sword|boost
+|-boost|p1a: Zacian|atk|1
+|move|p2a: Dragonite|Ice Spinner|p1a: Zacian
+|-resisted|p1a: Zacian
+|-crit|p1a: Zacian
+|-damage|p1a: Zacian|291/357
+|
+|upkeep
+|turn|9
+|
+|switch|p2a: Garganacl|Garganacl, M|100/100
+|move|p1a: Zacian|Ice Fang|p2a: Garganacl
+|-damage|p2a: Garganacl|76/100
+|
+|-heal|p2a: Garganacl|83/100|[from] item: Leftovers
 |upkeep
 |turn|10
 |
-|move|p2a: Dragonite|Dragon Dance|p2a: Dragonite
-|-boost|p2a: Dragonite|atk|1
-|-boost|p2a: Dragonite|spe|1
-|cant|p1a: Dialga|recharge
+|switch|p2a: Dragonite|Dragonite, M|100/100
+|move|p1a: Zacian|Sacred Sword|p2a: Dragonite
+|-resisted|p2a: Dragonite
+|-damage|p2a: Dragonite|87/100
 |
 |upkeep
 |turn|11
 |
-|switch|p2a: Ogerpon|Ogerpon-Wellspring, F|75/100
-|move|p1a: Dialga|Flash Cannon|p2a: Ogerpon
-|-resisted|p2a: Ogerpon
-|-damage|p2a: Ogerpon|47/100
-|
-|upkeep
-|turn|12
-|
-|move|p2a: Ogerpon|Knock Off|p1a: Dialga
-|-damage|p1a: Dialga|250/341
-|move|p1a: Dialga|Roar of Time|p2a: Ogerpon
-|-damage|p2a: Ogerpon|0 fnt
-|-mustrecharge|p1a: Dialga
-|faint|p2a: Ogerpon
-|
-|upkeep
-|
-|switch|p2a: Dragonite|Dragonite, M|6/100
-|turn|13
-|
-|move|p2a: Dragonite|Extreme Speed|p1a: Dialga
-|-resisted|p1a: Dialga
-|-damage|p1a: Dialga|216/341
-|cant|p1a: Dialga|recharge
-|
-|upkeep
-|turn|14
-|
-|move|p2a: Dragonite|Extreme Speed|p1a: Dialga
-|-resisted|p1a: Dialga
-|-crit|p1a: Dialga
-|-damage|p1a: Dialga|162/341
-|move|p1a: Dialga|Flash Cannon|p2a: Dragonite
+|move|p1a: Zacian|Behemoth Blade|p2a: Dragonite
 |-damage|p2a: Dragonite|0 fnt
 |faint|p2a: Dragonite
 |
 |upkeep
 |
-|switch|p2a: Moltres|Moltres|100/100
+|switch|p2a: Moltres|Moltres, tera:Fairy|25/100
+|turn|12
+|
+|switch|p2a: Ogerpon|Ogerpon-Wellspring, F|100/100
+|move|p1a: Zacian|Behemoth Blade|p2a: Ogerpon
+|-resisted|p2a: Ogerpon
+|-damage|p2a: Ogerpon|48/100
+|
+|upkeep
+|turn|13
+|
+|switch|p2a: Garganacl|Garganacl, M|83/100
+|move|p1a: Zacian|Play Rough|p2a: Garganacl
+|-damage|p2a: Garganacl|30/100
+|
+|-heal|p2a: Garganacl|36/100|[from] item: Leftovers
+|upkeep
+|turn|14
+|
+|switch|p2a: Ogerpon|Ogerpon-Wellspring, F|48/100
+|move|p1a: Zacian|Sacred Sword|p2a: Ogerpon
+|-damage|p2a: Ogerpon|0 fnt
+|faint|p2a: Ogerpon
+|
+|upkeep
+|
+|switch|p2a: Moltres|Moltres, tera:Fairy|25/100
 |turn|15
 |
-|move|p2a: Moltres|Flamethrower|p1a: Dialga
-|-damage|p1a: Dialga|80/341
-|move|p1a: Dialga|Roar of Time|p2a: Moltres
-|-damage|p2a: Moltres|16/100
-|-mustrecharge|p1a: Dialga
+|switch|p2a: Garganacl|Garganacl, M|36/100
+|move|p1a: Zacian|Behemoth Blade|p2a: Garganacl
+|-supereffective|p2a: Garganacl
+|-damage|p2a: Garganacl|0 fnt
+|faint|p2a: Garganacl
 |
 |upkeep
+|
+|switch|p2a: Moltres|Moltres, tera:Fairy|25/100
 |turn|16
 |
-|move|p2a: Moltres|Roost|p2a: Moltres
-|-heal|p2a: Moltres|66/100
-|-singleturn|p2a: Moltres|move: Roost
-|cant|p1a: Dialga|recharge
-|
-|upkeep
-|turn|17
-|
-|move|p2a: Moltres|Will-O-Wisp|p1a: Dialga
-|-status|p1a: Dialga|brn
-|move|p1a: Dialga|Roar of Time|p2a: Moltres
+|move|p1a: Zacian|Behemoth Blade|p2a: Moltres
+|-supereffective|p2a: Moltres
 |-damage|p2a: Moltres|0 fnt
-|-mustrecharge|p1a: Dialga
 |faint|p2a: Moltres
 |
     </script>

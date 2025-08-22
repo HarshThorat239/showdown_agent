@@ -237,15 +237,15 @@
     <h1 style="font-weight:normal;text-align:center"><strong>poke-env battle replay</strong><br />battle-gen9ubers-46023<br /><a
             href="http://pokemonshowdown.com/users/randomplayer1" class="subtle" target="_blank">htho884</a>
         vs. <a href="http://pokemonshowdown.com/users/randomplayer2" class="subtle"
-            target="_blank">random-ru</a></h1>
+            target="_blank">simple-nu</a></h1>
     <script type="text/plain" class="battle-log-data">
     >battle-gen9ubers-46023|init|battle
-|title|htho884 vs. random-ru
+|title|htho884 vs. simple-nu
 |j|☆htho884
-|j|☆random-ru
+|j|☆simple-nu
 |gametype|singles
 |player|p1|htho884|266|
-|player|p2|random-ru|266|
+|player|p2|simple-nu|1|
 |gen|9
 |tier|[Gen 9] Ubers
 |rule|HP Percentage Mod: HP is shown in percentages
@@ -257,16 +257,16 @@
 |rule|Evasion Moves Clause: Evasion moves are banned
 |clearpoke
 |poke|p1|Groudon|
+|poke|p1|Koraidon|
 |poke|p1|Flutter Mane|
 |poke|p1|Arceus-Fairy|
-|poke|p1|Dialga-Origin|
 |poke|p1|Zacian-*|
-|poke|p1|Hoopa-Unbound|
-|poke|p2|Rotom-Heat|
-|poke|p2|Krookodile, M|
-|poke|p2|Slowbro, M|
-|poke|p2|Cyclizar, M|
-|poke|p2|Jirachi|
+|poke|p1|Giratina-Origin|
+|poke|p2|Entei|
+|poke|p2|Chesnaught, M|
+|poke|p2|Volcanion|
+|poke|p2|Muk-Alola, F|
+|poke|p2|Bronzong|
 |poke|p2|Zapdos-Galar|
 |teampreview
 |
@@ -274,124 +274,272 @@
 |teamsize|p2|6
 |start
 |switch|p1a: Groudon|Groudon|341/341
-|switch|p2a: Cyclizar|Cyclizar, M|100/100
+|switch|p2a: Volcanion|Volcanion|100/100
 |-weather|SunnyDay|[from] ability: Drought|[of] p1a: Groudon
 |turn|1
 |
-|-terastallize|p2a: Cyclizar|Poison
-|move|p2a: Cyclizar|Double-Edge|p1a: Groudon
-|-crit|p1a: Groudon
-|-damage|p1a: Groudon|190/341
-|-damage|p2a: Cyclizar|86/100|[from] Recoil
-|move|p1a: Groudon|Precipice Blades|p2a: Cyclizar
-|-supereffective|p2a: Cyclizar
-|-damage|p2a: Cyclizar|0 fnt
-|faint|p2a: Cyclizar
+|move|p1a: Groudon|Earthquake|p2a: Volcanion
+|-supereffective|p2a: Volcanion
+|-damage|p2a: Volcanion|0 fnt
+|faint|p2a: Volcanion
 |
 |-weather|SunnyDay|[upkeep]
 |upkeep
 |
-|switch|p2a: Slowbro|Slowbro, M|100/100
+|switch|p2a: Chesnaught|Chesnaught, M|100/100
 |turn|2
 |
-|move|p1a: Groudon|Precipice Blades|p2a: Slowbro
-|-damage|p2a: Slowbro|62/100
-|move|p2a: Slowbro|Scald|p1a: Groudon
-|-supereffective|p1a: Groudon
-|-damage|p1a: Groudon|82/341
+|switch|p1a: Flutter Mane|Flutter Mane|251/251
+|-activate|p1a: Flutter Mane|ability: Protosynthesis
+|-start|p1a: Flutter Mane|protosynthesisspe
+|move|p2a: Chesnaught|Spikes|p1a: Flutter Mane
+|-sidestart|p1: htho884|Spikes
 |
 |-weather|SunnyDay|[upkeep]
 |upkeep
 |turn|3
 |
-|switch|p2a: Jirachi|Jirachi|100/100
-|move|p1a: Groudon|Precipice Blades|p2a: Jirachi
-|-supereffective|p2a: Jirachi
-|-damage|p2a: Jirachi|0 fnt
-|faint|p2a: Jirachi
+|-end|p1a: Flutter Mane|Protosynthesis|[silent]
+|switch|p1a: Giratina|Giratina-Origin|504/504
+|move|p2a: Chesnaught|Knock Off|p1a: Giratina
+|-supereffective|p1a: Giratina
+|-damage|p1a: Giratina|390/504
 |
 |-weather|SunnyDay|[upkeep]
 |upkeep
-|
-|switch|p2a: Krookodile|Krookodile, M|100/100
-|-ability|p2a: Krookodile|Intimidate|boost
-|-unboost|p1a: Groudon|atk|1
 |turn|4
 |
-|move|p1a: Groudon|Precipice Blades|p2a: Krookodile
-|-crit|p2a: Krookodile
-|-damage|p2a: Krookodile|0 fnt
-|faint|p2a: Krookodile
+|move|p1a: Giratina|Defog|p2a: Chesnaught
+|-unboost|p2a: Chesnaught|evasion|1
+|-sideend|p1: htho884|Spikes|[from] move: Defog|[of] p1a: Giratina
+|move|p2a: Chesnaught|Knock Off|p1a: Giratina
+|-supereffective|p1a: Giratina
+|-damage|p1a: Giratina|282/504
 |
 |-weather|SunnyDay|[upkeep]
 |upkeep
-|
-|switch|p2a: Slowbro|Slowbro, M|95/100
 |turn|5
 |
-|switch|p2a: Rotom|Rotom-Heat|100/100
-|move|p1a: Groudon|Precipice Blades|p2a: Rotom
-|-immune|p2a: Rotom|[from] ability: Levitate
+|move|p1a: Giratina|Defog|p2a: Chesnaught
+|-unboost|p2a: Chesnaught|evasion|1
+|move|p2a: Chesnaught|Spikes|p1a: Giratina
+|-sidestart|p1: htho884|Spikes
 |
 |-weather|SunnyDay|[upkeep]
 |upkeep
 |turn|6
 |
-|move|p1a: Groudon|Precipice Blades|p2a: Rotom
-|-immune|p2a: Rotom|[from] ability: Levitate
-|move|p2a: Rotom|Overheat|p1a: Groudon
+|move|p1a: Giratina|Defog|p2a: Chesnaught
+|-unboost|p2a: Chesnaught|evasion|1
+|-sideend|p1: htho884|Spikes|[from] move: Defog|[of] p1a: Giratina
+|move|p2a: Chesnaught|Knock Off|p1a: Giratina
+|-supereffective|p1a: Giratina
+|-damage|p1a: Giratina|172/504
+|
+|-weather|SunnyDay|[upkeep]
+|upkeep
+|turn|7
+|
+|move|p1a: Giratina|Defog|p2a: Chesnaught
+|-unboost|p2a: Chesnaught|evasion|1
+|move|p2a: Chesnaught|Spikes|p1a: Giratina
+|-sidestart|p1: htho884|Spikes
+|
+|-weather|SunnyDay|[upkeep]
+|upkeep
+|turn|8
+|
+|move|p1a: Giratina|Defog|p2a: Chesnaught
+|-unboost|p2a: Chesnaught|evasion|1
+|-sideend|p1: htho884|Spikes|[from] move: Defog|[of] p1a: Giratina
+|move|p2a: Chesnaught|Knock Off|p1a: Giratina
+|-supereffective|p1a: Giratina
+|-damage|p1a: Giratina|54/504
+|
+|-weather|none
+|upkeep
+|turn|9
+|
+|move|p1a: Giratina|Defog|p2a: Chesnaught
+|-unboost|p2a: Chesnaught|evasion|1
+|move|p2a: Chesnaught|Spikes|p1a: Giratina
+|-sidestart|p1: htho884|Spikes
+|
+|upkeep
+|turn|10
+|
+|move|p1a: Giratina|Defog|p2a: Chesnaught
+|-unboost|p2a: Chesnaught|evasion|0
+|-sideend|p1: htho884|Spikes|[from] move: Defog|[of] p1a: Giratina
+|move|p2a: Chesnaught|Knock Off|p1a: Giratina
+|-supereffective|p1a: Giratina
+|-damage|p1a: Giratina|0 fnt
+|faint|p1a: Giratina
+|
+|upkeep
+|
+|switch|p1a: Arceus|Arceus-Fairy|381/381
+|turn|11
+|
+|move|p1a: Arceus|Flamethrower|p2a: Chesnaught
+|-supereffective|p2a: Chesnaught
+|-damage|p2a: Chesnaught|41/100
+|move|p2a: Chesnaught|Spikes|p1a: Arceus
+|-sidestart|p1: htho884|Spikes
+|
+|upkeep
+|turn|12
+|
+|move|p1a: Arceus|Judgment|p2a: Chesnaught
+|-supereffective|p2a: Chesnaught
+|-damage|p2a: Chesnaught|0 fnt
+|faint|p2a: Chesnaught
+|
+|upkeep
+|
+|switch|p2a: Bronzong|Bronzong|100/100
+|turn|13
+|
+|switch|p1a: Groudon|Groudon|341/341
+|-damage|p1a: Groudon|299/341|[from] Spikes
+|-weather|SunnyDay|[from] ability: Drought|[of] p1a: Groudon
+|move|p2a: Bronzong|Psychic Noise|p1a: Groudon
+|-crit|p1a: Groudon
+|-damage|p1a: Groudon|176/341
+|-start|p1a: Groudon|move: Heal Block
+|
+|-weather|SunnyDay|[upkeep]
+|upkeep
+|turn|14
+|
+|move|p1a: Groudon|Earthquake|p2a: Bronzong
+|-immune|p2a: Bronzong|[from] ability: Levitate
+|move|p2a: Bronzong|Psychic Noise|p1a: Groudon
+|-damage|p1a: Groudon|97/341
+|
+|-weather|SunnyDay|[upkeep]
+|-end|p1a: Groudon|move: Heal Block
+|upkeep
+|turn|15
+|
+|move|p1a: Groudon|Crunch|p2a: Bronzong
+|-supereffective|p2a: Bronzong
+|-damage|p2a: Bronzong|58/100
+|-unboost|p2a: Bronzong|def|1
+|move|p2a: Bronzong|Psychic Noise|p1a: Groudon
+|-damage|p1a: Groudon|18/341
+|-start|p1a: Groudon|move: Heal Block
+|
+|-weather|SunnyDay|[upkeep]
+|-heal|p2a: Bronzong|64/100|[from] item: Leftovers
+|upkeep
+|turn|16
+|
+|move|p1a: Groudon|Crunch|p2a: Bronzong
+|-supereffective|p2a: Bronzong
+|-damage|p2a: Bronzong|2/100
+|-unboost|p2a: Bronzong|def|1
+|move|p2a: Bronzong|Psychic Noise|p1a: Groudon
 |-damage|p1a: Groudon|0 fnt
-|-unboost|p2a: Rotom|spa|2
 |faint|p1a: Groudon
+|
+|-weather|SunnyDay|[upkeep]
+|-heal|p2a: Bronzong|8/100|[from] item: Leftovers
+|upkeep
+|
+|switch|p1a: Flutter Mane|Flutter Mane|251/251
+|-damage|p1a: Flutter Mane|220/251|[from] Spikes
+|-activate|p1a: Flutter Mane|ability: Protosynthesis
+|-start|p1a: Flutter Mane|protosynthesisspe
+|turn|17
+|
+|move|p1a: Flutter Mane|Shadow Ball|p2a: Bronzong
+|-supereffective|p2a: Bronzong
+|-damage|p2a: Bronzong|0 fnt
+|faint|p2a: Bronzong
+|-damage|p1a: Flutter Mane|195/251|[from] item: Life Orb
 |
 |-weather|SunnyDay|[upkeep]
 |upkeep
 |
-|switch|p1a: Flutter Mane|Flutter Mane|251/251
-|-activate|p1a: Flutter Mane|ability: Protosynthesis
-|-start|p1a: Flutter Mane|protosynthesisspe
-|turn|7
+|switch|p2a: Entei|Entei|100/100
+|turn|18
 |
-|switch|p2a: Slowbro|Slowbro, M|100/100
-|move|p1a: Flutter Mane|Shadow Ball|p2a: Slowbro
-|-supereffective|p2a: Slowbro
-|-damage|p2a: Slowbro|0 fnt
-|faint|p2a: Slowbro
-|-damage|p1a: Flutter Mane|226/251|[from] item: Life Orb
+|move|p1a: Flutter Mane|Power Gem|p2a: Entei
+|-supereffective|p2a: Entei
+|-damage|p2a: Entei|18/100
+|-damage|p1a: Flutter Mane|170/251|[from] item: Life Orb
+|move|p2a: Entei|Sacred Fire|p1a: Flutter Mane
+|-crit|p1a: Flutter Mane
+|-damage|p1a: Flutter Mane|0 fnt
+|faint|p1a: Flutter Mane
+|-end|p1a: Flutter Mane|Protosynthesis|[silent]
+|
+|-weather|SunnyDay|[upkeep]
+|upkeep
+|
+|switch|p1a: Koraidon|Koraidon|341/341
+|-damage|p1a: Koraidon|299/341|[from] Spikes
+|-activate|p1a: Koraidon|ability: Orichalcum Pulse
+|turn|19
+|
+|move|p1a: Koraidon|Collision Course|p2a: Entei
+|-damage|p2a: Entei|0 fnt
+|faint|p2a: Entei
+|-damage|p1a: Koraidon|265/341|[from] item: Life Orb
 |
 |-weather|SunnyDay|[upkeep]
 |upkeep
 |
 |switch|p2a: Zapdos|Zapdos-Galar|100/100
-|turn|8
+|turn|20
 |
-|move|p1a: Flutter Mane|Moonblast|p2a: Zapdos
+|switch|p1a: Arceus|Arceus-Fairy|381/381
+|-damage|p1a: Arceus|334/381|[from] Spikes
+|move|p2a: Zapdos|Brave Bird|p1a: Arceus
+|-damage|p1a: Arceus|162/381
+|-damage|p2a: Zapdos|83/100|[from] Recoil
+|
+|-weather|none
+|upkeep
+|turn|21
+|
+|move|p2a: Zapdos|Brave Bird|p1a: Arceus
+|-damage|p1a: Arceus|9/381
+|-damage|p2a: Zapdos|67/100|[from] Recoil
+|move|p1a: Arceus|Judgment|p2a: Zapdos
 |-supereffective|p2a: Zapdos
 |-damage|p2a: Zapdos|0 fnt
 |faint|p2a: Zapdos
-|-damage|p1a: Flutter Mane|201/251|[from] item: Life Orb
-|
-|-weather|none
-|-end|p1a: Flutter Mane|Protosynthesis
-|upkeep
-|
-|switch|p2a: Rotom|Rotom-Heat|100/100
-|turn|9
-|
-|move|p1a: Flutter Mane|Shadow Ball|p2a: Rotom
-|-damage|p2a: Rotom|43/100
-|-damage|p1a: Flutter Mane|176/251|[from] item: Life Orb
-|move|p2a: Rotom|Pain Split|p1a: Flutter Mane
-|-sethp|p1a: Flutter Mane|153/251|[from] move: Pain Split|[silent]
-|-sethp|p2a: Rotom|51/100|[from] move: Pain Split
 |
 |upkeep
-|turn|10
 |
-|move|p1a: Flutter Mane|Shadow Ball|p2a: Rotom
-|-damage|p2a: Rotom|0 fnt
-|faint|p2a: Rotom
-|-damage|p1a: Flutter Mane|128/251|[from] item: Life Orb
+|switch|p2a: Muk|Muk-Alola, F|100/100
+|turn|22
+|
+|switch|p1a: Zacian|Zacian-Crowned|357/357
+|-damage|p1a: Zacian|313/357|[from] Spikes
+|-ability|p1a: Zacian|Intrepid Sword|boost
+|-boost|p1a: Zacian|atk|1
+|move|p2a: Muk|Poison Jab|p1a: Zacian
+|-immune|p1a: Zacian
+|
+|upkeep
+|turn|23
+|
+|move|p1a: Zacian|Behemoth Blade|p2a: Muk
+|-damage|p2a: Muk|18/100
+|move|p2a: Muk|Knock Off|p1a: Zacian
+|-resisted|p1a: Zacian
+|-damage|p1a: Zacian|278/357
+|
+|-heal|p2a: Muk|24/100|[from] item: Leftovers
+|upkeep
+|turn|24
+|
+|move|p1a: Zacian|Behemoth Blade|p2a: Muk
+|-damage|p2a: Muk|0 fnt
+|faint|p2a: Muk
 |
     </script>
 </div>

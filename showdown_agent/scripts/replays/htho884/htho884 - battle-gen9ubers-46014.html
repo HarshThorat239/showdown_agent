@@ -237,15 +237,15 @@
     <h1 style="font-weight:normal;text-align:center"><strong>poke-env battle replay</strong><br />battle-gen9ubers-46014<br /><a
             href="http://pokemonshowdown.com/users/randomplayer1" class="subtle" target="_blank">htho884</a>
         vs. <a href="http://pokemonshowdown.com/users/randomplayer2" class="subtle"
-            target="_blank">max_damage-uu</a></h1>
+            target="_blank">random-uu</a></h1>
     <script type="text/plain" class="battle-log-data">
     >battle-gen9ubers-46014|init|battle
-|title|htho884 vs. max_damage-uu
+|title|htho884 vs. random-uu
 |j|☆htho884
-|j|☆max_damage-uu
+|j|☆random-uu
 |gametype|singles
 |player|p1|htho884|266|
-|player|p2|max_damage-uu|266|
+|player|p2|random-uu|170|
 |gen|9
 |tier|[Gen 9] Ubers
 |rule|HP Percentage Mod: HP is shown in percentages
@@ -257,11 +257,11 @@
 |rule|Evasion Moves Clause: Evasion moves are banned
 |clearpoke
 |poke|p1|Groudon|
+|poke|p1|Koraidon|
 |poke|p1|Flutter Mane|
 |poke|p1|Arceus-Fairy|
-|poke|p1|Dialga-Origin|
 |poke|p1|Zacian-*|
-|poke|p1|Hoopa-Unbound|
+|poke|p1|Giratina-Origin|
 |poke|p2|Tornadus-Therian, M|
 |poke|p2|Clodsire, M|
 |poke|p2|Metagross|
@@ -274,171 +274,172 @@
 |teamsize|p2|6
 |start
 |switch|p1a: Groudon|Groudon|341/341
-|switch|p2a: Cobalion|Cobalion|100/100
+|switch|p2a: Zarude|Zarude-Dada|100/100
 |-weather|SunnyDay|[from] ability: Drought|[of] p1a: Groudon
 |turn|1
 |
-|move|p2a: Cobalion|Body Press|p1a: Groudon
-|-damage|p1a: Groudon|242/341
-|move|p1a: Groudon|Precipice Blades|p2a: Cobalion
-|-supereffective|p2a: Cobalion
-|-damage|p2a: Cobalion|12/100
+|switch|p1a: Koraidon|Koraidon|341/341
+|-activate|p1a: Koraidon|ability: Orichalcum Pulse
+|-terastallize|p2a: Zarude|Fairy
+|move|p2a: Zarude|Jungle Healing||[still]
+|-fail|p2a: Zarude
 |
 |-weather|SunnyDay|[upkeep]
 |upkeep
 |turn|2
 |
-|move|p2a: Cobalion|Body Press|p1a: Groudon
-|-damage|p1a: Groudon|143/341
-|move|p1a: Groudon|Precipice Blades|p2a: Cobalion
-|-supereffective|p2a: Cobalion
-|-damage|p2a: Cobalion|0 fnt
-|faint|p2a: Cobalion
+|switch|p1a: Zacian|Zacian-Crowned|357/357
+|-ability|p1a: Zacian|Intrepid Sword|boost
+|-boost|p1a: Zacian|atk|1
+|switch|p2a: Rotom|Rotom-Wash|100/100
+|
+|-weather|SunnyDay|[upkeep]
+|upkeep
+|turn|3
+|
+|move|p1a: Zacian|Play Rough|p2a: Rotom
+|-damage|p2a: Rotom|17/100
+|move|p2a: Rotom|Thunder Wave|p1a: Zacian
+|-status|p1a: Zacian|par
+|
+|-weather|SunnyDay|[upkeep]
+|-heal|p2a: Rotom|23/100|[from] item: Leftovers
+|upkeep
+|turn|4
+|
+|switch|p2a: Cobalion|Cobalion|100/100
+|move|p1a: Zacian|Play Rough|p2a: Cobalion
+|-damage|p2a: Cobalion|44/100
+|-damage|p1a: Zacian|298/357 par|[from] item: Rocky Helmet|[of] p2a: Cobalion
+|
+|-weather|SunnyDay|[upkeep]
+|upkeep
+|turn|5
+|
+|switch|p2a: Rotom|Rotom-Wash|23/100
+|move|p1a: Zacian|Sacred Sword|p2a: Rotom
+|-damage|p2a: Rotom|0 fnt
+|faint|p2a: Rotom
 |
 |-weather|SunnyDay|[upkeep]
 |upkeep
 |
 |switch|p2a: Clodsire|Clodsire, M|100/100
-|turn|3
+|turn|6
 |
-|move|p1a: Groudon|Precipice Blades|p2a: Clodsire
-|-supereffective|p2a: Clodsire
-|-damage|p2a: Clodsire|0 fnt
-|faint|p2a: Clodsire
+|switch|p1a: Groudon|Groudon|341/341
+|move|p2a: Clodsire|Spikes|p1a: Groudon
+|-sidestart|p1: htho884|Spikes
 |
 |-weather|SunnyDay|[upkeep]
 |upkeep
+|turn|7
+|
+|switch|p1a: Giratina|Giratina-Origin|504/504
+|switch|p2a: Cobalion|Cobalion|44/100
+|
+|-weather|SunnyDay|[upkeep]
+|upkeep
+|turn|8
+|
+|move|p2a: Cobalion|Thunder Wave|p1a: Giratina
+|-status|p1a: Giratina|par
+|move|p1a: Giratina|Defog|p2a: Cobalion
+|-unboost|p2a: Cobalion|evasion|1
+|-sideend|p1: htho884|Spikes|[from] move: Defog|[of] p1a: Giratina
+|
+|-weather|none
+|upkeep
+|turn|9
+|
+|switch|p2a: Zarude|Zarude-Dada, tera:Fairy|100/100
+|move|p1a: Giratina|Poltergeist|p2a: Zarude
+|-activate|p2a: Zarude|move: Poltergeist|Heavy-Duty Boots
+|-damage|p2a: Zarude|39/100
+|
+|upkeep
+|turn|10
+|
+|switch|p2a: Cobalion|Cobalion|44/100
+|move|p1a: Giratina|Poltergeist|p2a: Cobalion
+|-activate|p2a: Cobalion|move: Poltergeist|Rocky Helmet
+|-damage|p2a: Cobalion|0 fnt
+|faint|p2a: Cobalion
+|
+|upkeep
 |
 |switch|p2a: Metagross|Metagross|100/100
-|turn|4
+|turn|11
 |
-|move|p1a: Groudon|Precipice Blades|p2a: Metagross
+|move|p2a: Metagross|Knock Off|p1a: Giratina
+|-supereffective|p1a: Giratina
+|-damage|p1a: Giratina|262/504 par
+|move|p1a: Giratina|Poltergeist|p2a: Metagross
+|-activate|p2a: Metagross|move: Poltergeist|Choice Band
 |-supereffective|p2a: Metagross
 |-damage|p2a: Metagross|0 fnt
 |faint|p2a: Metagross
 |
-|-weather|SunnyDay|[upkeep]
 |upkeep
 |
-|switch|p2a: Rotom|Rotom-Wash|100/100
-|turn|5
-|
-|move|p1a: Groudon|Precipice Blades|p2a: Rotom
-|-immune|p2a: Rotom|[from] ability: Levitate
-|move|p2a: Rotom|Hydro Pump|p1a: Groudon
-|-supereffective|p1a: Groudon
-|-damage|p1a: Groudon|5/341
-|
-|-weather|SunnyDay|[upkeep]
-|upkeep
-|turn|6
-|
-|move|p1a: Groudon|Precipice Blades|p2a: Rotom
-|-immune|p2a: Rotom|[from] ability: Levitate
-|move|p2a: Rotom|Hydro Pump|p1a: Groudon
-|-supereffective|p1a: Groudon
-|-damage|p1a: Groudon|0 fnt
-|faint|p1a: Groudon
-|
-|-weather|SunnyDay|[upkeep]
-|upkeep
-|
-|switch|p1a: Dialga|Dialga-Origin|341/341
-|-ability|p1a: Dialga|Pressure
-|turn|7
-|
-|move|p2a: Rotom|Hydro Pump|p1a: Dialga
-|-resisted|p1a: Dialga
-|-damage|p1a: Dialga|317/341
-|move|p1a: Dialga|Roar of Time|p2a: Rotom
-|-damage|p2a: Rotom|18/100
-|-mustrecharge|p1a: Dialga
-|
-|-weather|SunnyDay|[upkeep]
-|-heal|p2a: Rotom|24/100|[from] item: Leftovers
-|upkeep
-|turn|8
-|
-|move|p2a: Rotom|Hydro Pump|p1a: Dialga|[miss]
-|-miss|p2a: Rotom|p1a: Dialga
-|cant|p1a: Dialga|recharge
-|
-|-weather|none
-|-heal|p2a: Rotom|30/100|[from] item: Leftovers
-|upkeep
-|turn|9
-|
-|move|p2a: Rotom|Hydro Pump|p1a: Dialga
-|-resisted|p1a: Dialga
-|-damage|p1a: Dialga|272/341
-|move|p1a: Dialga|Roar of Time|p2a: Rotom
-|-damage|p2a: Rotom|0 fnt
-|-mustrecharge|p1a: Dialga
-|faint|p2a: Rotom
-|
-|upkeep
-|
-|switch|p2a: Zarude|Zarude-Dada|100/100
-|turn|10
-|
-|move|p2a: Zarude|Power Whip|p1a: Dialga|[miss]
-|-miss|p2a: Zarude|p1a: Dialga
-|cant|p1a: Dialga|recharge
-|
-|upkeep
-|turn|11
-|
-|move|p2a: Zarude|Power Whip|p1a: Dialga|[miss]
-|-miss|p2a: Zarude|p1a: Dialga
-|move|p1a: Dialga|Flash Cannon|p2a: Zarude
-|-damage|p2a: Zarude|56/100
-|
-|upkeep
+|switch|p2a: Clodsire|Clodsire, M|100/100
 |turn|12
 |
-|move|p2a: Zarude|Power Whip|p1a: Dialga
-|-resisted|p1a: Dialga
-|-damage|p1a: Dialga|241/341
-|move|p1a: Dialga|Flash Cannon|p2a: Zarude
-|-damage|p2a: Zarude|6/100
+|move|p1a: Giratina|Poltergeist|p2a: Clodsire
+|-activate|p2a: Clodsire|move: Poltergeist|Heavy-Duty Boots
+|-damage|p2a: Clodsire|34/100
+|move|p2a: Clodsire|Earthquake|p1a: Giratina
+|-immune|p1a: Giratina|[from] ability: Levitate
 |
 |upkeep
 |turn|13
 |
-|move|p2a: Zarude|Power Whip|p1a: Dialga
-|-resisted|p1a: Dialga
-|-damage|p1a: Dialga|210/341
-|move|p1a: Dialga|Flash Cannon|p2a: Zarude
+|move|p1a: Giratina|Poltergeist|p2a: Clodsire
+|-activate|p2a: Clodsire|move: Poltergeist|Heavy-Duty Boots
+|-damage|p2a: Clodsire|0 fnt
+|faint|p2a: Clodsire
+|
+|upkeep
+|
+|switch|p2a: Zarude|Zarude-Dada, tera:Fairy|39/100
+|turn|14
+|
+|move|p2a: Zarude|Swords Dance|p2a: Zarude
+|-boost|p2a: Zarude|atk|2
+|move|p1a: Giratina|Poltergeist|p2a: Zarude
+|-activate|p2a: Zarude|move: Poltergeist|Heavy-Duty Boots
 |-damage|p2a: Zarude|0 fnt
 |faint|p2a: Zarude
 |
 |upkeep
 |
 |switch|p2a: Tornadus|Tornadus-Therian, M|100/100
-|turn|14
-|
-|move|p2a: Tornadus|Focus Blast|p1a: Dialga
-|-supereffective|p1a: Dialga
-|-damage|p1a: Dialga|64/341
-|move|p1a: Dialga|Flash Cannon|p2a: Tornadus
-|-damage|p2a: Tornadus|53/100
-|
-|upkeep
 |turn|15
 |
-|move|p2a: Tornadus|Focus Blast|p1a: Dialga
-|-supereffective|p1a: Dialga
-|-damage|p1a: Dialga|0 fnt
-|faint|p1a: Dialga
+|move|p2a: Tornadus|Focus Blast|p1a: Giratina
+|-immune|p1a: Giratina
+|move|p1a: Giratina|Poltergeist|p2a: Tornadus
+|-activate|p2a: Tornadus|move: Poltergeist|Heavy-Duty Boots
+|-damage|p2a: Tornadus|9/100
 |
 |upkeep
-|
-|switch|p1a: Zacian|Zacian-Crowned|360/360
-|-ability|p1a: Zacian|Intrepid Sword|boost
-|-boost|p1a: Zacian|atk|1
 |turn|16
 |
-|move|p1a: Zacian|Behemoth Blade|p2a: Tornadus
+|move|p2a: Tornadus|Hurricane|p1a: Giratina
+|-damage|p1a: Giratina|120/504 par
+|-start|p1a: Giratina|confusion
+|-activate|p1a: Giratina|confusion
+|move|p1a: Giratina|Poltergeist|p2a: Tornadus|[miss]
+|-miss|p1a: Giratina|p2a: Tornadus
+|
+|upkeep
+|turn|17
+|
+|move|p2a: Tornadus|U-turn|p1a: Giratina
+|-resisted|p1a: Giratina
+|-damage|p1a: Giratina|97/504 par
+|-end|p1a: Giratina|confusion
+|move|p1a: Giratina|Dragon Tail|p2a: Tornadus
 |-damage|p2a: Tornadus|0 fnt
 |faint|p2a: Tornadus
 |

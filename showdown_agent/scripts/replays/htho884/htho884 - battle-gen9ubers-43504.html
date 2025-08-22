@@ -244,8 +244,8 @@
 |j|☆htho884
 |j|☆random-ru
 |gametype|singles
-|player|p1|htho884|266|
-|player|p2|random-ru|266|
+|player|p1|htho884|101|
+|player|p2|random-ru|1|
 |gen|9
 |tier|[Gen 9] Ubers
 |rule|HP Percentage Mod: HP is shown in percentages
@@ -256,16 +256,16 @@
 |rule|Evasion Items Clause: Evasion items are banned
 |rule|Evasion Moves Clause: Evasion moves are banned
 |clearpoke
-|poke|p1|Groudon|
+|poke|p1|Ting-Lu|
+|poke|p1|Koraidon|
 |poke|p1|Flutter Mane|
-|poke|p1|Arceus-Fairy|
-|poke|p1|Dialga-Origin|
+|poke|p1|Arceus-Water|
 |poke|p1|Zacian-*|
-|poke|p1|Hoopa-Unbound|
+|poke|p1|Giratina-Origin|
 |poke|p2|Rotom-Heat|
-|poke|p2|Krookodile, M|
+|poke|p2|Krookodile, F|
 |poke|p2|Slowbro, M|
-|poke|p2|Cyclizar, M|
+|poke|p2|Cyclizar, F|
 |poke|p2|Jirachi|
 |poke|p2|Zapdos-Galar|
 |teampreview
@@ -273,270 +273,234 @@
 |teamsize|p1|6
 |teamsize|p2|6
 |start
-|switch|p1a: Groudon|Groudon|341/341
-|switch|p2a: Slowbro|Slowbro, M|100/100
-|-weather|SunnyDay|[from] ability: Drought|[of] p1a: Groudon
+|switch|p1a: Ting-Lu|Ting-Lu|514/514
+|switch|p2a: Cyclizar|Cyclizar, F|100/100
+|-ability|p1a: Ting-Lu|Vessel of Ruin
 |turn|1
 |
-|move|p1a: Groudon|Precipice Blades|p2a: Slowbro|[miss]
-|-miss|p1a: Groudon|p2a: Slowbro
-|move|p2a: Slowbro|Thunder Wave|p1a: Groudon
-|-immune|p1a: Groudon
+|switch|p2a: Zapdos|Zapdos-Galar|100/100
+|switch|p1a: Flutter Mane|Flutter Mane|251/251
 |
-|-weather|SunnyDay|[upkeep]
 |upkeep
 |turn|2
 |
-|move|p1a: Groudon|Precipice Blades|p2a: Slowbro
-|-damage|p2a: Slowbro|61/100
-|move|p2a: Slowbro|Thunder Wave|p1a: Groudon
-|-immune|p1a: Groudon
-|
-|-weather|SunnyDay|[upkeep]
-|upkeep
-|turn|3
-|
-|switch|p2a: Cyclizar|Cyclizar, M|100/100
-|move|p1a: Groudon|Precipice Blades|p2a: Cyclizar|[miss]
-|-miss|p1a: Groudon|p2a: Cyclizar
-|
-|-weather|SunnyDay|[upkeep]
-|upkeep
-|turn|4
-|
-|switch|p2a: Jirachi|Jirachi|100/100
-|move|p1a: Groudon|Precipice Blades|p2a: Jirachi
-|-supereffective|p2a: Jirachi
-|-damage|p2a: Jirachi|0 fnt
-|faint|p2a: Jirachi
-|
-|-weather|SunnyDay|[upkeep]
-|upkeep
-|
-|switch|p2a: Cyclizar|Cyclizar, M|100/100
-|turn|5
-|
-|move|p2a: Cyclizar|Knock Off|p1a: Groudon
-|-crit|p1a: Groudon
-|-damage|p1a: Groudon|263/341
-|-enditem|p1a: Groudon|Heat Rock|[from] move: Knock Off|[of] p2a: Cyclizar
-|move|p1a: Groudon|Precipice Blades|p2a: Cyclizar
-|-damage|p2a: Cyclizar|5/100
-|
-|-weather|SunnyDay|[upkeep]
-|upkeep
-|turn|6
-|
-|-terastallize|p2a: Cyclizar|Poison
-|move|p2a: Cyclizar|U-turn|p1a: Groudon
-|-damage|p1a: Groudon|224/341
-|
-|switch|p2a: Rotom|Rotom-Heat|100/100|[from] U-turn
-|move|p1a: Groudon|Precipice Blades|p2a: Rotom
-|-immune|p2a: Rotom|[from] ability: Levitate
-|
-|-weather|SunnyDay|[upkeep]
-|upkeep
-|turn|7
-|
-|switch|p2a: Krookodile|Krookodile, M|100/100
-|-ability|p2a: Krookodile|Intimidate|boost
-|-unboost|p1a: Groudon|atk|1
-|move|p1a: Groudon|Precipice Blades|p2a: Krookodile
-|-damage|p2a: Krookodile|50/100
-|
-|-weather|SunnyDay|[upkeep]
-|-heal|p2a: Krookodile|56/100|[from] item: Leftovers
-|upkeep
-|turn|8
-|
-|move|p1a: Groudon|Precipice Blades|p2a: Krookodile
-|-damage|p2a: Krookodile|0 fnt
-|faint|p2a: Krookodile
-|
-|-weather|none
-|upkeep
-|
-|switch|p2a: Slowbro|Slowbro, M|94/100
-|turn|9
-|
-|switch|p2a: Zapdos|Zapdos-Galar|100/100
-|move|p1a: Groudon|Precipice Blades|p2a: Zapdos
-|-immune|p2a: Zapdos
-|
-|upkeep
-|turn|10
-|
-|move|p2a: Zapdos|U-turn|p1a: Groudon
-|-damage|p1a: Groudon|165/341
-|
-|switch|p2a: Slowbro|Slowbro, M|100/100|[from] U-turn
-|move|p1a: Groudon|Stealth Rock|p2a: Slowbro
-|-sidestart|p2: random-ru|move: Stealth Rock
-|
-|upkeep
-|turn|11
-|
-|switch|p2a: Cyclizar|Cyclizar, M, tera:Poison|38/100
-|-damage|p2a: Cyclizar|26/100|[from] Stealth Rock
-|move|p1a: Groudon|Precipice Blades|p2a: Cyclizar
-|-supereffective|p2a: Cyclizar
-|-damage|p2a: Cyclizar|0 fnt
-|faint|p2a: Cyclizar
-|
-|upkeep
-|
-|switch|p2a: Zapdos|Zapdos-Galar|100/100
-|-damage|p2a: Zapdos|88/100|[from] Stealth Rock
-|turn|12
-|
-|move|p2a: Zapdos|Knock Off|p1a: Groudon
-|-damage|p1a: Groudon|109/341
-|move|p1a: Groudon|Stealth Rock||[still]
-|-fail|p1a: Groudon
-|
-|upkeep
-|turn|13
-|
-|switch|p2a: Slowbro|Slowbro, M|100/100
-|-damage|p2a: Slowbro|88/100|[from] Stealth Rock
-|move|p1a: Groudon|Stealth Rock||[still]
-|-fail|p1a: Groudon
-|
-|upkeep
-|turn|14
-|
-|move|p1a: Groudon|Precipice Blades|p2a: Slowbro|[miss]
-|-miss|p1a: Groudon|p2a: Slowbro
-|move|p2a: Slowbro|Slack Off|p2a: Slowbro
-|-heal|p2a: Slowbro|100/100
-|
-|upkeep
-|turn|15
-|
-|switch|p2a: Zapdos|Zapdos-Galar|88/100
-|-damage|p2a: Zapdos|76/100|[from] Stealth Rock
-|move|p1a: Groudon|Precipice Blades|p2a: Zapdos
-|-immune|p2a: Zapdos
-|
-|upkeep
-|turn|16
-|
-|switch|p2a: Slowbro|Slowbro, M|100/100
-|-damage|p2a: Slowbro|88/100|[from] Stealth Rock
-|move|p1a: Groudon|Stealth Rock||[still]
-|-fail|p1a: Groudon
-|
-|upkeep
-|turn|17
-|
-|move|p1a: Groudon|Precipice Blades|p2a: Slowbro
-|-damage|p2a: Slowbro|63/100
-|move|p2a: Slowbro|Thunder Wave|p1a: Groudon
-|-immune|p1a: Groudon
-|
-|upkeep
-|turn|18
-|
-|move|p1a: Groudon|Precipice Blades|p2a: Slowbro
-|-damage|p2a: Slowbro|34/100
-|move|p2a: Slowbro|Thunder Wave|p1a: Groudon
-|-immune|p1a: Groudon
-|
-|upkeep
-|turn|19
-|
-|move|p1a: Groudon|Precipice Blades|p2a: Slowbro
-|-damage|p2a: Slowbro|9/100
-|move|p2a: Slowbro|Slack Off|p2a: Slowbro
-|-heal|p2a: Slowbro|59/100
-|
-|upkeep
-|turn|20
-|
-|move|p1a: Groudon|Precipice Blades|p2a: Slowbro
-|-damage|p2a: Slowbro|33/100
-|move|p2a: Slowbro|Thunder Wave|p1a: Groudon
-|-immune|p1a: Groudon
-|
-|upkeep
-|turn|21
-|
-|switch|p1a: Flutter Mane|Flutter Mane|251/251
-|move|p2a: Slowbro|Thunder Wave|p1a: Flutter Mane|[miss]
-|-miss|p2a: Slowbro|p1a: Flutter Mane
-|
-|upkeep
-|turn|22
-|
-|move|p1a: Flutter Mane|Moonblast|p2a: Slowbro
-|-damage|p2a: Slowbro|0 fnt
-|faint|p2a: Slowbro
+|move|p2a: Zapdos|Close Combat|p1a: Flutter Mane
+|-immune|p1a: Flutter Mane
+|move|p1a: Flutter Mane|Moonblast|p2a: Zapdos
+|-supereffective|p2a: Zapdos
+|-crit|p2a: Zapdos
+|-damage|p2a: Zapdos|0 fnt
+|faint|p2a: Zapdos
 |-damage|p1a: Flutter Mane|226/251|[from] item: Life Orb
 |
 |upkeep
 |
-|switch|p2a: Zapdos|Zapdos-Galar|76/100
-|-damage|p2a: Zapdos|63/100|[from] Stealth Rock
-|turn|23
+|switch|p2a: Cyclizar|Cyclizar, F|100/100
+|turn|3
+|
+|-terastallize|p2a: Cyclizar|Poison
+|move|p1a: Flutter Mane|Moonblast|p2a: Cyclizar
+|-resisted|p2a: Cyclizar
+|-damage|p2a: Cyclizar|72/100
+|-damage|p1a: Flutter Mane|201/251|[from] item: Life Orb
+|move|p2a: Cyclizar|U-turn|p1a: Flutter Mane
+|-resisted|p1a: Flutter Mane
+|-damage|p1a: Flutter Mane|180/251
+|
+|switch|p2a: Krookodile|Krookodile, F|100/100|[from] U-turn
+|-ability|p2a: Krookodile|Intimidate|boost
+|-unboost|p1a: Flutter Mane|atk|1
+|
+|upkeep
+|turn|4
+|
+|move|p1a: Flutter Mane|Moonblast|p2a: Krookodile
+|-supereffective|p2a: Krookodile
+|-damage|p2a: Krookodile|0 fnt
+|faint|p2a: Krookodile
+|-damage|p1a: Flutter Mane|155/251|[from] item: Life Orb
+|
+|upkeep
 |
 |switch|p2a: Rotom|Rotom-Heat|100/100
-|move|p1a: Flutter Mane|Moonblast|p2a: Rotom
-|-resisted|p2a: Rotom
-|-damage|p2a: Rotom|64/100
-|-unboost|p2a: Rotom|spa|1
-|-damage|p1a: Flutter Mane|201/251|[from] item: Life Orb
+|turn|5
+|
+|move|p1a: Flutter Mane|Power Gem|p2a: Rotom
+|-supereffective|p2a: Rotom
+|-damage|p2a: Rotom|15/100
+|-damage|p1a: Flutter Mane|130/251|[from] item: Life Orb
+|move|p2a: Rotom|Overheat|p1a: Flutter Mane
+|-damage|p1a: Flutter Mane|6/251
+|-unboost|p2a: Rotom|spa|2
 |
 |upkeep
-|turn|24
+|turn|6
 |
 |move|p1a: Flutter Mane|Shadow Ball|p2a: Rotom
-|-damage|p2a: Rotom|3/100
-|-damage|p1a: Flutter Mane|176/251|[from] item: Life Orb
-|move|p2a: Rotom|Volt Switch|p1a: Flutter Mane
-|-damage|p1a: Flutter Mane|130/251
-|
-|switch|p2a: Zapdos|Zapdos-Galar|63/100|[from] Volt Switch
-|-damage|p2a: Zapdos|51/100|[from] Stealth Rock
-|
-|upkeep
-|turn|25
-|
-|move|p2a: Zapdos|U-turn|p1a: Flutter Mane
-|-resisted|p1a: Flutter Mane
-|-damage|p1a: Flutter Mane|97/251
-|
-|switch|p2a: Rotom|Rotom-Heat|3/100|[from] U-turn
-|move|p1a: Flutter Mane|Moonblast|p2a: Rotom
-|-resisted|p2a: Rotom
 |-damage|p2a: Rotom|0 fnt
 |faint|p2a: Rotom
-|-damage|p1a: Flutter Mane|72/251|[from] item: Life Orb
-|
-|upkeep
-|
-|switch|p2a: Zapdos|Zapdos-Galar|51/100
-|-damage|p2a: Zapdos|38/100|[from] Stealth Rock
-|turn|26
-|
-|move|p2a: Zapdos|Brave Bird|p1a: Flutter Mane
-|-damage|p1a: Flutter Mane|0 fnt
+|-damage|p1a: Flutter Mane|0 fnt|[from] item: Life Orb
 |faint|p1a: Flutter Mane
 |-end|p1a: Flutter Mane|Protosynthesis|[silent]
-|-damage|p2a: Zapdos|31/100|[from] Recoil
 |
 |upkeep
 |
-|switch|p1a: Arceus|Arceus-Fairy|381/381
-|turn|27
+|switch|p1a: Ting-Lu|Ting-Lu|514/514
+|switch|p2a: Jirachi|Jirachi|100/100
+|-ability|p1a: Ting-Lu|Vessel of Ruin
+|turn|7
 |
-|move|p2a: Zapdos|Brave Bird|p1a: Arceus
-|-damage|p1a: Arceus|209/381
-|-damage|p2a: Zapdos|13/100|[from] Recoil
-|move|p1a: Arceus|Judgment|p2a: Zapdos
-|-supereffective|p2a: Zapdos
-|-damage|p2a: Zapdos|0 fnt
-|faint|p2a: Zapdos
+|switch|p2a: Cyclizar|Cyclizar, F, tera:Poison|100/100
+|move|p1a: Ting-Lu|Earthquake|p2a: Cyclizar
+|-supereffective|p2a: Cyclizar
+|-damage|p2a: Cyclizar|1/100
+|
+|upkeep
+|turn|8
+|
+|move|p2a: Cyclizar|Double-Edge|p1a: Ting-Lu
+|-damage|p1a: Ting-Lu|394/514
+|-damage|p2a: Cyclizar|0 fnt|[from] Recoil
+|faint|p2a: Cyclizar
+|move|p1a: Ting-Lu|Earthquake|p2: Cyclizar|[notarget]
+|-fail|p1a: Ting-Lu
+|
+|-heal|p1a: Ting-Lu|426/514|[from] item: Leftovers
+|upkeep
+|
+|switch|p2a: Slowbro|Slowbro, M|100/100
+|turn|9
+|
+|switch|p1a: Giratina|Giratina-Origin|504/504
+|move|p2a: Slowbro|Slack Off||[still]
+|-fail|p2a: Slowbro|heal
+|
+|upkeep
+|turn|10
+|
+|switch|p2a: Jirachi|Jirachi|100/100
+|move|p1a: Giratina|Shadow Sneak|p2a: Jirachi
+|-supereffective|p2a: Jirachi
+|-damage|p2a: Jirachi|61/100
+|
+|-heal|p2a: Jirachi|67/100|[from] item: Leftovers
+|upkeep
+|turn|11
+|
+|switch|p2a: Slowbro|Slowbro, M|100/100
+|move|p1a: Giratina|Shadow Sneak|p2a: Slowbro
+|-supereffective|p2a: Slowbro
+|-damage|p2a: Slowbro|76/100
+|-damage|p1a: Giratina|420/504|[from] item: Rocky Helmet|[of] p2a: Slowbro
+|
+|upkeep
+|turn|12
+|
+|switch|p2a: Jirachi|Jirachi|67/100
+|move|p1a: Giratina|Shadow Sneak|p2a: Jirachi
+|-supereffective|p2a: Jirachi
+|-damage|p2a: Jirachi|27/100
+|
+|-heal|p2a: Jirachi|33/100|[from] item: Leftovers
+|upkeep
+|turn|13
+|
+|move|p1a: Giratina|Shadow Sneak|p2a: Jirachi
+|-supereffective|p2a: Jirachi
+|-damage|p2a: Jirachi|0 fnt
+|faint|p2a: Jirachi
+|
+|upkeep
+|
+|switch|p2a: Slowbro|Slowbro, M|100/100
+|turn|14
+|
+|move|p1a: Giratina|Shadow Sneak|p2a: Slowbro
+|-supereffective|p2a: Slowbro
+|-damage|p2a: Slowbro|77/100
+|-damage|p1a: Giratina|336/504|[from] item: Rocky Helmet|[of] p2a: Slowbro
+|move|p2a: Slowbro|Scald|p1a: Giratina
+|-resisted|p1a: Giratina
+|-damage|p1a: Giratina|288/504
+|
+|upkeep
+|turn|15
+|
+|move|p1a: Giratina|Shadow Sneak|p2a: Slowbro
+|-supereffective|p2a: Slowbro
+|-damage|p2a: Slowbro|54/100
+|-damage|p1a: Giratina|204/504|[from] item: Rocky Helmet|[of] p2a: Slowbro
+|move|p2a: Slowbro|Scald|p1a: Giratina
+|-resisted|p1a: Giratina
+|-damage|p1a: Giratina|159/504
+|
+|upkeep
+|turn|16
+|
+|move|p1a: Giratina|Shadow Sneak|p2a: Slowbro
+|-supereffective|p2a: Slowbro
+|-damage|p2a: Slowbro|32/100
+|-damage|p1a: Giratina|75/504|[from] item: Rocky Helmet|[of] p2a: Slowbro
+|move|p2a: Slowbro|Scald|p1a: Giratina
+|-resisted|p1a: Giratina
+|-damage|p1a: Giratina|27/504
+|
+|upkeep
+|turn|17
+|
+|move|p1a: Giratina|Shadow Sneak|p2a: Slowbro
+|-supereffective|p2a: Slowbro
+|-damage|p2a: Slowbro|7/100
+|-damage|p1a: Giratina|0 fnt|[from] item: Rocky Helmet|[of] p2a: Slowbro
+|faint|p1a: Giratina
+|move|p2a: Slowbro|Slack Off|p2a: Slowbro
+|-heal|p2a: Slowbro|57/100
+|
+|upkeep
+|
+|switch|p1a: Ting-Lu|Ting-Lu|426/514
+|-ability|p1a: Ting-Lu|Vessel of Ruin
+|turn|18
+|
+|move|p1a: Ting-Lu|Earthquake|p2a: Slowbro
+|-damage|p2a: Slowbro|33/100
+|move|p2a: Slowbro|Thunder Wave|p1a: Ting-Lu
+|-immune|p1a: Ting-Lu
+|
+|-heal|p1a: Ting-Lu|458/514|[from] item: Leftovers
+|upkeep
+|turn|19
+|
+|move|p1a: Ting-Lu|Earthquake|p2a: Slowbro
+|-crit|p2a: Slowbro
+|-damage|p2a: Slowbro|2/100
+|move|p2a: Slowbro|Slack Off|p2a: Slowbro
+|-heal|p2a: Slowbro|52/100
+|
+|-heal|p1a: Ting-Lu|490/514|[from] item: Leftovers
+|upkeep
+|turn|20
+|
+|move|p1a: Ting-Lu|Earthquake|p2a: Slowbro
+|-damage|p2a: Slowbro|31/100
+|move|p2a: Slowbro|Future Sight|p1a: Ting-Lu
+|-start|p2a: Slowbro|move: Future Sight
+|
+|-heal|p1a: Ting-Lu|514/514|[from] item: Leftovers
+|upkeep
+|turn|21
+|
+|move|p1a: Ting-Lu|Earthquake|p2a: Slowbro
+|-damage|p2a: Slowbro|8/100
+|move|p2a: Slowbro|Thunder Wave|p1a: Ting-Lu
+|-immune|p1a: Ting-Lu
+|
+|upkeep
+|turn|22
+|
+|move|p1a: Ting-Lu|Earthquake|p2a: Slowbro
+|-damage|p2a: Slowbro|0 fnt
+|faint|p2a: Slowbro
 |
     </script>
 </div>

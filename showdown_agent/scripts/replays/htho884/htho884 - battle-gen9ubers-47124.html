@@ -256,12 +256,12 @@
 |rule|Evasion Items Clause: Evasion items are banned
 |rule|Evasion Moves Clause: Evasion moves are banned
 |clearpoke
-|poke|p1|Groudon|
+|poke|p1|Ting-Lu|
+|poke|p1|Koraidon|
 |poke|p1|Flutter Mane|
 |poke|p1|Arceus-Fairy|
-|poke|p1|Dialga-Origin|
 |poke|p1|Zacian-*|
-|poke|p1|Hoopa-Unbound|
+|poke|p1|Kyurem|
 |poke|p2|Tornadus-Therian, M|
 |poke|p2|Clodsire, F|
 |poke|p2|Metagross|
@@ -273,64 +273,123 @@
 |teamsize|p1|6
 |teamsize|p2|6
 |start
-|switch|p1a: Groudon|Groudon|341/341
-|switch|p2a: Cobalion|Cobalion|100/100
-|-weather|SunnyDay|[from] ability: Drought|[of] p1a: Groudon
+|switch|p1a: Ting-Lu|Ting-Lu|514/514
+|switch|p2a: Rotom|Rotom-Wash|100/100
+|-ability|p1a: Ting-Lu|Vessel of Ruin
 |turn|1
 |
-|move|p2a: Cobalion|Body Press|p1a: Groudon
-|-damage|p1a: Groudon|241/341
-|move|p1a: Groudon|Precipice Blades|p2a: Cobalion|[miss]
-|-miss|p1a: Groudon|p2a: Cobalion
+|switch|p1a: Koraidon|Koraidon|341/341
+|-weather|SunnyDay|[from] ability: Orichalcum Pulse|[of] p1a: Koraidon
+|-activate|p1a: Koraidon|Orichalcum Pulse|[source]
+|move|p2a: Rotom|Hydro Pump|p1a: Koraidon
+|-resisted|p1a: Koraidon
+|-damage|p1a: Koraidon|308/341
 |
 |-weather|SunnyDay|[upkeep]
 |upkeep
 |turn|2
 |
-|move|p2a: Cobalion|Body Press|p1a: Groudon
-|-damage|p1a: Groudon|138/341
-|move|p1a: Groudon|Precipice Blades|p2a: Cobalion
-|-supereffective|p2a: Cobalion
-|-damage|p2a: Cobalion|6/100
+|move|p1a: Koraidon|Collision Course|p2a: Rotom
+|-damage|p2a: Rotom|0 fnt
+|faint|p2a: Rotom
+|-damage|p1a: Koraidon|274/341|[from] item: Life Orb
 |
 |-weather|SunnyDay|[upkeep]
 |upkeep
+|
+|switch|p2a: Tornadus|Tornadus-Therian, M|100/100
 |turn|3
 |
-|move|p2a: Cobalion|Body Press|p1a: Groudon
-|-damage|p1a: Groudon|36/341
-|move|p1a: Groudon|Precipice Blades|p2a: Cobalion
-|-supereffective|p2a: Cobalion
-|-damage|p2a: Cobalion|0 fnt
-|faint|p2a: Cobalion
+|switch|p1a: Kyurem|Kyurem|391/391
+|-ability|p1a: Kyurem|Pressure
+|move|p2a: Tornadus|Hurricane|p1a: Kyurem
+|-damage|p1a: Kyurem|210/391
 |
 |-weather|SunnyDay|[upkeep]
+|-heal|p1a: Kyurem|234/391|[from] item: Leftovers
+|upkeep
+|turn|4
+|
+|move|p2a: Tornadus|Focus Blast|p1a: Kyurem
+|-supereffective|p1a: Kyurem
+|-damage|p1a: Kyurem|8/391
+|move|p1a: Kyurem|Ice Beam|p2a: Tornadus
+|-supereffective|p2a: Tornadus
+|-damage|p2a: Tornadus|0 fnt
+|faint|p2a: Tornadus
+|
+|-weather|SunnyDay|[upkeep]
+|-heal|p1a: Kyurem|32/391|[from] item: Leftovers
+|upkeep
+|
+|switch|p2a: Cobalion|Cobalion|100/100
+|turn|5
+|
+|switch|p1a: Koraidon|Koraidon|274/341
+|-activate|p1a: Koraidon|ability: Orichalcum Pulse
+|move|p2a: Cobalion|Body Press|p1a: Koraidon
+|-damage|p1a: Koraidon|160/341
+|
+|-weather|none
+|upkeep
+|turn|6
+|
+|move|p1a: Koraidon|Collision Course|p2a: Cobalion
+|-supereffective|p2a: Cobalion
+|-damage|p2a: Cobalion|0 fnt
+|-damage|p1a: Koraidon|104/341|[from] item: Rocky Helmet|[of] p2a: Cobalion
+|faint|p2a: Cobalion
+|-damage|p1a: Koraidon|70/341|[from] item: Life Orb
+|
+|upkeep
+|
+|switch|p2a: Metagross|Metagross|100/100
+|turn|7
+|
+|switch|p1a: Ting-Lu|Ting-Lu|514/514
+|-ability|p1a: Ting-Lu|Vessel of Ruin
+|move|p2a: Metagross|Psychic Fangs|p1a: Ting-Lu
+|-immune|p1a: Ting-Lu
+|
+|upkeep
+|turn|8
+|
+|move|p2a: Metagross|Psychic Fangs|p1a: Ting-Lu
+|-immune|p1a: Ting-Lu
+|move|p1a: Ting-Lu|Earthquake|p2a: Metagross
+|-supereffective|p2a: Metagross
+|-damage|p2a: Metagross|32/100
+|
+|upkeep
+|turn|9
+|
+|move|p2a: Metagross|Psychic Fangs|p1a: Ting-Lu
+|-immune|p1a: Ting-Lu
+|move|p1a: Ting-Lu|Earthquake|p2a: Metagross
+|-supereffective|p2a: Metagross
+|-damage|p2a: Metagross|0 fnt
+|faint|p2a: Metagross
+|
 |upkeep
 |
 |switch|p2a: Zarude|Zarude-Dada|100/100
-|turn|4
+|turn|10
 |
-|switch|p1a: Zacian|Zacian-Crowned|360/360
+|switch|p1a: Koraidon|Koraidon|70/341
+|-weather|SunnyDay|[from] ability: Orichalcum Pulse|[of] p1a: Koraidon
+|-activate|p1a: Koraidon|Orichalcum Pulse|[source]
+|move|p2a: Zarude|Power Whip|p1a: Koraidon
+|-resisted|p1a: Koraidon
+|-damage|p1a: Koraidon|0 fnt
+|faint|p1a: Koraidon
+|
+|-weather|SunnyDay|[upkeep]
+|upkeep
+|
+|switch|p1a: Zacian|Zacian-Crowned|357/357
 |-ability|p1a: Zacian|Intrepid Sword|boost
 |-boost|p1a: Zacian|atk|1
-|move|p2a: Zarude|Power Whip|p1a: Zacian
-|-resisted|p1a: Zacian
-|-damage|p1a: Zacian|276/360
-|
-|-weather|SunnyDay|[upkeep]
-|upkeep
-|turn|5
-|
-|move|p1a: Zacian|Sacred Sword|p2a: Zarude
-|-supereffective|p2a: Zarude
-|-damage|p2a: Zarude|10/100
-|move|p2a: Zarude|Power Whip|p1a: Zacian
-|-resisted|p1a: Zacian
-|-damage|p1a: Zacian|187/360
-|
-|-weather|SunnyDay|[upkeep]
-|upkeep
-|turn|6
+|turn|11
 |
 |move|p1a: Zacian|Sacred Sword|p2a: Zarude
 |-supereffective|p2a: Zarude
@@ -341,124 +400,32 @@
 |upkeep
 |
 |switch|p2a: Clodsire|Clodsire, F|100/100
-|turn|7
-|
-|move|p1a: Zacian|Behemoth Blade|p2a: Clodsire
-|-crit|p2a: Clodsire
-|-damage|p2a: Clodsire|0 fnt
-|faint|p2a: Clodsire
-|
-|-weather|SunnyDay|[upkeep]
-|upkeep
-|
-|switch|p2a: Metagross|Metagross|100/100
-|turn|8
-|
-|move|p1a: Zacian|Sacred Sword|p2a: Metagross
-|-damage|p2a: Metagross|56/100
-|move|p2a: Metagross|Psychic Fangs|p1a: Zacian
-|-resisted|p1a: Zacian
-|-damage|p1a: Zacian|83/360
-|
-|-weather|none
-|upkeep
-|turn|9
-|
-|move|p1a: Zacian|Sacred Sword|p2a: Metagross
-|-damage|p2a: Metagross|12/100
-|move|p2a: Metagross|Psychic Fangs|p1a: Zacian
-|-resisted|p1a: Zacian
-|-damage|p1a: Zacian|0 fnt
-|faint|p1a: Zacian
-|
-|upkeep
-|
-|switch|p1a: Groudon|Groudon|36/341
-|-weather|SunnyDay|[from] ability: Drought|[of] p1a: Groudon
-|turn|10
-|
-|move|p1a: Groudon|Precipice Blades|p2a: Metagross
-|-supereffective|p2a: Metagross
-|-damage|p2a: Metagross|0 fnt
-|faint|p2a: Metagross
-|
-|-weather|SunnyDay|[upkeep]
-|upkeep
-|
-|switch|p2a: Tornadus|Tornadus-Therian, M|100/100
-|turn|11
-|
-|move|p2a: Tornadus|Hurricane|p1a: Groudon
-|-damage|p1a: Groudon|0 fnt
-|faint|p1a: Groudon
-|
-|-weather|SunnyDay|[upkeep]
-|upkeep
-|
-|switch|p1a: Dialga|Dialga-Origin|341/341
-|-ability|p1a: Dialga|Pressure
 |turn|12
 |
-|move|p2a: Tornadus|Focus Blast|p1a: Dialga
-|-supereffective|p1a: Dialga
-|-damage|p1a: Dialga|189/341
-|move|p1a: Dialga|Flash Cannon|p2a: Tornadus
-|-damage|p2a: Tornadus|53/100
+|switch|p1a: Ting-Lu|Ting-Lu|514/514
+|-ability|p1a: Ting-Lu|Vessel of Ruin
+|move|p2a: Clodsire|Spikes|p1a: Ting-Lu
+|-sidestart|p1: htho884|Spikes
 |
 |-weather|SunnyDay|[upkeep]
 |upkeep
 |turn|13
 |
-|move|p2a: Tornadus|Focus Blast|p1a: Dialga|[miss]
-|-miss|p2a: Tornadus|p1a: Dialga
-|move|p1a: Dialga|Flash Cannon|p2a: Tornadus
-|-damage|p2a: Tornadus|7/100
+|move|p1a: Ting-Lu|Earthquake|p2a: Clodsire
+|-supereffective|p2a: Clodsire
+|-damage|p2a: Clodsire|29/100
+|move|p2a: Clodsire|Earthquake|p1a: Ting-Lu
+|-damage|p1a: Ting-Lu|442/514
 |
 |-weather|SunnyDay|[upkeep]
+|-heal|p1a: Ting-Lu|474/514|[from] item: Leftovers
 |upkeep
 |turn|14
 |
-|move|p2a: Tornadus|Focus Blast|p1a: Dialga
-|-supereffective|p1a: Dialga
-|-damage|p1a: Dialga|23/341
-|move|p1a: Dialga|Flash Cannon|p2a: Tornadus
-|-damage|p2a: Tornadus|0 fnt
-|faint|p2a: Tornadus
-|
-|-weather|SunnyDay|[upkeep]
-|upkeep
-|
-|switch|p2a: Rotom|Rotom-Wash|100/100
-|turn|15
-|
-|move|p2a: Rotom|Hydro Pump|p1a: Dialga
-|-resisted|p1a: Dialga
-|-damage|p1a: Dialga|0 fnt
-|faint|p1a: Dialga
-|
-|-weather|SunnyDay|[upkeep]
-|upkeep
-|
-|switch|p1a: Flutter Mane|Flutter Mane|251/251
-|-activate|p1a: Flutter Mane|ability: Protosynthesis
-|-start|p1a: Flutter Mane|protosynthesisspe
-|turn|16
-|
-|move|p1a: Flutter Mane|Moonblast|p2a: Rotom
-|-damage|p2a: Rotom|38/100
-|-damage|p1a: Flutter Mane|226/251|[from] item: Life Orb
-|move|p2a: Rotom|Hydro Pump|p1a: Flutter Mane
-|-damage|p1a: Flutter Mane|177/251
-|
-|-weather|SunnyDay|[upkeep]
-|-heal|p2a: Rotom|44/100|[from] item: Leftovers
-|upkeep
-|turn|17
-|
-|move|p1a: Flutter Mane|Moonblast|p2a: Rotom
-|-damage|p2a: Rotom|0 fnt
-|faint|p2a: Rotom
-|-damage|p1a: Flutter Mane|152/251|[from] item: Life Orb
+|move|p1a: Ting-Lu|Earthquake|p2a: Clodsire
+|-supereffective|p2a: Clodsire
+|-damage|p2a: Clodsire|0 fnt
+|faint|p2a: Clodsire
 |
     </script>
 </div>

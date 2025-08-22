@@ -237,15 +237,15 @@
     <h1 style="font-weight:normal;text-align:center"><strong>poke-env battle replay</strong><br />battle-gen9ubers-44945<br /><a
             href="http://pokemonshowdown.com/users/randomplayer1" class="subtle" target="_blank">htho884</a>
         vs. <a href="http://pokemonshowdown.com/users/randomplayer2" class="subtle"
-            target="_blank">random-uber</a></h1>
+            target="_blank">random-ru</a></h1>
     <script type="text/plain" class="battle-log-data">
     >battle-gen9ubers-44945|init|battle
-|title|htho884 vs. random-uber
+|title|htho884 vs. random-ru
 |j|☆htho884
-|j|☆random-uber
+|j|☆random-ru
 |gametype|singles
 |player|p1|htho884|266|
-|player|p2|random-uber|101|
+|player|p2|random-ru|266|
 |gen|9
 |tier|[Gen 9] Ubers
 |rule|HP Percentage Mod: HP is shown in percentages
@@ -257,218 +257,299 @@
 |rule|Evasion Moves Clause: Evasion moves are banned
 |clearpoke
 |poke|p1|Groudon|
+|poke|p1|Koraidon|
 |poke|p1|Flutter Mane|
-|poke|p1|Arceus-Fairy|
-|poke|p1|Dialga-Origin|
+|poke|p1|Scizor, M|
 |poke|p1|Zacian-*|
-|poke|p1|Hoopa-Unbound|
-|poke|p2|Deoxys-Speed|
-|poke|p2|Kingambit, M|
-|poke|p2|Zacian-*|
-|poke|p2|Arceus-Fairy|
-|poke|p2|Eternatus|
-|poke|p2|Koraidon|
+|poke|p1|Giratina-Origin|
+|poke|p2|Rotom-Heat|
+|poke|p2|Krookodile, F|
+|poke|p2|Slowbro, M|
+|poke|p2|Cyclizar, F|
+|poke|p2|Jirachi|
+|poke|p2|Zapdos-Galar|
 |teampreview
 |
 |teamsize|p1|6
 |teamsize|p2|6
 |start
 |switch|p1a: Groudon|Groudon|341/341
-|switch|p2a: Kingambit|Kingambit, M|100/100
+|switch|p2a: Rotom|Rotom-Heat|100/100
 |-weather|SunnyDay|[from] ability: Drought|[of] p1a: Groudon
 |turn|1
 |
-|-end|p2a: Kingambit|fallenundefined|[silent]
-|switch|p2a: Arceus|Arceus-Fairy|100/100
-|move|p1a: Groudon|Precipice Blades|p2a: Arceus
-|-damage|p2a: Arceus|62/100
+|switch|p2a: Cyclizar|Cyclizar, F|100/100
+|move|p1a: Groudon|Stealth Rock|p2a: Cyclizar
+|-sidestart|p2: random-ru|move: Stealth Rock
 |
 |-weather|SunnyDay|[upkeep]
 |upkeep
 |turn|2
 |
-|move|p2a: Arceus|Judgment|p1a: Groudon
-|-damage|p1a: Groudon|176/341
-|move|p1a: Groudon|Precipice Blades|p2a: Arceus
-|-crit|p2a: Arceus
-|-damage|p2a: Arceus|6/100
+|switch|p1a: Flutter Mane|Flutter Mane|251/251
+|-activate|p1a: Flutter Mane|ability: Protosynthesis
+|-start|p1a: Flutter Mane|protosynthesisspe
+|move|p2a: Cyclizar|U-turn|p1a: Flutter Mane
+|-resisted|p1a: Flutter Mane
+|-damage|p1a: Flutter Mane|232/251
+|
+|switch|p2a: Jirachi|Jirachi|100/100|[from] U-turn
+|-damage|p2a: Jirachi|94/100|[from] Stealth Rock
 |
 |-weather|SunnyDay|[upkeep]
+|-heal|p2a: Jirachi|100/100|[from] item: Leftovers
 |upkeep
 |turn|3
 |
-|move|p2a: Arceus|Judgment|p1a: Groudon
-|-damage|p1a: Groudon|1/341
-|move|p1a: Groudon|Precipice Blades|p2a: Arceus|[miss]
-|-miss|p1a: Groudon|p2a: Arceus
+|-end|p1a: Flutter Mane|Protosynthesis|[silent]
+|switch|p1a: Groudon|Groudon|341/341
+|switch|p2a: Zapdos|Zapdos-Galar|100/100
+|-damage|p2a: Zapdos|88/100|[from] Stealth Rock
 |
 |-weather|SunnyDay|[upkeep]
 |upkeep
 |turn|4
 |
-|move|p2a: Arceus|Calm Mind|p2a: Arceus
-|-boost|p2a: Arceus|spa|1
-|-boost|p2a: Arceus|spd|1
-|move|p1a: Groudon|Precipice Blades|p2a: Arceus
-|-damage|p2a: Arceus|0 fnt
-|faint|p2a: Arceus
+|-terastallize|p2a: Zapdos|Flying
+|move|p2a: Zapdos|U-turn|p1a: Groudon
+|-damage|p1a: Groudon|275/341
+|
+|switch|p2a: Krookodile|Krookodile, F|100/100|[from] U-turn
+|-damage|p2a: Krookodile|94/100|[from] Stealth Rock
+|-ability|p2a: Krookodile|Intimidate|boost
+|-unboost|p1a: Groudon|atk|1
+|move|p1a: Groudon|Stealth Rock||[still]
+|-fail|p1a: Groudon
 |
 |-weather|SunnyDay|[upkeep]
+|-heal|p2a: Krookodile|100/100|[from] item: Leftovers
 |upkeep
-|
-|switch|p2a: Koraidon|Koraidon|100/100
-|-activate|p2a: Koraidon|ability: Orichalcum Pulse
 |turn|5
 |
-|switch|p2a: Eternatus|Eternatus|100/100
-|-ability|p2a: Eternatus|Pressure
-|move|p1a: Groudon|Precipice Blades|p2a: Eternatus
-|-supereffective|p2a: Eternatus
-|-damage|p2a: Eternatus|0 fnt
-|faint|p2a: Eternatus
+|move|p1a: Groudon|Earthquake|p2a: Krookodile
+|-damage|p2a: Krookodile|51/100
+|move|p2a: Krookodile|Stealth Rock|p1a: Groudon
+|-sidestart|p1: htho884|move: Stealth Rock
 |
 |-weather|SunnyDay|[upkeep]
+|-heal|p2a: Krookodile|58/100|[from] item: Leftovers
 |upkeep
-|
-|switch|p2a: Kingambit|Kingambit, M|100/100
-|-activate|p2a: Kingambit|ability: Supreme Overlord
-|-start|p2a: Kingambit|fallen2|[silent]
 |turn|6
 |
-|-terastallize|p2a: Kingambit|Dark
-|move|p1a: Groudon|Precipice Blades|p2a: Kingambit
-|-damage|p2a: Kingambit|40/100
-|move|p2a: Kingambit|Iron Head|p1a: Groudon
-|-damage|p1a: Groudon|0 fnt
-|faint|p1a: Groudon
+|switch|p2a: Rotom|Rotom-Heat|100/100
+|move|p1a: Groudon|Earthquake|p2a: Rotom
+|-immune|p2a: Rotom|[from] ability: Levitate
 |
 |-weather|SunnyDay|[upkeep]
 |upkeep
-|
-|switch|p1a: Arceus|Arceus-Fairy|381/381
 |turn|7
 |
-|move|p2a: Kingambit|Sucker Punch|p1a: Arceus
-|-resisted|p1a: Arceus
-|-damage|p1a: Arceus|276/381
-|move|p1a: Arceus|Judgment|p2a: Kingambit
-|-supereffective|p2a: Kingambit
-|-damage|p2a: Kingambit|0 fnt
-|faint|p2a: Kingambit
-|-end|p2a: Kingambit|fallen2|[silent]
+|switch|p2a: Jirachi|Jirachi|100/100
+|-damage|p2a: Jirachi|94/100|[from] Stealth Rock
+|move|p1a: Groudon|Stealth Rock||[still]
+|-fail|p1a: Groudon
 |
 |-weather|SunnyDay|[upkeep]
+|-heal|p2a: Jirachi|100/100|[from] item: Leftovers
 |upkeep
-|
-|switch|p2a: Deoxys|Deoxys-Speed|100/100
-|-ability|p2a: Deoxys|Pressure
 |turn|8
 |
-|move|p2a: Deoxys|Spikes|p1a: Arceus
-|-sidestart|p1: htho884|Spikes
-|move|p1a: Arceus|Judgment|p2a: Deoxys
-|-damage|p2a: Deoxys|32/100
+|switch|p2a: Krookodile|Krookodile, F|58/100
+|-damage|p2a: Krookodile|51/100|[from] Stealth Rock
+|-ability|p2a: Krookodile|Intimidate|boost
+|-unboost|p1a: Groudon|atk|1
+|move|p1a: Groudon|Earthquake|p2a: Krookodile
+|-damage|p2a: Krookodile|20/100
 |
 |-weather|none
+|-heal|p2a: Krookodile|26/100|[from] item: Leftovers
 |upkeep
 |turn|9
 |
-|move|p2a: Deoxys|Spikes|p1a: Arceus
-|-sidestart|p1: htho884|Spikes
-|move|p1a: Arceus|Judgment|p2a: Deoxys
-|-crit|p2a: Deoxys
-|-damage|p2a: Deoxys|0 fnt
-|faint|p2a: Deoxys
+|move|p1a: Groudon|Earthquake|p2a: Krookodile
+|-damage|p2a: Krookodile|0 fnt
+|faint|p2a: Krookodile
 |
 |upkeep
 |
-|switch|p2a: Koraidon|Koraidon|100/100
-|-weather|SunnyDay|[from] ability: Orichalcum Pulse|[of] p2a: Koraidon
-|-activate|p2a: Koraidon|Orichalcum Pulse|[source]
+|switch|p2a: Rotom|Rotom-Heat|100/100
 |turn|10
 |
-|switch|p2a: Zacian|Zacian-Crowned|100/100
-|-ability|p2a: Zacian|Intrepid Sword|boost
-|-boost|p2a: Zacian|atk|1
-|move|p1a: Arceus|Judgment|p2a: Zacian
-|-resisted|p2a: Zacian
-|-damage|p2a: Zacian|75/100
+|switch|p2a: Cyclizar|Cyclizar, F|100/100
+|-damage|p2a: Cyclizar|88/100|[from] Stealth Rock
+|move|p1a: Groudon|Stealth Rock||[still]
+|-fail|p1a: Groudon
 |
-|-weather|SunnyDay|[upkeep]
 |upkeep
 |turn|11
 |
-|move|p2a: Zacian|Behemoth Blade|p1a: Arceus
-|-supereffective|p1a: Arceus
-|-damage|p1a: Arceus|0 fnt
-|faint|p1a: Arceus
+|switch|p2a: Zapdos|Zapdos-Galar, tera:Flying|88/100
+|-damage|p2a: Zapdos|63/100|[from] Stealth Rock
+|move|p1a: Groudon|Earthquake|p2a: Zapdos
+|-immune|p2a: Zapdos
 |
-|-weather|SunnyDay|[upkeep]
 |upkeep
-|
-|switch|p1a: Dialga|Dialga-Origin|341/341
-|-damage|p1a: Dialga|285/341|[from] Spikes
-|-ability|p1a: Dialga|Pressure
 |turn|12
 |
-|move|p2a: Zacian|Swords Dance|p2a: Zacian
-|-boost|p2a: Zacian|atk|2
-|move|p1a: Dialga|Flash Cannon|p2a: Zacian
-|-damage|p2a: Zacian|34/100
+|move|p2a: Zapdos|U-turn|p1a: Groudon
+|-damage|p1a: Groudon|218/341
 |
-|-weather|SunnyDay|[upkeep]
+|switch|p2a: Cyclizar|Cyclizar, F|100/100|[from] U-turn
+|-damage|p2a: Cyclizar|88/100|[from] Stealth Rock
+|move|p1a: Groudon|Crunch|p2a: Cyclizar
+|-damage|p2a: Cyclizar|66/100
+|
 |upkeep
 |turn|13
 |
-|move|p2a: Zacian|Wild Charge|p1a: Dialga
-|-resisted|p1a: Dialga
-|-damage|p1a: Dialga|192/341
-|-damage|p2a: Zacian|27/100|[from] Recoil
-|move|p1a: Dialga|Flash Cannon|p2a: Zacian
-|-damage|p2a: Zacian|0 fnt
-|faint|p2a: Zacian
+|move|p2a: Cyclizar|Knock Off|p1a: Groudon
+|-damage|p1a: Groudon|165/341
+|-enditem|p1a: Groudon|Heat Rock|[from] move: Knock Off|[of] p2a: Cyclizar
+|move|p1a: Groudon|Earthquake|p2a: Cyclizar
+|-damage|p2a: Cyclizar|21/100
 |
-|-weather|SunnyDay|[upkeep]
 |upkeep
-|
-|switch|p2a: Koraidon|Koraidon|100/100
-|-activate|p2a: Koraidon|ability: Orichalcum Pulse
 |turn|14
 |
-|move|p2a: Koraidon|Flame Charge|p1a: Dialga
-|-damage|p1a: Dialga|97/341
-|-boost|p2a: Koraidon|spe|1
-|-damage|p2a: Koraidon|91/100|[from] item: Life Orb
-|move|p1a: Dialga|Flash Cannon|p2a: Koraidon
-|-damage|p2a: Koraidon|45/100
+|move|p2a: Cyclizar|Double-Edge|p1a: Groudon
+|-damage|p1a: Groudon|68/341
+|-damage|p2a: Cyclizar|11/100|[from] Recoil
+|move|p1a: Groudon|Earthquake|p2a: Cyclizar
+|-damage|p2a: Cyclizar|0 fnt
+|faint|p2a: Cyclizar
 |
-|-weather|none
 |upkeep
+|
+|switch|p2a: Zapdos|Zapdos-Galar, tera:Flying|63/100
+|-damage|p2a: Zapdos|38/100|[from] Stealth Rock
 |turn|15
 |
-|move|p2a: Koraidon|Scale Shot|p1a: Dialga
-|-damage|p1a: Dialga|58/341
-|-damage|p1a: Dialga|18/341
-|-damage|p1a: Dialga|0 fnt
-|faint|p1a: Dialga
-|-hitcount|p1: Dialga|3
-|-unboost|p2a: Koraidon|def|1
-|-boost|p2a: Koraidon|spe|1
-|-damage|p2a: Koraidon|35/100|[from] item: Life Orb
+|switch|p2a: Slowbro|Slowbro, M|100/100
+|-damage|p2a: Slowbro|88/100|[from] Stealth Rock
+|move|p1a: Groudon|Crunch|p2a: Slowbro
+|-supereffective|p2a: Slowbro
+|-damage|p2a: Slowbro|70/100
+|-unboost|p2a: Slowbro|def|1
+|-damage|p1a: Groudon|12/341|[from] item: Rocky Helmet|[of] p2a: Slowbro
+|
+|upkeep
+|turn|16
+|
+|move|p1a: Groudon|Earthquake|p2a: Slowbro
+|-damage|p2a: Slowbro|42/100
+|move|p2a: Slowbro|Thunder Wave|p1a: Groudon
+|-immune|p1a: Groudon
+|
+|upkeep
+|turn|17
+|
+|switch|p2a: Rotom|Rotom-Heat|100/100
+|move|p1a: Groudon|Earthquake|p2a: Rotom
+|-immune|p2a: Rotom|[from] ability: Levitate
+|
+|upkeep
+|turn|18
+|
+|move|p1a: Groudon|Stealth Rock||[still]
+|-fail|p1a: Groudon
+|move|p2a: Rotom|Pain Split|p1a: Groudon
+|-sethp|p1a: Groudon|157/341|[from] move: Pain Split|[silent]
+|-sethp|p2a: Rotom|52/100|[from] move: Pain Split
+|
+|upkeep
+|turn|19
+|
+|switch|p2a: Jirachi|Jirachi|100/100
+|-damage|p2a: Jirachi|94/100|[from] Stealth Rock
+|move|p1a: Groudon|Crunch|p2a: Jirachi
+|-supereffective|p2a: Jirachi
+|-damage|p2a: Jirachi|66/100
+|
+|-heal|p2a: Jirachi|73/100|[from] item: Leftovers
+|upkeep
+|turn|20
+|
+|switch|p2a: Slowbro|Slowbro, M|75/100
+|-damage|p2a: Slowbro|63/100|[from] Stealth Rock
+|move|p1a: Groudon|Earthquake|p2a: Slowbro
+|-damage|p2a: Slowbro|46/100
+|
+|upkeep
+|turn|21
+|
+|switch|p2a: Jirachi|Jirachi|73/100
+|-damage|p2a: Jirachi|66/100|[from] Stealth Rock
+|move|p1a: Groudon|Earthquake|p2a: Jirachi
+|-supereffective|p2a: Jirachi
+|-damage|p2a: Jirachi|14/100
+|
+|-heal|p2a: Jirachi|20/100|[from] item: Leftovers
+|upkeep
+|turn|22
+|
+|move|p2a: Jirachi|Thunderbolt|p1a: Groudon
+|-immune|p1a: Groudon
+|move|p1a: Groudon|Earthquake|p2a: Jirachi
+|-supereffective|p2a: Jirachi
+|-crit|p2a: Jirachi
+|-damage|p2a: Jirachi|0 fnt
+|faint|p2a: Jirachi
 |
 |upkeep
 |
-|switch|p1a: Flutter Mane|Flutter Mane|251/251
-|-damage|p1a: Flutter Mane|210/251|[from] Spikes
-|turn|16
+|switch|p2a: Zapdos|Zapdos-Galar, tera:Flying|38/100
+|-damage|p2a: Zapdos|13/100|[from] Stealth Rock
+|turn|23
 |
-|move|p2a: Koraidon|Close Combat|p1a: Flutter Mane
-|-immune|p1a: Flutter Mane
-|move|p1a: Flutter Mane|Moonblast|p2a: Koraidon
-|-supereffective|p2a: Koraidon
-|-damage|p2a: Koraidon|0 fnt
-|faint|p2a: Koraidon
-|-damage|p1a: Flutter Mane|185/251|[from] item: Life Orb
+|move|p2a: Zapdos|U-turn|p1a: Groudon
+|-damage|p1a: Groudon|100/341
+|
+|switch|p2a: Rotom|Rotom-Heat|52/100|[from] U-turn
+|move|p1a: Groudon|Crunch|p2a: Rotom
+|-damage|p2a: Rotom|35/100
+|
+|upkeep
+|turn|24
+|
+|switch|p2a: Zapdos|Zapdos-Galar, tera:Flying|13/100
+|-damage|p2a: Zapdos|0 fnt|[from] Stealth Rock
+|faint|p2a: Zapdos
+|move|p1a: Groudon|Crunch|p2: Zapdos|[notarget]
+|-fail|p1a: Groudon
+|
+|upkeep
+|
+|switch|p2a: Slowbro|Slowbro, M|79/100
+|-damage|p2a: Slowbro|67/100|[from] Stealth Rock
+|turn|25
+|
+|move|p1a: Groudon|Earthquake|p2a: Slowbro
+|-damage|p2a: Slowbro|50/100
+|move|p2a: Slowbro|Scald|p1a: Groudon
+|-supereffective|p1a: Groudon
+|-damage|p1a: Groudon|0 fnt
+|faint|p1a: Groudon
+|
+|upkeep
+|
+|switch|p1a: Flutter Mane|Flutter Mane|232/251
+|-damage|p1a: Flutter Mane|201/251|[from] Stealth Rock
+|turn|26
+|
+|move|p1a: Flutter Mane|Moonblast|p2a: Slowbro
+|-damage|p2a: Slowbro|0 fnt
+|faint|p2a: Slowbro
+|-damage|p1a: Flutter Mane|176/251|[from] item: Life Orb
+|
+|upkeep
+|
+|switch|p2a: Rotom|Rotom-Heat|35/100
+|turn|27
+|
+|move|p1a: Flutter Mane|Shadow Ball|p2a: Rotom
+|-damage|p2a: Rotom|0 fnt
+|faint|p2a: Rotom
+|-damage|p1a: Flutter Mane|151/251|[from] item: Life Orb
 |
     </script>
 </div>

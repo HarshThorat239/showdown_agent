@@ -244,8 +244,8 @@
 |j|☆htho884
 |j|☆max_damage-ru
 |gametype|singles
-|player|p1|htho884|266|
-|player|p2|max_damage-ru|101|
+|player|p1|htho884|101|
+|player|p2|max_damage-ru|1|
 |gen|9
 |tier|[Gen 9] Ubers
 |rule|HP Percentage Mod: HP is shown in percentages
@@ -256,14 +256,14 @@
 |rule|Evasion Items Clause: Evasion items are banned
 |rule|Evasion Moves Clause: Evasion moves are banned
 |clearpoke
-|poke|p1|Groudon|
+|poke|p1|Ting-Lu|
+|poke|p1|Koraidon|
 |poke|p1|Flutter Mane|
-|poke|p1|Arceus-Fairy|
-|poke|p1|Dialga-Origin|
+|poke|p1|Arceus-Water|
 |poke|p1|Zacian-*|
-|poke|p1|Hoopa-Unbound|
+|poke|p1|Giratina-Origin|
 |poke|p2|Rotom-Heat|
-|poke|p2|Krookodile, F|
+|poke|p2|Krookodile, M|
 |poke|p2|Slowbro, F|
 |poke|p2|Cyclizar, M|
 |poke|p2|Jirachi|
@@ -273,114 +273,71 @@
 |teamsize|p1|6
 |teamsize|p2|6
 |start
-|switch|p1a: Groudon|Groudon|341/341
-|switch|p2a: Jirachi|Jirachi|100/100
-|-weather|SunnyDay|[from] ability: Drought|[of] p1a: Groudon
+|switch|p1a: Ting-Lu|Ting-Lu|514/514
+|switch|p2a: Krookodile|Krookodile, M|100/100
+|-ability|p2a: Krookodile|Intimidate|boost
+|-unboost|p1a: Ting-Lu|atk|1
+|-ability|p1a: Ting-Lu|Vessel of Ruin
 |turn|1
 |
-|move|p2a: Jirachi|Thunderbolt|p1a: Groudon
-|-immune|p1a: Groudon
-|move|p1a: Groudon|Precipice Blades|p2a: Jirachi|[miss]
-|-miss|p1a: Groudon|p2a: Jirachi
+|move|p2a: Krookodile|Earthquake|p1a: Ting-Lu
+|-damage|p1a: Ting-Lu|399/514
+|move|p1a: Ting-Lu|Earthquake|p2a: Krookodile
+|-damage|p2a: Krookodile|73/100
 |
-|-weather|SunnyDay|[upkeep]
+|-heal|p2a: Krookodile|79/100|[from] item: Leftovers
+|-heal|p1a: Ting-Lu|431/514|[from] item: Leftovers
 |upkeep
 |turn|2
 |
-|move|p2a: Jirachi|Thunderbolt|p1a: Groudon
-|-immune|p1a: Groudon
-|move|p1a: Groudon|Precipice Blades|p2a: Jirachi
-|-supereffective|p2a: Jirachi
-|-damage|p2a: Jirachi|0 fnt
-|faint|p2a: Jirachi
+|move|p2a: Krookodile|Earthquake|p1a: Ting-Lu
+|-damage|p1a: Ting-Lu|320/514
+|move|p1a: Ting-Lu|Earthquake|p2a: Krookodile
+|-damage|p2a: Krookodile|53/100
 |
-|-weather|SunnyDay|[upkeep]
+|-heal|p2a: Krookodile|59/100|[from] item: Leftovers
+|-heal|p1a: Ting-Lu|352/514|[from] item: Leftovers
 |upkeep
-|
-|switch|p2a: Slowbro|Slowbro, F|100/100
 |turn|3
 |
-|move|p1a: Groudon|Precipice Blades|p2a: Slowbro
-|-damage|p2a: Slowbro|61/100
-|move|p2a: Slowbro|Future Sight|p1a: Groudon
-|-start|p2a: Slowbro|move: Future Sight
+|move|p2a: Krookodile|Earthquake|p1a: Ting-Lu
+|-damage|p1a: Ting-Lu|250/514
+|move|p1a: Ting-Lu|Earthquake|p2a: Krookodile
+|-damage|p2a: Krookodile|29/100
 |
-|-weather|SunnyDay|[upkeep]
+|-heal|p2a: Krookodile|35/100|[from] item: Leftovers
+|-heal|p1a: Ting-Lu|282/514|[from] item: Leftovers
 |upkeep
 |turn|4
 |
-|move|p1a: Groudon|Precipice Blades|p2a: Slowbro
-|-damage|p2a: Slowbro|23/100
-|move|p2a: Slowbro|Future Sight||[still]
-|-fail|p2a: Slowbro
+|move|p2a: Krookodile|Earthquake|p1a: Ting-Lu
+|-damage|p1a: Ting-Lu|168/514
+|move|p1a: Ting-Lu|Earthquake|p2a: Krookodile
+|-damage|p2a: Krookodile|4/100
 |
-|-weather|SunnyDay|[upkeep]
+|-heal|p2a: Krookodile|10/100|[from] item: Leftovers
+|-heal|p1a: Ting-Lu|200/514|[from] item: Leftovers
 |upkeep
 |turn|5
 |
-|move|p1a: Groudon|Precipice Blades|p2a: Slowbro
-|-damage|p2a: Slowbro|0 fnt
-|faint|p2a: Slowbro
-|
-|-weather|SunnyDay|[upkeep]
-|-end|p1a: Groudon|move: Future Sight
-|-damage|p1a: Groudon|190/341
-|upkeep
-|
-|switch|p2a: Rotom|Rotom-Heat|100/100
-|turn|6
-|
-|move|p1a: Groudon|Precipice Blades|p2a: Rotom
-|-immune|p2a: Rotom|[from] ability: Levitate
-|move|p2a: Rotom|Overheat|p1a: Groudon
-|-damage|p1a: Groudon|0 fnt
-|-unboost|p2a: Rotom|spa|2
-|faint|p1a: Groudon
-|
-|-weather|SunnyDay|[upkeep]
-|upkeep
-|
-|switch|p1a: Flutter Mane|Flutter Mane|251/251
-|-activate|p1a: Flutter Mane|ability: Protosynthesis
-|-start|p1a: Flutter Mane|protosynthesisspe
-|turn|7
-|
-|move|p1a: Flutter Mane|Shadow Ball|p2a: Rotom
-|-damage|p2a: Rotom|42/100
-|-damage|p1a: Flutter Mane|226/251|[from] item: Life Orb
-|move|p2a: Rotom|Overheat|p1a: Flutter Mane
-|-damage|p1a: Flutter Mane|141/251
-|-unboost|p2a: Rotom|spa|2
-|
-|-weather|SunnyDay|[upkeep]
-|upkeep
-|turn|8
-|
-|move|p1a: Flutter Mane|Shadow Ball|p2a: Rotom
-|-crit|p2a: Rotom
-|-damage|p2a: Rotom|0 fnt
-|faint|p2a: Rotom
-|-damage|p1a: Flutter Mane|116/251|[from] item: Life Orb
-|
-|-weather|none
-|-end|p1a: Flutter Mane|Protosynthesis
-|upkeep
-|
-|switch|p2a: Krookodile|Krookodile, F|100/100
-|-ability|p2a: Krookodile|Intimidate|boost
-|-unboost|p1a: Flutter Mane|atk|1
-|turn|9
-|
-|move|p1a: Flutter Mane|Moonblast|p2a: Krookodile
-|-supereffective|p2a: Krookodile
+|move|p2a: Krookodile|Earthquake|p1a: Ting-Lu
+|-damage|p1a: Ting-Lu|85/514
+|move|p1a: Ting-Lu|Earthquake|p2a: Krookodile
 |-damage|p2a: Krookodile|0 fnt
 |faint|p2a: Krookodile
-|-damage|p1a: Flutter Mane|91/251|[from] item: Life Orb
 |
+|-heal|p1a: Ting-Lu|117/514|[from] item: Leftovers
 |upkeep
 |
 |switch|p2a: Zapdos|Zapdos-Galar|100/100
-|turn|10
+|turn|6
+|
+|switch|p1a: Flutter Mane|Flutter Mane|251/251
+|move|p2a: Zapdos|Close Combat|p1a: Flutter Mane
+|-immune|p1a: Flutter Mane
+|
+|upkeep
+|turn|7
 |
 |move|p2a: Zapdos|Close Combat|p1a: Flutter Mane
 |-immune|p1a: Flutter Mane
@@ -388,18 +345,183 @@
 |-supereffective|p2a: Zapdos
 |-damage|p2a: Zapdos|0 fnt
 |faint|p2a: Zapdos
-|-damage|p1a: Flutter Mane|66/251|[from] item: Life Orb
+|-damage|p1a: Flutter Mane|226/251|[from] item: Life Orb
 |
 |upkeep
 |
-|switch|p2a: Cyclizar|Cyclizar, M|100/100
+|switch|p2a: Jirachi|Jirachi|100/100
+|turn|8
+|
+|-end|p1a: Flutter Mane|Protosynthesis|[silent]
+|switch|p1a: Ting-Lu|Ting-Lu|117/514
+|-ability|p1a: Ting-Lu|Vessel of Ruin
+|move|p2a: Jirachi|Thunderbolt|p1a: Ting-Lu
+|-immune|p1a: Ting-Lu
+|
+|-heal|p1a: Ting-Lu|149/514|[from] item: Leftovers
+|upkeep
+|turn|9
+|
+|move|p2a: Jirachi|Thunderbolt|p1a: Ting-Lu
+|-immune|p1a: Ting-Lu
+|move|p1a: Ting-Lu|Earthquake|p2a: Jirachi
+|-supereffective|p2a: Jirachi
+|-crit|p2a: Jirachi
+|-damage|p2a: Jirachi|0 fnt
+|faint|p2a: Jirachi
+|
+|-heal|p1a: Ting-Lu|181/514|[from] item: Leftovers
+|upkeep
+|
+|switch|p2a: Slowbro|Slowbro, F|100/100
+|turn|10
+|
+|switch|p1a: Flutter Mane|Flutter Mane|226/251
+|move|p2a: Slowbro|Future Sight|p1a: Flutter Mane
+|-start|p2a: Slowbro|move: Future Sight
+|
+|upkeep
 |turn|11
 |
-|move|p1a: Flutter Mane|Moonblast|p2a: Cyclizar
+|move|p1a: Flutter Mane|Shadow Ball|p2a: Slowbro
+|-supereffective|p2a: Slowbro
+|-damage|p2a: Slowbro|0 fnt
+|faint|p2a: Slowbro
+|-damage|p1a: Flutter Mane|201/251|[from] item: Life Orb
+|
+|upkeep
+|
+|switch|p2a: Rotom|Rotom-Heat|100/100
+|turn|12
+|
+|move|p1a: Flutter Mane|Power Gem|p2a: Rotom
+|-supereffective|p2a: Rotom
+|-damage|p2a: Rotom|23/100
+|-damage|p1a: Flutter Mane|176/251|[from] item: Life Orb
+|move|p2a: Rotom|Overheat|p1a: Flutter Mane
+|-damage|p1a: Flutter Mane|53/251
+|-unboost|p2a: Rotom|spa|2
+|
+|-end|p1a: Flutter Mane|move: Future Sight
+|-damage|p1a: Flutter Mane|0 fnt
+|faint|p1a: Flutter Mane
+|-end|p1a: Flutter Mane|Protosynthesis|[silent]
+|upkeep
+|
+|switch|p1a: Ting-Lu|Ting-Lu|181/514
+|-ability|p1a: Ting-Lu|Vessel of Ruin
+|turn|13
+|
+|move|p2a: Rotom|Overheat|p1a: Ting-Lu
+|-damage|p1a: Ting-Lu|133/514
+|-unboost|p2a: Rotom|spa|2
+|move|p1a: Ting-Lu|Ruination|p2a: Rotom|[miss]
+|-miss|p1a: Ting-Lu|p2a: Rotom
+|
+|-heal|p1a: Ting-Lu|165/514|[from] item: Leftovers
+|upkeep
+|turn|14
+|
+|move|p2a: Rotom|Overheat|p1a: Ting-Lu
+|-damage|p1a: Ting-Lu|134/514
+|-unboost|p2a: Rotom|spa|2
+|move|p1a: Ting-Lu|Ruination|p2a: Rotom
+|-damage|p2a: Rotom|12/100
+|
+|-heal|p1a: Ting-Lu|166/514|[from] item: Leftovers
+|upkeep
+|turn|15
+|
+|move|p2a: Rotom|Overheat|p1a: Ting-Lu
+|-damage|p1a: Ting-Lu|142/514
+|move|p1a: Ting-Lu|Ruination|p2a: Rotom
+|-damage|p2a: Rotom|6/100
+|
+|-heal|p1a: Ting-Lu|174/514|[from] item: Leftovers
+|upkeep
+|turn|16
+|
+|move|p2a: Rotom|Overheat|p1a: Ting-Lu
+|-damage|p1a: Ting-Lu|147/514
+|move|p1a: Ting-Lu|Ruination|p2a: Rotom
+|-damage|p2a: Rotom|3/100
+|
+|-heal|p1a: Ting-Lu|179/514|[from] item: Leftovers
+|upkeep
+|turn|17
+|
+|move|p2a: Rotom|Overheat|p1a: Ting-Lu
+|-damage|p1a: Ting-Lu|152/514
+|move|p1a: Ting-Lu|Ruination|p2a: Rotom|[miss]
+|-miss|p1a: Ting-Lu|p2a: Rotom
+|
+|-heal|p1a: Ting-Lu|184/514|[from] item: Leftovers
+|upkeep
+|turn|18
+|
+|move|p2a: Rotom|Overheat|p1a: Ting-Lu
+|-damage|p1a: Ting-Lu|159/514
+|move|p1a: Ting-Lu|Ruination|p2a: Rotom
+|-damage|p2a: Rotom|2/100
+|
+|-heal|p1a: Ting-Lu|191/514|[from] item: Leftovers
+|upkeep
+|turn|19
+|
+|move|p2a: Rotom|Overheat|p1a: Ting-Lu
+|-damage|p1a: Ting-Lu|167/514
+|move|p1a: Ting-Lu|Ruination|p2a: Rotom
+|-damage|p2a: Rotom|1/100
+|
+|-heal|p1a: Ting-Lu|199/514|[from] item: Leftovers
+|upkeep
+|turn|20
+|
+|move|p2a: Rotom|Volt Switch|p1a: Ting-Lu
+|-immune|p1a: Ting-Lu
+|move|p1a: Ting-Lu|Ruination|p2a: Rotom
+|-damage|p2a: Rotom|1/100
+|
+|-heal|p1a: Ting-Lu|231/514|[from] item: Leftovers
+|upkeep
+|turn|21
+|
+|move|p2a: Rotom|Volt Switch|p1a: Ting-Lu
+|-immune|p1a: Ting-Lu
+|move|p1a: Ting-Lu|Ruination|p2a: Rotom
+|-damage|p2a: Rotom|1/100
+|
+|-heal|p1a: Ting-Lu|263/514|[from] item: Leftovers
+|upkeep
+|turn|22
+|
+|move|p2a: Rotom|Volt Switch|p1a: Ting-Lu
+|-immune|p1a: Ting-Lu
+|move|p1a: Ting-Lu|Ruination|p2a: Rotom
+|-damage|p2a: Rotom|0 fnt
+|faint|p2a: Rotom
+|
+|-heal|p1a: Ting-Lu|295/514|[from] item: Leftovers
+|upkeep
+|
+|switch|p2a: Cyclizar|Cyclizar, M|100/100
+|turn|23
+|
+|switch|p1a: Zacian|Zacian-Crowned|360/360
+|-ability|p1a: Zacian|Intrepid Sword|boost
+|-boost|p1a: Zacian|atk|1
+|move|p2a: Cyclizar|Double-Edge|p1a: Zacian
+|-resisted|p1a: Zacian
+|-damage|p1a: Zacian|296/360
+|-damage|p2a: Cyclizar|94/100|[from] Recoil
+|
+|upkeep
+|turn|24
+|
+|move|p1a: Zacian|Sacred Sword|p2a: Cyclizar
 |-supereffective|p2a: Cyclizar
 |-damage|p2a: Cyclizar|0 fnt
 |faint|p2a: Cyclizar
-|-damage|p1a: Flutter Mane|41/251|[from] item: Life Orb
 |
     </script>
 </div>

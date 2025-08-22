@@ -237,15 +237,15 @@
     <h1 style="font-weight:normal;text-align:center"><strong>poke-env battle replay</strong><br />battle-gen9ubers-42428<br /><a
             href="http://pokemonshowdown.com/users/randomplayer1" class="subtle" target="_blank">htho884</a>
         vs. <a href="http://pokemonshowdown.com/users/randomplayer2" class="subtle"
-            target="_blank">random-uu</a></h1>
+            target="_blank">simple-uu</a></h1>
     <script type="text/plain" class="battle-log-data">
     >battle-gen9ubers-42428|init|battle
-|title|htho884 vs. random-uu
+|title|htho884 vs. simple-uu
 |j|☆htho884
-|j|☆random-uu
+|j|☆simple-uu
 |gametype|singles
-|player|p1|htho884|266|
-|player|p2|random-uu|2|
+|player|p1|htho884|170|
+|player|p2|simple-uu|2|
 |gen|9
 |tier|[Gen 9] Ubers
 |rule|HP Percentage Mod: HP is shown in percentages
@@ -256,12 +256,12 @@
 |rule|Evasion Items Clause: Evasion items are banned
 |rule|Evasion Moves Clause: Evasion moves are banned
 |clearpoke
-|poke|p1|Groudon|
+|poke|p1|Ting-Lu|
+|poke|p1|Koraidon|
 |poke|p1|Flutter Mane|
 |poke|p1|Arceus-Fairy|
-|poke|p1|Dialga-Origin|
 |poke|p1|Zacian-*|
-|poke|p1|Hoopa-Unbound|
+|poke|p1|Gliscor, F|
 |poke|p2|Tornadus-Therian, M|
 |poke|p2|Clodsire, M|
 |poke|p2|Metagross|
@@ -273,219 +273,197 @@
 |teamsize|p1|6
 |teamsize|p2|6
 |start
-|switch|p1a: Groudon|Groudon|341/341
+|switch|p1a: Ting-Lu|Ting-Lu|514/514
 |switch|p2a: Cobalion|Cobalion|100/100
-|-weather|SunnyDay|[from] ability: Drought|[of] p1a: Groudon
+|-ability|p1a: Ting-Lu|Vessel of Ruin
 |turn|1
 |
-|-terastallize|p2a: Cobalion|Water
-|move|p2a: Cobalion|Body Press|p1a: Groudon
-|-damage|p1a: Groudon|251/341
-|move|p1a: Groudon|Precipice Blades|p2a: Cobalion
-|-damage|p2a: Cobalion|51/100
+|switch|p1a: Koraidon|Koraidon|341/341
+|-weather|SunnyDay|[from] ability: Orichalcum Pulse|[of] p1a: Koraidon
+|-activate|p1a: Koraidon|Orichalcum Pulse|[source]
+|move|p2a: Cobalion|Body Press|p1a: Koraidon
+|-damage|p1a: Koraidon|232/341
 |
 |-weather|SunnyDay|[upkeep]
 |upkeep
 |turn|2
 |
-|switch|p2a: Rotom|Rotom-Wash|100/100
-|move|p1a: Groudon|Precipice Blades|p2a: Rotom
-|-immune|p2a: Rotom|[from] ability: Levitate
+|move|p1a: Koraidon|Collision Course|p2a: Cobalion
+|-supereffective|p2a: Cobalion
+|-damage|p2a: Cobalion|0 fnt
+|-damage|p1a: Koraidon|176/341|[from] item: Rocky Helmet|[of] p2a: Cobalion
+|faint|p2a: Cobalion
+|-damage|p1a: Koraidon|142/341|[from] item: Life Orb
 |
 |-weather|SunnyDay|[upkeep]
 |upkeep
+|
+|switch|p2a: Metagross|Metagross|100/100
 |turn|3
 |
-|move|p1a: Groudon|Precipice Blades|p2a: Rotom
-|-immune|p2a: Rotom|[from] ability: Levitate
-|move|p2a: Rotom|Thunder Wave|p1a: Groudon
-|-immune|p1a: Groudon
+|switch|p1a: Ting-Lu|Ting-Lu|514/514
+|-ability|p1a: Ting-Lu|Vessel of Ruin
+|move|p2a: Metagross|Psychic Fangs|p1a: Ting-Lu
+|-immune|p1a: Ting-Lu
 |
 |-weather|SunnyDay|[upkeep]
 |upkeep
 |turn|4
 |
-|move|p1a: Groudon|Precipice Blades|p2a: Rotom
-|-immune|p2a: Rotom|[from] ability: Levitate
-|move|p2a: Rotom|Thunder Wave|p1a: Groudon
-|-immune|p1a: Groudon
+|move|p2a: Metagross|Psychic Fangs|p1a: Ting-Lu
+|-immune|p1a: Ting-Lu
+|move|p1a: Ting-Lu|Earthquake|p2a: Metagross
+|-supereffective|p2a: Metagross
+|-damage|p2a: Metagross|28/100
 |
 |-weather|SunnyDay|[upkeep]
 |upkeep
 |turn|5
 |
-|switch|p2a: Tornadus|Tornadus-Therian, M|100/100
-|move|p1a: Groudon|Precipice Blades|p2a: Tornadus
-|-immune|p2a: Tornadus
+|move|p2a: Metagross|Psychic Fangs|p1a: Ting-Lu
+|-immune|p1a: Ting-Lu
+|move|p1a: Ting-Lu|Earthquake|p2a: Metagross
+|-supereffective|p2a: Metagross
+|-damage|p2a: Metagross|0 fnt
+|faint|p2a: Metagross
 |
-|-weather|SunnyDay|[upkeep]
+|-weather|none
 |upkeep
+|
+|switch|p2a: Zarude|Zarude-Dada|100/100
 |turn|6
 |
-|switch|p2a: Clodsire|Clodsire, M|100/100
-|move|p1a: Groudon|Stealth Rock|p2a: Clodsire
-|-sidestart|p2: random-uu|move: Stealth Rock
+|switch|p1a: Koraidon|Koraidon|142/341
+|-weather|SunnyDay|[from] ability: Orichalcum Pulse|[of] p1a: Koraidon
+|-activate|p1a: Koraidon|Orichalcum Pulse|[source]
+|move|p2a: Zarude|Power Whip|p1a: Koraidon
+|-resisted|p1a: Koraidon
+|-damage|p1a: Koraidon|49/341
 |
 |-weather|SunnyDay|[upkeep]
 |upkeep
 |turn|7
 |
-|switch|p2a: Tornadus|Tornadus-Therian, M|100/100
-|move|p1a: Groudon|Precipice Blades|p2a: Tornadus
-|-immune|p2a: Tornadus
+|move|p1a: Koraidon|Collision Course|p2a: Zarude
+|-supereffective|p2a: Zarude
+|-damage|p2a: Zarude|0 fnt
+|faint|p2a: Zarude
+|-damage|p1a: Koraidon|15/341|[from] item: Life Orb
 |
 |-weather|SunnyDay|[upkeep]
 |upkeep
+|
+|switch|p2a: Tornadus|Tornadus-Therian, M|100/100
 |turn|8
 |
-|switch|p2a: Zarude|Zarude-Dada|100/100
-|move|p1a: Groudon|Stealth Rock||[still]
-|-fail|p1a: Groudon
+|move|p1a: Koraidon|Wild Charge|p2a: Tornadus
+|-supereffective|p2a: Tornadus
+|-damage|p2a: Tornadus|0 fnt
+|faint|p2a: Tornadus
+|-damage|p1a: Koraidon|0 fnt|[from] Recoil
+|faint|p1a: Koraidon
 |
-|-weather|none
+|-weather|SunnyDay|[upkeep]
 |upkeep
-|turn|9
 |
-|switch|p2a: Rotom|Rotom-Wash|100/100
-|-damage|p2a: Rotom|88/100|[from] Stealth Rock
 |switch|p1a: Zacian|Zacian-Crowned|360/360
+|switch|p2a: Clodsire|Clodsire, M|100/100
 |-ability|p1a: Zacian|Intrepid Sword|boost
 |-boost|p1a: Zacian|atk|1
+|turn|9
 |
-|-heal|p2a: Rotom|94/100|[from] item: Leftovers
+|switch|p1a: Gliscor|Gliscor, F|354/354
+|move|p2a: Clodsire|Spikes|p1a: Gliscor
+|-sidestart|p1: htho884|Spikes
+|
+|-weather|SunnyDay|[upkeep]
+|-status|p1a: Gliscor|tox|[from] item: Toxic Orb
 |upkeep
 |turn|10
 |
-|move|p1a: Zacian|Play Rough|p2a: Rotom|[miss]
-|-miss|p1a: Zacian|p2a: Rotom
-|move|p2a: Rotom|Hydro Pump|p1a: Zacian
-|-damage|p1a: Zacian|239/360
+|move|p1a: Gliscor|Crabhammer|p2a: Clodsire
+|-immune|p2a: Clodsire|[from] ability: Water Absorb
+|move|p2a: Clodsire|Poison Jab|p1a: Gliscor
+|-resisted|p1a: Gliscor
+|-damage|p1a: Gliscor|329/354 tox
 |
-|-heal|p2a: Rotom|99/100|[from] item: Leftovers
+|-weather|none
+|-heal|p1a: Gliscor|354/354 tox|[from] ability: Poison Heal
 |upkeep
 |turn|11
 |
-|switch|p2a: Tornadus|Tornadus-Therian, M|100/100
-|move|p1a: Zacian|Play Rough|p2a: Tornadus
-|-damage|p2a: Tornadus|0 fnt
-|faint|p2a: Tornadus
+|move|p1a: Gliscor|Earthquake|p2a: Clodsire
+|-supereffective|p2a: Clodsire
+|-damage|p2a: Clodsire|23/100
+|move|p2a: Clodsire|Poison Jab|p1a: Gliscor
+|-resisted|p1a: Gliscor
+|-damage|p1a: Gliscor|331/354 tox
 |
+|-heal|p1a: Gliscor|354/354 tox|[from] ability: Poison Heal
 |upkeep
-|
-|switch|p2a: Zarude|Zarude-Dada|100/100
 |turn|12
 |
-|move|p1a: Zacian|Sacred Sword|p2a: Zarude
-|-supereffective|p2a: Zarude
-|-damage|p2a: Zarude|6/100
-|move|p2a: Zarude|Knock Off|p1a: Zacian
-|-resisted|p1a: Zacian
-|-damage|p1a: Zacian|190/360
-|
-|upkeep
-|turn|13
-|
-|switch|p2a: Clodsire|Clodsire, M|100/100
-|move|p1a: Zacian|Sacred Sword|p2a: Clodsire
-|-resisted|p2a: Clodsire
-|-damage|p2a: Clodsire|76/100
-|
-|upkeep
-|turn|14
-|
-|move|p1a: Zacian|Behemoth Blade|p2a: Clodsire
+|move|p1a: Gliscor|Earthquake|p2a: Clodsire
+|-supereffective|p2a: Clodsire
 |-damage|p2a: Clodsire|0 fnt
 |faint|p2a: Clodsire
 |
 |upkeep
 |
-|switch|p2a: Metagross|Metagross|100/100
-|-damage|p2a: Metagross|94/100|[from] Stealth Rock
+|switch|p2a: Rotom|Rotom-Wash|100/100
+|turn|13
+|
+|move|p2a: Rotom|Hydro Pump|p1a: Gliscor|[miss]
+|-miss|p2a: Rotom|p1a: Gliscor
+|move|p1a: Gliscor|Poison Jab|p2a: Rotom
+|-damage|p2a: Rotom|81/100
+|
+|-heal|p2a: Rotom|87/100|[from] item: Leftovers
+|upkeep
+|turn|14
+|
+|move|p2a: Rotom|Hydro Pump|p1a: Gliscor
+|-supereffective|p1a: Gliscor
+|-damage|p1a: Gliscor|4/354 tox
+|move|p1a: Gliscor|Poison Jab|p2a: Rotom
+|-damage|p2a: Rotom|67/100
+|-status|p2a: Rotom|psn
+|
+|-heal|p2a: Rotom|73/100 psn|[from] item: Leftovers
+|-damage|p2a: Rotom|61/100 psn|[from] psn
+|-heal|p1a: Gliscor|48/354 tox|[from] ability: Poison Heal
+|upkeep
 |turn|15
 |
-|move|p1a: Zacian|Sacred Sword|p2a: Metagross
-|-crit|p2a: Metagross
-|-damage|p2a: Metagross|23/100
-|move|p2a: Metagross|Heavy Slam|p1a: Zacian
-|-damage|p1a: Zacian|76/360
+|move|p2a: Rotom|Hydro Pump|p1a: Gliscor
+|-supereffective|p1a: Gliscor
+|-damage|p1a: Gliscor|0 fnt
+|faint|p1a: Gliscor
 |
+|-heal|p2a: Rotom|67/100 psn|[from] item: Leftovers
+|-damage|p2a: Rotom|54/100 psn|[from] psn
 |upkeep
+|
+|switch|p1a: Ting-Lu|Ting-Lu|514/514
+|-damage|p1a: Ting-Lu|450/514|[from] Spikes
+|-ability|p1a: Ting-Lu|Vessel of Ruin
 |turn|16
 |
-|switch|p2a: Cobalion|Cobalion, tera:Water|51/100
-|-damage|p2a: Cobalion|38/100|[from] Stealth Rock
-|move|p1a: Zacian|Sacred Sword|p2a: Cobalion
-|-damage|p2a: Cobalion|2/100
-|-damage|p1a: Zacian|16/360|[from] item: Rocky Helmet|[of] p2a: Cobalion
+|switch|p1a: Flutter Mane|Flutter Mane|251/251
+|-damage|p1a: Flutter Mane|220/251|[from] Spikes
+|move|p2a: Rotom|Hydro Pump|p1a: Flutter Mane
+|-crit|p1a: Flutter Mane
+|-damage|p1a: Flutter Mane|64/251
 |
+|-heal|p2a: Rotom|60/100 psn|[from] item: Leftovers
+|-damage|p2a: Rotom|48/100 psn|[from] psn
 |upkeep
 |turn|17
 |
-|move|p1a: Zacian|Play Rough|p2a: Cobalion|[miss]
-|-miss|p1a: Zacian|p2a: Cobalion
-|move|p2a: Cobalion|Thunder Wave|p1a: Zacian|[miss]
-|-miss|p2a: Cobalion|p1a: Zacian
-|
-|upkeep
-|turn|18
-|
-|switch|p2a: Rotom|Rotom-Wash|99/100
-|-damage|p2a: Rotom|88/100|[from] Stealth Rock
-|move|p1a: Zacian|Play Rough|p2a: Rotom
-|-damage|p2a: Rotom|8/100
-|-unboost|p2a: Rotom|atk|1
-|
-|-heal|p2a: Rotom|14/100|[from] item: Leftovers
-|upkeep
-|turn|19
-|
-|switch|p2a: Metagross|Metagross|23/100
-|-damage|p2a: Metagross|17/100|[from] Stealth Rock
-|move|p1a: Zacian|Play Rough|p2a: Metagross
-|-resisted|p2a: Metagross
-|-crit|p2a: Metagross
-|-damage|p2a: Metagross|0 fnt
-|faint|p2a: Metagross
-|
-|upkeep
-|
-|switch|p2a: Rotom|Rotom-Wash|14/100
-|-damage|p2a: Rotom|2/100|[from] Stealth Rock
-|turn|20
-|
-|move|p1a: Zacian|Play Rough|p2a: Rotom|[miss]
-|-miss|p1a: Zacian|p2a: Rotom
-|move|p2a: Rotom|Hydro Pump|p1a: Zacian
-|-damage|p1a: Zacian|0 fnt
-|faint|p1a: Zacian
-|
-|-heal|p2a: Rotom|8/100|[from] item: Leftovers
-|upkeep
-|
-|switch|p1a: Dialga|Dialga-Origin|341/341
-|-ability|p1a: Dialga|Pressure
-|turn|21
-|
-|switch|p2a: Cobalion|Cobalion, tera:Water|2/100
-|-damage|p2a: Cobalion|0 fnt|[from] Stealth Rock
-|faint|p2a: Cobalion
-|move|p1a: Dialga|Roar of Time|p2: Cobalion|[notarget]
-|-fail|p1a: Dialga
-|
-|upkeep
-|
-|switch|p2a: Rotom|Rotom-Wash|8/100
-|-damage|p2a: Rotom|0 fnt|[from] Stealth Rock
+|move|p1a: Flutter Mane|Moonblast|p2a: Rotom
+|-damage|p2a: Rotom|0 fnt
 |faint|p2a: Rotom
-|
-|switch|p2a: Zarude|Zarude-Dada|6/100
-|turn|22
-|
-|move|p2a: Zarude|Swords Dance|p2a: Zarude
-|-boost|p2a: Zarude|atk|2
-|move|p1a: Dialga|Flash Cannon|p2a: Zarude
-|-damage|p2a: Zarude|0 fnt
-|faint|p2a: Zarude
+|-damage|p1a: Flutter Mane|39/251|[from] item: Life Orb
 |
     </script>
 </div>

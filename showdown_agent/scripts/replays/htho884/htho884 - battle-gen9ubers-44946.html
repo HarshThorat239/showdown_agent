@@ -245,7 +245,7 @@
 |j|☆random-uber
 |gametype|singles
 |player|p1|htho884|266|
-|player|p2|random-uber|101|
+|player|p2|random-uber|265|
 |gen|9
 |tier|[Gen 9] Ubers
 |rule|HP Percentage Mod: HP is shown in percentages
@@ -257,11 +257,11 @@
 |rule|Evasion Moves Clause: Evasion moves are banned
 |clearpoke
 |poke|p1|Groudon|
+|poke|p1|Koraidon|
 |poke|p1|Flutter Mane|
-|poke|p1|Arceus-Fairy|
-|poke|p1|Dialga-Origin|
+|poke|p1|Scizor, F|
 |poke|p1|Zacian-*|
-|poke|p1|Hoopa-Unbound|
+|poke|p1|Giratina-Origin|
 |poke|p2|Deoxys-Speed|
 |poke|p2|Kingambit, F|
 |poke|p2|Zacian-*|
@@ -274,14 +274,14 @@
 |teamsize|p2|6
 |start
 |switch|p1a: Groudon|Groudon|341/341
-|switch|p2a: Deoxys|Deoxys-Speed|100/100
-|-ability|p2a: Deoxys|Pressure
+|switch|p2a: Kingambit|Kingambit, F|100/100
 |-weather|SunnyDay|[from] ability: Drought|[of] p1a: Groudon
 |turn|1
 |
+|-end|p2a: Kingambit|fallenundefined|[silent]
 |switch|p2a: Arceus|Arceus-Fairy|100/100
-|move|p1a: Groudon|Precipice Blades|p2a: Arceus
-|-damage|p2a: Arceus|58/100
+|move|p1a: Groudon|Earthquake|p2a: Arceus
+|-damage|p2a: Arceus|67/100
 |
 |-weather|SunnyDay|[upkeep]
 |upkeep
@@ -289,32 +289,29 @@
 |
 |switch|p2a: Koraidon|Koraidon|100/100
 |-activate|p2a: Koraidon|ability: Orichalcum Pulse
-|move|p1a: Groudon|Precipice Blades|p2a: Koraidon
-|-damage|p2a: Koraidon|35/100
+|move|p1a: Groudon|Earthquake|p2a: Koraidon
+|-damage|p2a: Koraidon|50/100
 |
 |-weather|SunnyDay|[upkeep]
 |upkeep
 |turn|3
 |
-|-terastallize|p2a: Koraidon|Fire
-|move|p2a: Koraidon|Flame Charge|p1a: Groudon
-|-crit|p1a: Groudon
-|-damage|p1a: Groudon|37/341
-|-boost|p2a: Koraidon|spe|1
-|-damage|p2a: Koraidon|26/100|[from] item: Life Orb
-|move|p1a: Groudon|Precipice Blades|p2a: Koraidon|[miss]
-|-miss|p1a: Groudon|p2a: Koraidon
+|switch|p2a: Eternatus|Eternatus|100/100
+|-ability|p2a: Eternatus|Pressure
+|move|p1a: Groudon|Earthquake|p2a: Eternatus
+|-supereffective|p2a: Eternatus
+|-damage|p2a: Eternatus|9/100
 |
 |-weather|SunnyDay|[upkeep]
 |upkeep
 |turn|4
 |
-|move|p2a: Koraidon|Swords Dance|p2a: Koraidon
-|-boost|p2a: Koraidon|atk|2
-|move|p1a: Groudon|Precipice Blades|p2a: Koraidon
-|-supereffective|p2a: Koraidon
-|-damage|p2a: Koraidon|0 fnt
-|faint|p2a: Koraidon
+|move|p2a: Eternatus|Agility|p2a: Eternatus
+|-boost|p2a: Eternatus|spe|2
+|move|p1a: Groudon|Earthquake|p2a: Eternatus
+|-supereffective|p2a: Eternatus
+|-damage|p2a: Eternatus|0 fnt
+|faint|p2a: Eternatus
 |
 |-weather|SunnyDay|[upkeep]
 |upkeep
@@ -325,155 +322,146 @@
 |turn|5
 |
 |move|p2a: Zacian|Behemoth Blade|p1a: Groudon
-|-damage|p1a: Groudon|0 fnt
-|faint|p1a: Groudon
+|-damage|p1a: Groudon|119/341
+|move|p1a: Groudon|Earthquake|p2a: Zacian
+|-supereffective|p2a: Zacian
+|-damage|p2a: Zacian|0 fnt
+|faint|p2a: Zacian
 |
 |-weather|SunnyDay|[upkeep]
 |upkeep
 |
-|switch|p1a: Dialga|Dialga-Origin|341/341
-|-ability|p1a: Dialga|Pressure
+|switch|p2a: Koraidon|Koraidon|50/100
+|-activate|p2a: Koraidon|ability: Orichalcum Pulse
 |turn|6
 |
-|move|p2a: Zacian|Wild Charge|p1a: Dialga
-|-resisted|p1a: Dialga
-|-damage|p1a: Dialga|281/341
-|-damage|p2a: Zacian|96/100|[from] Recoil
-|move|p1a: Dialga|Flash Cannon|p2a: Zacian
-|-damage|p2a: Zacian|53/100
+|-terastallize|p2a: Koraidon|Fire
+|move|p2a: Koraidon|Close Combat|p1a: Groudon
+|-damage|p1a: Groudon|0 fnt
+|-unboost|p2a: Koraidon|def|1
+|-unboost|p2a: Koraidon|spd|1
+|faint|p1a: Groudon
+|-damage|p2a: Koraidon|40/100|[from] item: Life Orb
 |
 |-weather|SunnyDay|[upkeep]
 |upkeep
+|
+|switch|p1a: Koraidon|Koraidon|341/341
+|-activate|p1a: Koraidon|ability: Orichalcum Pulse
 |turn|7
 |
-|switch|p2a: Eternatus|Eternatus|100/100
-|-ability|p2a: Eternatus|Pressure
-|move|p1a: Dialga|Flash Cannon|p2a: Eternatus
-|-damage|p2a: Eternatus|62/100
+|move|p2a: Koraidon|Scale Shot|p1a: Koraidon
+|-supereffective|p1a: Koraidon
+|-damage|p1a: Koraidon|193/341
+|-supereffective|p1a: Koraidon
+|-damage|p1a: Koraidon|45/341
+|-hitcount|p1a: Koraidon|2
+|-unboost|p2a: Koraidon|def|1
+|-boost|p2a: Koraidon|spe|1
+|-damage|p2a: Koraidon|30/100|[from] item: Life Orb
+|move|p1a: Koraidon|Collision Course|p2a: Koraidon
+|-crit|p2a: Koraidon
+|-damage|p2a: Koraidon|0 fnt
+|faint|p2a: Koraidon
+|-damage|p1a: Koraidon|11/341|[from] item: Life Orb
 |
 |-weather|SunnyDay|[upkeep]
 |upkeep
+|
+|switch|p2a: Deoxys|Deoxys-Speed|100/100
+|-ability|p2a: Deoxys|Pressure
 |turn|8
 |
-|switch|p2a: Arceus|Arceus-Fairy|58/100
-|move|p1a: Dialga|Flash Cannon|p2a: Arceus
-|-supereffective|p2a: Arceus
-|-damage|p2a: Arceus|0 fnt
-|faint|p2a: Arceus
+|switch|p1a: Scizor|Scizor, F|282/282
+|move|p2a: Deoxys|Psycho Boost|p1a: Scizor
+|-resisted|p1a: Scizor
+|-damage|p1a: Scizor|180/282
+|-unboost|p2a: Deoxys|spa|2
 |
 |-weather|none
 |upkeep
-|
-|switch|p2a: Eternatus|Eternatus|62/100
-|-ability|p2a: Eternatus|Pressure
 |turn|9
 |
-|switch|p2a: Zacian|Zacian-Crowned|53/100
-|move|p1a: Dialga|Flash Cannon|p2a: Zacian
-|-damage|p2a: Zacian|8/100
+|switch|p2a: Arceus|Arceus-Fairy|67/100
+|move|p1a: Scizor|X-Scissor|p2a: Arceus
+|-resisted|p2a: Arceus
+|-damage|p2a: Arceus|51/100
+|-damage|p1a: Scizor|152/282|[from] item: Life Orb
 |
 |upkeep
 |turn|10
 |
+|move|p2a: Arceus|Judgment|p1a: Scizor
+|-resisted|p1a: Scizor
+|-damage|p1a: Scizor|62/282
+|move|p1a: Scizor|Iron Head|p2a: Arceus
+|-supereffective|p2a: Arceus
+|-damage|p2a: Arceus|0 fnt
+|faint|p2a: Arceus
+|-damage|p1a: Scizor|34/282|[from] item: Life Orb
+|
+|upkeep
+|
 |switch|p2a: Deoxys|Deoxys-Speed|100/100
 |-ability|p2a: Deoxys|Pressure
-|move|p1a: Dialga|Flash Cannon|p2a: Deoxys
-|-crit|p2a: Deoxys
-|-damage|p2a: Deoxys|10/100
-|
-|upkeep
 |turn|11
 |
-|move|p2a: Deoxys|Thunder Wave|p1a: Dialga
-|-status|p1a: Dialga|par
-|cant|p1a: Dialga|par
+|move|p2a: Deoxys|Psycho Boost|p1a: Scizor
+|-resisted|p1a: Scizor
+|-crit|p1a: Scizor
+|-damage|p1a: Scizor|0 fnt
+|-unboost|p2a: Deoxys|spa|2
+|faint|p1a: Scizor
 |
 |upkeep
+|
+|switch|p1a: Flutter Mane|Flutter Mane|251/251
 |turn|12
 |
-|switch|p2a: Zacian|Zacian-Crowned|8/100
-|move|p1a: Dialga|Flash Cannon|p2a: Zacian
-|-damage|p2a: Zacian|0 fnt
-|faint|p2a: Zacian
+|move|p2a: Deoxys|Psycho Boost|p1a: Flutter Mane
+|-damage|p1a: Flutter Mane|191/251
+|-unboost|p2a: Deoxys|spa|2
+|move|p1a: Flutter Mane|Shadow Ball|p2a: Deoxys
+|-supereffective|p2a: Deoxys
+|-enditem|p2a: Deoxys|Focus Sash
+|-damage|p2a: Deoxys|1/100
+|-damage|p1a: Flutter Mane|166/251|[from] item: Life Orb
 |
 |upkeep
-|
-|switch|p2a: Deoxys|Deoxys-Speed|10/100
-|-ability|p2a: Deoxys|Pressure
 |turn|13
 |
-|move|p2a: Deoxys|Psycho Boost|p1a: Dialga
-|-resisted|p1a: Dialga
-|-damage|p1a: Dialga|226/341 par
-|-unboost|p2a: Deoxys|spa|2
-|move|p1a: Dialga|Flash Cannon|p2a: Deoxys
+|move|p2a: Deoxys|Taunt|p1a: Flutter Mane
+|-start|p1a: Flutter Mane|move: Taunt
+|move|p1a: Flutter Mane|Moonblast|p2a: Deoxys
 |-damage|p2a: Deoxys|0 fnt
 |faint|p2a: Deoxys
+|-damage|p1a: Flutter Mane|141/251|[from] item: Life Orb
 |
 |upkeep
 |
 |switch|p2a: Kingambit|Kingambit, F|100/100
 |-activate|p2a: Kingambit|ability: Supreme Overlord
-|-start|p2a: Kingambit|fallen4|[silent]
+|-start|p2a: Kingambit|fallen5|[silent]
 |turn|14
 |
-|move|p2a: Kingambit|Sucker Punch|p1a: Dialga
-|-damage|p1a: Dialga|84/341 par
-|move|p1a: Dialga|Roar of Time|p2a: Kingambit
-|-resisted|p2a: Kingambit
-|-damage|p2a: Kingambit|55/100
-|-mustrecharge|p1a: Dialga
+|-end|p1a: Flutter Mane|Protosynthesis|[silent]
+|switch|p1a: Koraidon|Koraidon|11/341
+|-weather|SunnyDay|[from] ability: Orichalcum Pulse|[of] p1a: Koraidon
+|-activate|p1a: Koraidon|Orichalcum Pulse|[source]
+|move|p2a: Kingambit|Swords Dance|p2a: Kingambit
+|-boost|p2a: Kingambit|atk|2
 |
+|-weather|SunnyDay|[upkeep]
 |upkeep
 |turn|15
 |
-|move|p2a: Kingambit|Swords Dance|p2a: Kingambit
-|-boost|p2a: Kingambit|atk|2
-|cant|p1a: Dialga|recharge
-|
-|upkeep
-|turn|16
-|
-|-end|p2a: Kingambit|fallen4|[silent]
-|switch|p2a: Eternatus|Eternatus|62/100
-|-ability|p2a: Eternatus|Pressure
-|move|p1a: Dialga|Roar of Time|p2a: Eternatus
-|-supereffective|p2a: Eternatus
-|-damage|p2a: Eternatus|0 fnt
-|-mustrecharge|p1a: Dialga
-|faint|p2a: Eternatus
-|
-|upkeep
-|
-|switch|p2a: Kingambit|Kingambit, F|55/100
-|-activate|p2a: Kingambit|ability: Supreme Overlord
-|-start|p2a: Kingambit|fallen5|[silent]
-|turn|17
-|
-|move|p2a: Kingambit|Swords Dance|p2a: Kingambit
-|-boost|p2a: Kingambit|atk|2
-|cant|p1a: Dialga|recharge
-|
-|upkeep
-|turn|18
-|
-|move|p2a: Kingambit|Iron Head|p1a: Dialga
-|-resisted|p1a: Dialga
-|-damage|p1a: Dialga|0 fnt
-|faint|p1a: Dialga
-|
-|upkeep
-|
-|switch|p1a: Zacian|Zacian-Crowned|360/360
-|-ability|p1a: Zacian|Intrepid Sword|boost
-|-boost|p1a: Zacian|atk|1
-|turn|19
-|
-|move|p1a: Zacian|Sacred Sword|p2a: Kingambit
+|move|p1a: Koraidon|Collision Course|p2a: Kingambit
 |-supereffective|p2a: Kingambit
 |-damage|p2a: Kingambit|0 fnt
 |faint|p2a: Kingambit
 |-end|p2a: Kingambit|fallen5|[silent]
+|-damage|p1a: Koraidon|0 fnt|[from] item: Life Orb
+|faint|p1a: Koraidon
 |
     </script>
 </div>

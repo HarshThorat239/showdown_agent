@@ -245,7 +245,7 @@
 |j|☆simple-ou
 |gametype|singles
 |player|p1|htho884|266|
-|player|p2|simple-ou|101|
+|player|p2|simple-ou|102|
 |gen|9
 |tier|[Gen 9] Ubers
 |rule|HP Percentage Mod: HP is shown in percentages
@@ -257,11 +257,11 @@
 |rule|Evasion Moves Clause: Evasion moves are banned
 |clearpoke
 |poke|p1|Groudon|
+|poke|p1|Koraidon|
 |poke|p1|Flutter Mane|
 |poke|p1|Arceus-Fairy|
-|poke|p1|Dialga-Origin|
 |poke|p1|Zacian-*|
-|poke|p1|Hoopa-Unbound|
+|poke|p1|Giratina-Origin|
 |poke|p2|Ogerpon-Wellspring, F|
 |poke|p2|Garganacl, F|
 |poke|p2|Great Tusk|
@@ -274,227 +274,410 @@
 |teamsize|p2|6
 |start
 |switch|p1a: Groudon|Groudon|341/341
-|switch|p2a: Dragonite|Dragonite, F|100/100
+|switch|p2a: Garganacl|Garganacl, F|100/100
 |-weather|SunnyDay|[from] ability: Drought|[of] p1a: Groudon
 |turn|1
 |
-|switch|p1a: Zacian|Zacian-Crowned|360/360
-|-ability|p1a: Zacian|Intrepid Sword|boost
-|-boost|p1a: Zacian|atk|1
-|move|p2a: Dragonite|Ice Spinner|p1a: Zacian
-|-resisted|p1a: Zacian
-|-crit|p1a: Zacian
-|-damage|p1a: Zacian|291/360
+|move|p1a: Groudon|Earthquake|p2a: Garganacl
+|-supereffective|p2a: Garganacl
+|-damage|p2a: Garganacl|22/100
+|move|p2a: Garganacl|Salt Cure|p1a: Groudon
+|-resisted|p1a: Groudon
+|-damage|p1a: Groudon|322/341
+|-start|p1a: Groudon|Salt Cure
 |
 |-weather|SunnyDay|[upkeep]
+|-heal|p2a: Garganacl|28/100|[from] item: Leftovers
+|-damage|p1a: Groudon|280/341|[from] Salt Cure
 |upkeep
 |turn|2
 |
-|move|p1a: Zacian|Behemoth Blade|p2a: Dragonite
-|-damage|p2a: Dragonite|48/100
-|move|p2a: Dragonite|Earthquake|p1a: Zacian
-|-supereffective|p1a: Zacian
-|-damage|p1a: Zacian|59/360
-|
-|-weather|SunnyDay|[upkeep]
-|upkeep
-|turn|3
-|
-|move|p1a: Zacian|Behemoth Blade|p2a: Dragonite
-|-damage|p2a: Dragonite|0 fnt
-|faint|p2a: Dragonite
-|
-|-weather|SunnyDay|[upkeep]
-|upkeep
-|
-|switch|p2a: Moltres|Moltres|100/100
-|turn|4
-|
-|switch|p1a: Flutter Mane|Flutter Mane|251/251
-|-activate|p1a: Flutter Mane|ability: Protosynthesis
-|-start|p1a: Flutter Mane|protosynthesisspe
-|move|p2a: Moltres|Flamethrower|p1a: Flutter Mane
-|-damage|p1a: Flutter Mane|109/251
-|-status|p1a: Flutter Mane|brn
-|
-|-weather|SunnyDay|[upkeep]
-|-damage|p1a: Flutter Mane|94/251 brn|[from] brn
-|upkeep
-|turn|5
-|
-|move|p1a: Flutter Mane|Shadow Ball|p2a: Moltres
-|-damage|p2a: Moltres|43/100
-|-unboost|p2a: Moltres|spd|1
-|-damage|p1a: Flutter Mane|69/251 brn|[from] item: Life Orb
-|move|p2a: Moltres|Brave Bird|p1a: Flutter Mane
-|-damage|p1a: Flutter Mane|0 fnt
-|faint|p1a: Flutter Mane
-|-end|p1a: Flutter Mane|Protosynthesis|[silent]
-|-damage|p2a: Moltres|37/100|[from] Recoil
-|
-|-weather|SunnyDay|[upkeep]
-|upkeep
-|
-|switch|p1a: Dialga|Dialga-Origin|341/341
-|-ability|p1a: Dialga|Pressure
-|turn|6
-|
-|move|p2a: Moltres|Flamethrower|p1a: Dialga
-|-damage|p1a: Dialga|223/341
-|move|p1a: Dialga|Roar of Time|p2a: Moltres
-|-damage|p2a: Moltres|0 fnt
-|-mustrecharge|p1a: Dialga
-|faint|p2a: Moltres
-|
-|-weather|SunnyDay|[upkeep]
-|upkeep
-|
-|switch|p2a: Great Tusk|Great Tusk|100/100
-|-activate|p2a: Great Tusk|ability: Protosynthesis
-|-start|p2a: Great Tusk|protosynthesisatk
-|turn|7
-|
-|move|p2a: Great Tusk|Headlong Rush|p1a: Dialga
-|-supereffective|p1a: Dialga
-|-damage|p1a: Dialga|0 fnt
-|-unboost|p2a: Great Tusk|def|1
-|-unboost|p2a: Great Tusk|spd|1
-|faint|p1a: Dialga
-|
-|-weather|SunnyDay|[upkeep]
-|upkeep
-|
-|switch|p1a: Arceus|Arceus-Fairy|381/381
-|turn|8
-|
-|move|p1a: Arceus|Judgment|p2a: Great Tusk
-|-supereffective|p2a: Great Tusk
-|-damage|p2a: Great Tusk|0 fnt
-|faint|p2a: Great Tusk
-|-end|p2a: Great Tusk|Protosynthesis|[silent]
-|
-|-weather|none
-|upkeep
-|
-|switch|p2a: Garganacl|Garganacl, F|100/100
-|turn|9
-|
-|move|p1a: Arceus|Aura Sphere|p2a: Garganacl
-|-supereffective|p2a: Garganacl
-|-damage|p2a: Garganacl|70/100
-|move|p2a: Garganacl|Salt Cure|p1a: Arceus
-|-damage|p1a: Arceus|344/381
-|-start|p1a: Arceus|Salt Cure
-|
-|-heal|p2a: Garganacl|76/100|[from] item: Leftovers
-|-damage|p1a: Arceus|297/381|[from] Salt Cure
-|upkeep
-|turn|10
-|
-|move|p1a: Arceus|Aura Sphere|p2a: Garganacl
-|-supereffective|p2a: Garganacl
-|-damage|p2a: Garganacl|46/100
-|move|p2a: Garganacl|Salt Cure|p1a: Arceus
-|-damage|p1a: Arceus|263/381
-|
-|-heal|p2a: Garganacl|52/100|[from] item: Leftovers
-|-damage|p1a: Arceus|216/381|[from] Salt Cure
-|upkeep
-|turn|11
-|
-|move|p1a: Arceus|Aura Sphere|p2a: Garganacl
-|-supereffective|p2a: Garganacl
-|-damage|p2a: Garganacl|18/100
-|move|p2a: Garganacl|Salt Cure|p1a: Arceus
-|-damage|p1a: Arceus|179/381
-|
-|-heal|p2a: Garganacl|24/100|[from] item: Leftovers
-|-damage|p1a: Arceus|132/381|[from] Salt Cure
-|upkeep
-|turn|12
-|
-|move|p1a: Arceus|Aura Sphere|p2a: Garganacl
+|move|p1a: Groudon|Earthquake|p2a: Garganacl
 |-supereffective|p2a: Garganacl
 |-damage|p2a: Garganacl|0 fnt
 |faint|p2a: Garganacl
 |
-|-damage|p1a: Arceus|85/381|[from] Salt Cure
+|-weather|SunnyDay|[upkeep]
+|-damage|p1a: Groudon|238/341|[from] Salt Cure
 |upkeep
 |
 |switch|p2a: Ogerpon|Ogerpon-Wellspring, F|100/100
-|turn|13
+|turn|3
 |
-|move|p1a: Arceus|Judgment|p2a: Ogerpon
-|-damage|p2a: Ogerpon|42/100
-|move|p2a: Ogerpon|Spikes|p1a: Arceus
+|switch|p1a: Koraidon|Koraidon|341/341
+|-activate|p1a: Koraidon|ability: Orichalcum Pulse
+|move|p2a: Ogerpon|Spikes|p1a: Koraidon
 |-sidestart|p1: htho884|Spikes
 |
-|-damage|p1a: Arceus|38/381|[from] Salt Cure
+|-weather|SunnyDay|[upkeep]
+|upkeep
+|turn|4
+|
+|switch|p1a: Giratina|Giratina-Origin|504/504
+|move|p2a: Ogerpon|Ivy Cudgel|p1a: Giratina|[anim] Ivy Cudgel Water
+|-resisted|p1a: Giratina
+|-crit|p1a: Giratina
+|-damage|p1a: Giratina|428/504
+|
+|-weather|SunnyDay|[upkeep]
+|upkeep
+|turn|5
+|
+|move|p2a: Ogerpon|Knock Off|p1a: Giratina
+|-supereffective|p1a: Giratina
+|-damage|p1a: Giratina|250/504
+|move|p1a: Giratina|Defog|p2a: Ogerpon
+|-unboost|p2a: Ogerpon|evasion|1
+|-sideend|p1: htho884|Spikes|[from] move: Defog|[of] p1a: Giratina
+|
+|-weather|SunnyDay|[upkeep]
+|upkeep
+|turn|6
+|
+|move|p2a: Ogerpon|Spikes|p1a: Giratina
+|-sidestart|p1: htho884|Spikes
+|move|p1a: Giratina|Defog|p2a: Ogerpon
+|-unboost|p2a: Ogerpon|evasion|1
+|-sideend|p1: htho884|Spikes|[from] move: Defog|[of] p1a: Giratina
+|
+|-weather|SunnyDay|[upkeep]
+|upkeep
+|turn|7
+|
+|move|p2a: Ogerpon|Spikes|p1a: Giratina
+|-sidestart|p1: htho884|Spikes
+|move|p1a: Giratina|Defog|p2a: Ogerpon
+|-unboost|p2a: Ogerpon|evasion|1
+|-sideend|p1: htho884|Spikes|[from] move: Defog|[of] p1a: Giratina
+|
+|-weather|SunnyDay|[upkeep]
+|upkeep
+|turn|8
+|
+|move|p2a: Ogerpon|Spikes|p1a: Giratina
+|-sidestart|p1: htho884|Spikes
+|move|p1a: Giratina|Defog|p2a: Ogerpon
+|-unboost|p2a: Ogerpon|evasion|1
+|-sideend|p1: htho884|Spikes|[from] move: Defog|[of] p1a: Giratina
+|
+|-weather|none
+|upkeep
+|turn|9
+|
+|move|p2a: Ogerpon|Spikes|p1a: Giratina
+|-sidestart|p1: htho884|Spikes
+|move|p1a: Giratina|Defog|p2a: Ogerpon
+|-unboost|p2a: Ogerpon|evasion|1
+|-sideend|p1: htho884|Spikes|[from] move: Defog|[of] p1a: Giratina
+|
+|upkeep
+|turn|10
+|
+|move|p2a: Ogerpon|Spikes|p1a: Giratina
+|-sidestart|p1: htho884|Spikes
+|move|p1a: Giratina|Defog|p2a: Ogerpon
+|-unboost|p2a: Ogerpon|evasion|1
+|-sideend|p1: htho884|Spikes|[from] move: Defog|[of] p1a: Giratina
+|
+|upkeep
+|turn|11
+|
+|move|p2a: Ogerpon|Spikes|p1a: Giratina
+|-sidestart|p1: htho884|Spikes
+|move|p1a: Giratina|Defog|p2a: Ogerpon
+|-unboost|p2a: Ogerpon|evasion|0
+|-sideend|p1: htho884|Spikes|[from] move: Defog|[of] p1a: Giratina
+|
+|upkeep
+|turn|12
+|
+|move|p2a: Ogerpon|Spikes|p1a: Giratina
+|-sidestart|p1: htho884|Spikes
+|move|p1a: Giratina|Defog|p2a: Ogerpon
+|-unboost|p2a: Ogerpon|evasion|0
+|-sideend|p1: htho884|Spikes|[from] move: Defog|[of] p1a: Giratina
+|
+|upkeep
+|turn|13
+|
+|move|p2a: Ogerpon|Spikes|p1a: Giratina
+|-sidestart|p1: htho884|Spikes
+|move|p1a: Giratina|Defog|p2a: Ogerpon
+|-unboost|p2a: Ogerpon|evasion|0
+|-sideend|p1: htho884|Spikes|[from] move: Defog|[of] p1a: Giratina
+|
 |upkeep
 |turn|14
 |
-|move|p1a: Arceus|Judgment|p2a: Ogerpon
-|-crit|p2a: Ogerpon
-|-damage|p2a: Ogerpon|0 fnt
-|faint|p2a: Ogerpon
+|move|p2a: Ogerpon|Spikes|p1a: Giratina
+|-sidestart|p1: htho884|Spikes
+|move|p1a: Giratina|Defog|p2a: Ogerpon
+|-unboost|p2a: Ogerpon|evasion|0
+|-sideend|p1: htho884|Spikes|[from] move: Defog|[of] p1a: Giratina
 |
-|-damage|p1a: Arceus|0 fnt|[from] Salt Cure
-|faint|p1a: Arceus
 |upkeep
-|
-|switch|p1a: Zacian|Zacian-Crowned|59/360
-|switch|p2a: Darkrai|Darkrai|100/100
-|-damage|p1a: Zacian|14/360|[from] Spikes
 |turn|15
 |
-|move|p2a: Darkrai|Dark Pulse|p1a: Zacian
-|-resisted|p1a: Zacian
+|move|p2a: Ogerpon|Spikes|p1a: Giratina
+|-sidestart|p1: htho884|Spikes
+|move|p1a: Giratina|Defog|p2a: Ogerpon
+|-unboost|p2a: Ogerpon|evasion|0
+|-sideend|p1: htho884|Spikes|[from] move: Defog|[of] p1a: Giratina
+|
+|upkeep
+|turn|16
+|
+|move|p2a: Ogerpon|Spikes|p1a: Giratina
+|-sidestart|p1: htho884|Spikes
+|move|p1a: Giratina|Defog|p2a: Ogerpon
+|-unboost|p2a: Ogerpon|evasion|0
+|-sideend|p1: htho884|Spikes|[from] move: Defog|[of] p1a: Giratina
+|
+|upkeep
+|turn|17
+|
+|move|p2a: Ogerpon|Spikes|p1a: Giratina
+|-sidestart|p1: htho884|Spikes
+|move|p1a: Giratina|Defog|p2a: Ogerpon
+|-unboost|p2a: Ogerpon|evasion|0
+|-sideend|p1: htho884|Spikes|[from] move: Defog|[of] p1a: Giratina
+|
+|upkeep
+|turn|18
+|
+|move|p2a: Ogerpon|Spikes|p1a: Giratina
+|-sidestart|p1: htho884|Spikes
+|move|p1a: Giratina|Defog|p2a: Ogerpon
+|-unboost|p2a: Ogerpon|evasion|0
+|-sideend|p1: htho884|Spikes|[from] move: Defog|[of] p1a: Giratina
+|
+|upkeep
+|turn|19
+|
+|move|p2a: Ogerpon|Spikes|p1a: Giratina
+|-sidestart|p1: htho884|Spikes
+|move|p1a: Giratina|Defog|p2a: Ogerpon
+|-unboost|p2a: Ogerpon|evasion|0
+|-sideend|p1: htho884|Spikes|[from] move: Defog|[of] p1a: Giratina
+|
+|upkeep
+|turn|20
+|
+|move|p2a: Ogerpon|Spikes|p1a: Giratina
+|-sidestart|p1: htho884|Spikes
+|move|p1a: Giratina|Defog|p2a: Ogerpon
+|-unboost|p2a: Ogerpon|evasion|0
+|-sideend|p1: htho884|Spikes|[from] move: Defog|[of] p1a: Giratina
+|
+|upkeep
+|turn|21
+|
+|move|p2a: Ogerpon|Spikes|p1a: Giratina
+|-sidestart|p1: htho884|Spikes
+|move|p1a: Giratina|Defog|p2a: Ogerpon
+|-unboost|p2a: Ogerpon|evasion|0
+|-sideend|p1: htho884|Spikes|[from] move: Defog|[of] p1a: Giratina
+|
+|upkeep
+|turn|22
+|
+|move|p2a: Ogerpon|Spikes|p1a: Giratina
+|-sidestart|p1: htho884|Spikes
+|move|p1a: Giratina|Defog|p2a: Ogerpon
+|-unboost|p2a: Ogerpon|evasion|0
+|-sideend|p1: htho884|Spikes|[from] move: Defog|[of] p1a: Giratina
+|
+|upkeep
+|turn|23
+|
+|move|p2a: Ogerpon|Spikes|p1a: Giratina
+|-sidestart|p1: htho884|Spikes
+|move|p1a: Giratina|Defog|p2a: Ogerpon
+|-unboost|p2a: Ogerpon|evasion|0
+|-sideend|p1: htho884|Spikes|[from] move: Defog|[of] p1a: Giratina
+|
+|upkeep
+|turn|24
+|
+|move|p2a: Ogerpon|Spikes|p1a: Giratina
+|-sidestart|p1: htho884|Spikes
+|move|p1a: Giratina|Defog|p2a: Ogerpon
+|-unboost|p2a: Ogerpon|evasion|0
+|-sideend|p1: htho884|Spikes|[from] move: Defog|[of] p1a: Giratina
+|
+|upkeep
+|turn|25
+|
+|move|p2a: Ogerpon|Spikes|p1a: Giratina
+|-sidestart|p1: htho884|Spikes
+|move|p1a: Giratina|Defog|p2a: Ogerpon
+|-unboost|p2a: Ogerpon|evasion|0
+|-sideend|p1: htho884|Spikes|[from] move: Defog|[of] p1a: Giratina
+|
+|upkeep
+|turn|26
+|
+|move|p2a: Ogerpon|Spikes|p1a: Giratina
+|-sidestart|p1: htho884|Spikes
+|move|p1a: Giratina|Defog|p2a: Ogerpon
+|-unboost|p2a: Ogerpon|evasion|0
+|-sideend|p1: htho884|Spikes|[from] move: Defog|[of] p1a: Giratina
+|
+|upkeep
+|turn|27
+|
+|move|p2a: Ogerpon|Spikes|p1a: Giratina
+|-sidestart|p1: htho884|Spikes
+|move|p1a: Giratina|Defog|p2a: Ogerpon
+|-unboost|p2a: Ogerpon|evasion|0
+|-sideend|p1: htho884|Spikes|[from] move: Defog|[of] p1a: Giratina
+|
+|upkeep
+|turn|28
+|
+|move|p2a: Ogerpon|Spikes|p1a: Giratina
+|-sidestart|p1: htho884|Spikes
+|move|p1a: Giratina|Defog|p2a: Ogerpon
+|-unboost|p2a: Ogerpon|evasion|0
+|-sideend|p1: htho884|Spikes|[from] move: Defog|[of] p1a: Giratina
+|
+|upkeep
+|turn|29
+|
+|move|p2a: Ogerpon|Spikes|p1a: Giratina
+|-sidestart|p1: htho884|Spikes
+|move|p1a: Giratina|Poltergeist|p2a: Ogerpon
+|-activate|p2a: Ogerpon|move: Poltergeist|Wellspring Mask
+|-damage|p2a: Ogerpon|2/100
+|
+|upkeep
+|turn|30
+|
+|move|p2a: Ogerpon|Knock Off|p1a: Giratina
+|-supereffective|p1a: Giratina
+|-damage|p1a: Giratina|72/504
+|move|p1a: Giratina|Will-O-Wisp|p2a: Ogerpon
+|-status|p2a: Ogerpon|brn
+|
+|-damage|p2a: Ogerpon|0 fnt|[from] brn
+|faint|p2a: Ogerpon
+|upkeep
+|
+|switch|p2a: Darkrai|Darkrai|100/100
+|turn|31
+|
+|move|p2a: Darkrai|Dark Pulse|p1a: Giratina
+|-supereffective|p1a: Giratina
+|-damage|p1a: Giratina|0 fnt
+|faint|p1a: Giratina
+|
+|upkeep
+|
+|switch|p1a: Arceus|Arceus-Fairy|381/381
+|-damage|p1a: Arceus|334/381|[from] Spikes
+|turn|32
+|
+|move|p2a: Darkrai|Dark Pulse|p1a: Arceus
+|-resisted|p1a: Arceus
+|-damage|p1a: Arceus|270/381
+|move|p1a: Arceus|Aura Sphere|p2a: Darkrai
+|-supereffective|p2a: Darkrai
+|-damage|p2a: Darkrai|41/100
+|
+|upkeep
+|turn|33
+|
+|move|p2a: Darkrai|Dark Pulse|p1a: Arceus
+|-resisted|p1a: Arceus
+|-damage|p1a: Arceus|212/381
+|move|p1a: Arceus|Judgment|p2a: Darkrai
+|-supereffective|p2a: Darkrai
+|-damage|p2a: Darkrai|0 fnt
+|faint|p2a: Darkrai
+|
+|upkeep
+|
+|switch|p2a: Moltres|Moltres|100/100
+|turn|34
+|
+|move|p1a: Arceus|Judgment|p2a: Moltres
+|-resisted|p2a: Moltres
+|-damage|p2a: Moltres|75/100
+|move|p2a: Moltres|Brave Bird|p1a: Arceus
+|-damage|p1a: Arceus|91/381
+|-damage|p2a: Moltres|64/100|[from] Recoil
+|
+|upkeep
+|turn|35
+|
+|move|p1a: Arceus|Judgment|p2a: Moltres
+|-resisted|p2a: Moltres
+|-damage|p2a: Moltres|34/100
+|move|p2a: Moltres|Brave Bird|p1a: Arceus
+|-damage|p1a: Arceus|0 fnt
+|faint|p1a: Arceus
+|-damage|p2a: Moltres|27/100|[from] Recoil
+|
+|upkeep
+|
+|switch|p1a: Flutter Mane|Flutter Mane|251/251
+|-damage|p1a: Flutter Mane|220/251|[from] Spikes
+|turn|36
+|
+|move|p1a: Flutter Mane|Shadow Ball|p2a: Moltres
+|-crit|p2a: Moltres
+|-damage|p2a: Moltres|0 fnt
+|faint|p2a: Moltres
+|-damage|p1a: Flutter Mane|195/251|[from] item: Life Orb
+|
+|upkeep
+|
+|switch|p2a: Dragonite|Dragonite, F|100/100
+|turn|37
+|
+|-end|p1a: Flutter Mane|Protosynthesis|[silent]
+|switch|p1a: Zacian|Zacian-Crowned|357/357
+|-damage|p1a: Zacian|313/357|[from] Spikes
+|-ability|p1a: Zacian|Intrepid Sword|boost
+|-boost|p1a: Zacian|atk|1
+|move|p2a: Dragonite|Earthquake|p1a: Zacian
+|-supereffective|p1a: Zacian
+|-damage|p1a: Zacian|93/357
+|
+|upkeep
+|turn|38
+|
+|move|p1a: Zacian|Ice Fang|p2a: Dragonite
+|-supereffective|p2a: Dragonite
+|-damage|p2a: Dragonite|12/100
+|move|p2a: Dragonite|Earthquake|p1a: Zacian
+|-supereffective|p1a: Zacian
 |-damage|p1a: Zacian|0 fnt
 |faint|p1a: Zacian
 |
 |upkeep
 |
-|switch|p1a: Groudon|Groudon|341/341
-|-damage|p1a: Groudon|299/341|[from] Spikes
-|-weather|SunnyDay|[from] ability: Drought|[of] p1a: Groudon
-|turn|16
+|switch|p1a: Flutter Mane|Flutter Mane|195/251
+|-damage|p1a: Flutter Mane|164/251|[from] Spikes
+|turn|39
 |
-|move|p2a: Darkrai|Dark Pulse|p1a: Groudon
-|-damage|p1a: Groudon|133/341
-|cant|p1a: Groudon|flinch
+|move|p1a: Flutter Mane|Moonblast|p2a: Dragonite
+|-supereffective|p2a: Dragonite
+|-damage|p2a: Dragonite|0 fnt
+|faint|p2a: Dragonite
+|-damage|p1a: Flutter Mane|139/251|[from] item: Life Orb
 |
-|-weather|SunnyDay|[upkeep]
-|upkeep
-|turn|17
-|
-|move|p2a: Darkrai|Dark Pulse|p1a: Groudon
-|-damage|p1a: Groudon|0 fnt
-|faint|p1a: Groudon
-|
-|-weather|SunnyDay|[upkeep]
 |upkeep
 |
-|switch|p1a: Hoopa|Hoopa-Unbound|301/301
-|-damage|p1a: Hoopa|264/301|[from] Spikes
-|turn|18
+|switch|p2a: Great Tusk|Great Tusk|100/100
+|turn|40
 |
-|move|p2a: Darkrai|Dark Pulse|p1a: Hoopa
-|-damage|p1a: Hoopa|122/301
-|move|p1a: Hoopa|Drain Punch|p2a: Darkrai
-|-supereffective|p2a: Darkrai
-|-damage|p2a: Darkrai|20/100
-|-heal|p1a: Hoopa|235/301|[from] drain|[of] p2a: Darkrai
-|-item|p1a: Hoopa|Choice Scarf|[from] ability: Magician|[of] p2a: Darkrai
-|
-|-weather|SunnyDay|[upkeep]
-|upkeep
-|turn|19
-|
-|move|p1a: Hoopa|Drain Punch|p2a: Darkrai
-|-supereffective|p2a: Darkrai
-|-damage|p2a: Darkrai|0 fnt
-|-heal|p1a: Hoopa|263/301|[from] drain|[of] p2a: Darkrai
-|faint|p2a: Darkrai
+|move|p1a: Flutter Mane|Moonblast|p2a: Great Tusk
+|-supereffective|p2a: Great Tusk
+|-damage|p2a: Great Tusk|0 fnt
+|faint|p2a: Great Tusk
+|-end|p2a: Great Tusk|Protosynthesis|[silent]
+|-damage|p1a: Flutter Mane|114/251|[from] item: Life Orb
 |
     </script>
 </div>

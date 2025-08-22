@@ -245,7 +245,7 @@
 |j|☆simple-ru
 |gametype|singles
 |player|p1|htho884|266|
-|player|p2|simple-ru|265|
+|player|p2|simple-ru|102|
 |gen|9
 |tier|[Gen 9] Ubers
 |rule|HP Percentage Mod: HP is shown in percentages
@@ -257,14 +257,14 @@
 |rule|Evasion Moves Clause: Evasion moves are banned
 |clearpoke
 |poke|p1|Groudon|
+|poke|p1|Koraidon|
 |poke|p1|Flutter Mane|
-|poke|p1|Arceus-Fairy|
-|poke|p1|Dialga-Origin|
+|poke|p1|Arceus-Water|
 |poke|p1|Zacian-*|
-|poke|p1|Hoopa-Unbound|
+|poke|p1|Giratina-Origin|
 |poke|p2|Rotom-Heat|
-|poke|p2|Krookodile, M|
-|poke|p2|Slowbro, M|
+|poke|p2|Krookodile, F|
+|poke|p2|Slowbro, F|
 |poke|p2|Cyclizar, M|
 |poke|p2|Jirachi|
 |poke|p2|Zapdos-Galar|
@@ -274,14 +274,11 @@
 |teamsize|p2|6
 |start
 |switch|p1a: Groudon|Groudon|341/341
-|switch|p2a: Zapdos|Zapdos-Galar|100/100
+|switch|p2a: Rotom|Rotom-Heat|100/100
 |-weather|SunnyDay|[from] ability: Drought|[of] p1a: Groudon
 |turn|1
 |
-|move|p2a: Zapdos|Close Combat|p1a: Groudon
-|-damage|p1a: Groudon|172/341
-|-unboost|p2a: Zapdos|def|1
-|-unboost|p2a: Zapdos|spd|1
+|switch|p2a: Zapdos|Zapdos-Galar|100/100
 |move|p1a: Groudon|Stealth Rock|p2a: Zapdos
 |-sidestart|p2: simple-ru|move: Stealth Rock
 |
@@ -290,7 +287,7 @@
 |turn|2
 |
 |move|p2a: Zapdos|Close Combat|p1a: Groudon
-|-damage|p1a: Groudon|15/341
+|-damage|p1a: Groudon|196/341
 |-unboost|p2a: Zapdos|def|1
 |-unboost|p2a: Zapdos|spd|1
 |move|p1a: Groudon|Stealth Rock||[still]
@@ -299,6 +296,17 @@
 |-weather|SunnyDay|[upkeep]
 |upkeep
 |turn|3
+|
+|move|p2a: Zapdos|Close Combat|p1a: Groudon
+|-damage|p1a: Groudon|31/341
+|-unboost|p2a: Zapdos|def|1
+|-unboost|p2a: Zapdos|spd|1
+|move|p1a: Groudon|Stealth Rock||[still]
+|-fail|p1a: Groudon
+|
+|-weather|SunnyDay|[upkeep]
+|upkeep
+|turn|4
 |
 |move|p2a: Zapdos|Close Combat|p1a: Groudon
 |-damage|p1a: Groudon|0 fnt
@@ -312,7 +320,7 @@
 |switch|p1a: Flutter Mane|Flutter Mane|251/251
 |-activate|p1a: Flutter Mane|ability: Protosynthesis
 |-start|p1a: Flutter Mane|protosynthesisspe
-|turn|4
+|turn|5
 |
 |move|p1a: Flutter Mane|Moonblast|p2a: Zapdos
 |-supereffective|p2a: Zapdos
@@ -323,131 +331,98 @@
 |-weather|SunnyDay|[upkeep]
 |upkeep
 |
-|switch|p2a: Rotom|Rotom-Heat|100/100
-|turn|5
-|
-|move|p1a: Flutter Mane|Shadow Ball|p2a: Rotom
-|-damage|p2a: Rotom|45/100
-|-damage|p1a: Flutter Mane|201/251|[from] item: Life Orb
-|move|p2a: Rotom|Overheat|p1a: Flutter Mane
-|-damage|p1a: Flutter Mane|24/251
-|-unboost|p2a: Rotom|spa|2
-|
-|-weather|SunnyDay|[upkeep]
-|upkeep
-|turn|6
-|
-|move|p1a: Flutter Mane|Shadow Ball|p2a: Rotom
-|-damage|p2a: Rotom|0 fnt
-|faint|p2a: Rotom
-|-damage|p1a: Flutter Mane|0 fnt|[from] item: Life Orb
-|faint|p1a: Flutter Mane
-|-end|p1a: Flutter Mane|Protosynthesis|[silent]
-|
-|-weather|SunnyDay|[upkeep]
-|upkeep
-|
-|switch|p1a: Dialga|Dialga-Origin|341/341
 |switch|p2a: Jirachi|Jirachi|100/100
 |-damage|p2a: Jirachi|94/100|[from] Stealth Rock
-|-ability|p1a: Dialga|Pressure
-|turn|7
+|turn|6
 |
-|move|p2a: Jirachi|Aura Sphere|p1a: Dialga
-|-supereffective|p1a: Dialga
-|-damage|p1a: Dialga|237/341
-|move|p1a: Dialga|Roar of Time|p2a: Jirachi
-|-resisted|p2a: Jirachi
-|-damage|p2a: Jirachi|49/100
-|-mustrecharge|p1a: Dialga
+|-end|p1a: Flutter Mane|Protosynthesis|[silent]
+|switch|p1a: Giratina|Giratina-Origin|504/504
+|move|p2a: Jirachi|Psychic Noise|p1a: Giratina
+|-damage|p1a: Giratina|402/504
+|-start|p1a: Giratina|move: Heal Block
 |
 |-weather|SunnyDay|[upkeep]
-|-heal|p2a: Jirachi|55/100|[from] item: Leftovers
+|-heal|p2a: Jirachi|100/100|[from] item: Leftovers
 |upkeep
+|turn|7
+|
+|move|p2a: Jirachi|Psychic Noise|p1a: Giratina
+|-damage|p1a: Giratina|296/504
+|move|p1a: Giratina|Poltergeist|p2a: Jirachi
+|-activate|p2a: Jirachi|move: Poltergeist|Leftovers
+|-supereffective|p2a: Jirachi
+|-damage|p2a: Jirachi|0 fnt
+|faint|p2a: Jirachi
+|
+|-weather|SunnyDay|[upkeep]
+|-end|p1a: Giratina|move: Heal Block
+|upkeep
+|
+|switch|p2a: Krookodile|Krookodile, F|100/100
+|-damage|p2a: Krookodile|94/100|[from] Stealth Rock
+|-ability|p2a: Krookodile|Intimidate|boost
+|-unboost|p1a: Giratina|atk|1
 |turn|8
 |
-|move|p2a: Jirachi|Aura Sphere|p1a: Dialga
-|-supereffective|p1a: Dialga
-|-damage|p1a: Dialga|127/341
-|cant|p1a: Dialga|recharge
+|switch|p1a: Koraidon|Koraidon|341/341
+|-activate|p1a: Koraidon|ability: Orichalcum Pulse
+|move|p2a: Krookodile|Knock Off|p1a: Koraidon
+|-resisted|p1a: Koraidon
+|-damage|p1a: Koraidon|287/341
+|-enditem|p1a: Koraidon|Life Orb|[from] move: Knock Off|[of] p2a: Krookodile
 |
 |-weather|none
-|-heal|p2a: Jirachi|62/100|[from] item: Leftovers
+|-heal|p2a: Krookodile|100/100|[from] item: Leftovers
 |upkeep
 |turn|9
 |
-|move|p2a: Jirachi|Aura Sphere|p1a: Dialga
-|-supereffective|p1a: Dialga
-|-damage|p1a: Dialga|11/341
-|move|p1a: Dialga|Roar of Time|p2a: Jirachi
-|-resisted|p2a: Jirachi
-|-damage|p2a: Jirachi|19/100
-|-mustrecharge|p1a: Dialga
-|
-|-heal|p2a: Jirachi|25/100|[from] item: Leftovers
-|upkeep
-|turn|10
-|
-|move|p2a: Jirachi|Aura Sphere|p1a: Dialga
-|-supereffective|p1a: Dialga
-|-damage|p1a: Dialga|0 fnt
-|faint|p1a: Dialga
-|
-|-heal|p2a: Jirachi|32/100|[from] item: Leftovers
-|upkeep
-|
-|switch|p1a: Hoopa|Hoopa-Unbound|301/301
-|turn|11
-|
-|move|p2a: Jirachi|Thunderbolt|p1a: Hoopa
-|-damage|p1a: Hoopa|225/301
-|move|p1a: Hoopa|Hyperspace Fury|p2a: Jirachi
-|-supereffective|p2a: Jirachi
-|-damage|p2a: Jirachi|0 fnt
-|-unboost|p1a: Hoopa|def|1
-|faint|p2a: Jirachi
-|-item|p1a: Hoopa|Leftovers|[from] ability: Magician|[of] p2: Jirachi
-|
-|-heal|p1a: Hoopa|243/301|[from] item: Leftovers
-|upkeep
-|
-|switch|p2a: Krookodile|Krookodile, M|100/100
-|-damage|p2a: Krookodile|94/100|[from] Stealth Rock
-|-ability|p2a: Krookodile|Intimidate|boost
-|-unboost|p1a: Hoopa|atk|1
-|turn|12
-|
-|move|p2a: Krookodile|Earthquake|p1a: Hoopa
-|-damage|p1a: Hoopa|0 fnt
-|faint|p1a: Hoopa
-|
-|-heal|p2a: Krookodile|100/100|[from] item: Leftovers
-|upkeep
-|
-|switch|p1a: Arceus|Arceus-Fairy|381/381
-|turn|13
-|
-|move|p1a: Arceus|Judgment|p2a: Krookodile
+|move|p1a: Koraidon|Collision Course|p2a: Krookodile
 |-supereffective|p2a: Krookodile
 |-damage|p2a: Krookodile|0 fnt
 |faint|p2a: Krookodile
 |
 |upkeep
 |
-|switch|p2a: Slowbro|Slowbro, M|100/100
+|switch|p2a: Slowbro|Slowbro, F|100/100
 |-damage|p2a: Slowbro|88/100|[from] Stealth Rock
-|turn|14
+|turn|10
 |
-|move|p1a: Arceus|Judgment|p2a: Slowbro
-|-crit|p2a: Slowbro
-|-damage|p2a: Slowbro|9/100
-|move|p2a: Slowbro|Future Sight|p1a: Arceus
+|move|p1a: Koraidon|Dragon Claw|p2a: Slowbro
+|-damage|p2a: Slowbro|62/100
+|-damage|p1a: Koraidon|231/341|[from] item: Rocky Helmet|[of] p2a: Slowbro
+|move|p2a: Slowbro|Future Sight|p1a: Koraidon
 |-start|p2a: Slowbro|move: Future Sight
 |
 |upkeep
-|turn|15
+|turn|11
 |
-|move|p1a: Arceus|Judgment|p2a: Slowbro
+|move|p1a: Koraidon|Dragon Claw|p2a: Slowbro
+|-damage|p2a: Slowbro|32/100
+|-damage|p1a: Koraidon|175/341|[from] item: Rocky Helmet|[of] p2a: Slowbro
+|move|p2a: Slowbro|Future Sight||[still]
+|-fail|p2a: Slowbro
+|
+|upkeep
+|turn|12
+|
+|move|p1a: Koraidon|Dragon Claw|p2a: Slowbro
+|-damage|p2a: Slowbro|3/100
+|-damage|p1a: Koraidon|119/341|[from] item: Rocky Helmet|[of] p2a: Slowbro
+|move|p2a: Slowbro|Future Sight||[still]
+|-fail|p2a: Slowbro
+|
+|-end|p1a: Koraidon|move: Future Sight
+|-supereffective|p1a: Koraidon
+|-damage|p1a: Koraidon|0 fnt
+|faint|p1a: Koraidon
+|upkeep
+|
+|switch|p1a: Giratina|Giratina-Origin|296/504
+|turn|13
+|
+|move|p1a: Giratina|Poltergeist|p2a: Slowbro
+|-activate|p2a: Slowbro|move: Poltergeist|Rocky Helmet
+|-supereffective|p2a: Slowbro
 |-damage|p2a: Slowbro|0 fnt
 |faint|p2a: Slowbro
 |
@@ -455,15 +430,39 @@
 |
 |switch|p2a: Cyclizar|Cyclizar, M|100/100
 |-damage|p2a: Cyclizar|88/100|[from] Stealth Rock
-|turn|16
+|turn|14
 |
-|move|p2a: Cyclizar|Double-Edge|p1a: Arceus
-|-damage|p1a: Arceus|284/381
-|-damage|p2a: Cyclizar|79/100|[from] Recoil
-|move|p1a: Arceus|Judgment|p2a: Cyclizar
+|move|p2a: Cyclizar|Rapid Spin|p1a: Giratina
+|-immune|p1a: Giratina
+|move|p1a: Giratina|Dragon Tail|p2a: Cyclizar
 |-supereffective|p2a: Cyclizar
 |-damage|p2a: Cyclizar|0 fnt
 |faint|p2a: Cyclizar
+|
+|upkeep
+|
+|switch|p2a: Rotom|Rotom-Heat|100/100
+|turn|15
+|
+|move|p2a: Rotom|Overheat|p1a: Giratina
+|-resisted|p1a: Giratina
+|-damage|p1a: Giratina|213/504
+|-unboost|p2a: Rotom|spa|2
+|move|p1a: Giratina|Poltergeist|p2a: Rotom
+|-activate|p2a: Rotom|move: Poltergeist|Heavy-Duty Boots
+|-damage|p2a: Rotom|23/100
+|
+|upkeep
+|turn|16
+|
+|move|p2a: Rotom|Overheat|p1a: Giratina
+|-resisted|p1a: Giratina
+|-damage|p1a: Giratina|174/504
+|-unboost|p2a: Rotom|spa|2
+|move|p1a: Giratina|Poltergeist|p2a: Rotom
+|-activate|p2a: Rotom|move: Poltergeist|Heavy-Duty Boots
+|-damage|p2a: Rotom|0 fnt
+|faint|p2a: Rotom
 |
     </script>
 </div>
