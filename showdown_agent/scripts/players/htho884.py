@@ -3,7 +3,7 @@ from poke_env.player import Player
 from poke_env.battle.pokemon_type import PokemonType
 import poke_env.battle as battle
 
-
+# Take speed into account when have a move which is x4 or x2 but opp is low on hp (75% or less)
 team = """
 
 Giratina-Origin @ Griseous Core  
@@ -13,7 +13,7 @@ EVs: 252 HP / 252 SpA / 4 Spe
 Modest Nature  
 IVs: 0 Atk  
 - Defog  
-- Destiny Bond  
+- Dark Pulse 
 - Draco Meteor  
 - Shadow Ball  
 
@@ -112,9 +112,17 @@ class CustomAgent(Player):
             'SPIKES', 'stealthrock', 'toxicspikes', 'stickyweb',
             'stealth rock', 'toxic spikes', 'sticky web'
         }
+        
+        # State tracking for opponent switches after KO
+        self.last_opponent_species = None
+        self.opponent_just_switched_after_ko = False
+        self.last_opponent_hp = None
     def teampreview(self, battle: AbstractBattle) -> str:
         # Reset battle-specific state at the start of each battle
         self.toxic_spikes = 0
+        self.last_opponent_species = None
+        self.opponent_just_switched_after_ko = False
+        self.last_opponent_hp = None
         
         # Lead with the first Pokémon, keep default order for the rest
         order = "/team " + "".join(str(i) for i in range(1, len(battle.team) + 1))
@@ -225,7 +233,7 @@ class CustomAgent(Player):
                     hazard_detected = False
                     for hazard in self.hazard_moves:
                         if hazard.upper() in condition_str:
-                            print(f"DEBUG: *** HAZARD DETECTED: {hazard} found in '{condition_str}' *** - Should switch to Giratina!")
+                            print(f"DEBUG: *** HAZARD DETECTED: {hazard} found in '{condition_str}' *** - Should use Defog!")
                             hazard_detected = True
                             break
                     
@@ -267,6 +275,23 @@ class CustomAgent(Player):
         opp_types = opp.types
         my_types  = me.types
         opp_hp    = opp.current_hp_fraction or 1.0
+        
+        # Detect opponent switches after KO
+        current_opp_species = opp.species if opp else None
+        current_opp_hp = opp_hp
+        
+        # Check if opponent just switched in after we defeated their previous Pokémon
+        if (self.last_opponent_species is not None and 
+            current_opp_species != self.last_opponent_species and
+            self.last_opponent_hp is not None and self.last_opponent_hp <= 0.0):
+            self.opponent_just_switched_after_ko = True
+            print(f"DEBUG: *** OPPONENT SWITCHED IN {current_opp_species} AFTER KO ***")
+        else:
+            self.opponent_just_switched_after_ko = False
+            
+        # Update tracking variables
+        self.last_opponent_species = current_opp_species
+        self.last_opponent_hp = current_opp_hp
 
         moves = []
         super_effective_moves = []
@@ -286,34 +311,43 @@ class CustomAgent(Player):
                 return self.create_order(counter)
             return self.create_order(list(battle.available_switches)[0])
 
+        # Only use Defog if Giratina is active AND there are actual hazards to clear
         if me.species == 'giratinaorigin':
-            if self.check_side_conditions(battle):
-                return self.create_order(list(battle.available_moves)[0]) 
-            if self.check_hp(battle):
-                self.curse = True
-                return self.create_order(list(battle.available_moves)[1])
-            #     available_moves_list = list(battle.available_moves)
-            #                     # Check if Destiny Bond is available and we're very low on HP
-            #     destiny_bond = next((move for move in available_moves_list 
-            #                        if (getattr(move, 'id', '').lower() == 'destinybond' 
-            #                            or getattr(move, 'name', '').lower().replace(' ', '') == 'destinybond')
-            #                        and getattr(move, 'pp', 0) > 0
-            #                        and not getattr(move, 'disabled', False)), None)
-            #     return self.create_order(destiny_bond)
-                # elif len(available_moves_list) > 1:
-                #     return self.create_order(available_moves_list[1])
-                # elif len(available_moves_list) > 0:
-                #     return self.create_order(available_moves_list[0])
+            hazards_detected = self.check_side_conditions(battle)
+            if hazards_detected:
+                # Look specifically for Defog move
+                defog_move = None
+                for mv in battle.available_moves:
+                    move_id = getattr(mv, 'id', '').lower()
+                    move_name = getattr(mv, 'name', '').lower()
+                    if move_id == 'defog' or move_name == 'defog':
+                        defog_move = mv
+                        break
                 
-                # if destiny_bond and me.current_hp_fraction < 0.25:
-                #     # Use Destiny Bond if we're very low on HP
-                #     return self.create_order(destiny_bond)
-                # elif len(available_moves_list) > 1:
-                #     return self.create_order(available_moves_list[1])
-                # elif len(available_moves_list) > 0:
-                #     return self.create_order(available_moves_list[0]) 
-        
-
+                if defog_move:
+                    # Check if we have any super effective moves that might be better than Defog
+                    has_super_effective = False
+                    for mv in battle.available_moves:
+                        move_type = getattr(mv, 'type', None)
+                        if move_type is None:
+                            move_type = getattr(mv, 'type_id', None)
+                        if move_type is not None:
+                            eff = self.type_multiplier(move_type, opp_types)
+                            if eff > 1.0:
+                                has_super_effective = True
+                                break
+                    
+                    if has_super_effective:
+                        print(f"DEBUG: Hazards detected but super effective moves available - prioritizing damage over Defog")
+                    else:
+                        print(f"DEBUG: Hazards detected - using Defog to clear them")
+                        return self.create_order(defog_move)
+                else:
+                    print(f"DEBUG: Hazards detected but Defog not found, continuing with normal move selection")
+            else:
+                print(f"DEBUG: No hazards detected - Giratina will use normal move selection")
+             
+    
         # print(f"DEBUG: About to check side conditions...")
         # side_conditions_result = self.check_side_conditions(battle)
         # print(f"DEBUG: check_side_conditions returned: {side_conditions_result}")
@@ -406,6 +440,42 @@ class CustomAgent(Player):
         #     print(f"DEBUG:   - {move_name} (type: {move_type}): effectiveness={effectiveness:.2f}, pp={pp}, disabled={disabled}")
         
         # print(f"DEBUG: Found {len(super_effective_moves)} super effective, {len(neutral_moves)} neutral, {len(resisted_moves)} resisted moves")
+
+        # SPECIAL LOGIC: Handle opponent switches after KO
+        if self.opponent_just_switched_after_ko:
+            print(f"DEBUG: *** SPECIAL LOGIC: Opponent switched in {opp.species} after KO ***")
+            
+            # Check if opponent is below 80% HP
+            if opp_hp < 0.8:
+                print(f"DEBUG: *** Opponent {opp.species} is at {opp_hp:.1%} HP - checking for x4/x2 effective moves ***")
+                
+                # Look for x4 effective moves first
+                x4_effective_moves = []
+                for mv, dmg, mult in moves:
+                    if mult >= 4.0:
+                        x4_effective_moves.append((mv, dmg, mult))
+                
+                if x4_effective_moves:
+                    best_x4_move = max(x4_effective_moves, key=lambda x: x[1])  # Sort by damage
+                    move_name = getattr(best_x4_move[0], 'name', getattr(best_x4_move[0], 'display_name', 'Unknown'))
+                    print(f"DEBUG: *** USING x4 EFFECTIVE MOVE: {move_name} vs {opp.species} at {opp_hp:.1%} HP ***")
+                    return self.create_order(best_x4_move[0])
+                
+                # Look for x2 effective moves
+                x2_effective_moves = []
+                for mv, dmg, mult in moves:
+                    if mult >= 2.0:
+                        x2_effective_moves.append((mv, dmg, mult))
+                
+                if x2_effective_moves:
+                    best_x2_move = max(x2_effective_moves, key=lambda x: x[1])  # Sort by damage
+                    move_name = getattr(best_x2_move[0], 'name', getattr(best_x2_move[0], 'display_name', 'Unknown'))
+                    print(f"DEBUG: *** USING x2 EFFECTIVE MOVE: {move_name} vs {opp.species} at {opp_hp:.1%} HP ***")
+                    return self.create_order(best_x2_move[0])
+                
+                print(f"DEBUG: *** No x4/x2 effective moves available - proceeding with normal logic ***")
+            else:
+                print(f"DEBUG: *** Opponent {opp.species} is at {opp_hp:.1%} HP (>=80%) - using normal logic ***")
 
        
         if super_effective_moves and me.base_stats['spe'] > opp.base_stats['spe']:

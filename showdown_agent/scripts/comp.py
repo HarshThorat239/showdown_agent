@@ -24,33 +24,33 @@ def rank_players_by_victories(results_dict, top_k=10):
     return sorted(victory_scores.items(), key=lambda x: x[1], reverse=True)[:top_k]
 
 def gather_players():
-    player_folders = os.path.join(os.path.dirname(__file__), "players")
+    import importlib.util
+
     players = []
     replay_dir = os.path.join(os.path.dirname(__file__), "replays")
     os.makedirs(replay_dir, exist_ok=True)
 
-    for module_name in os.listdir(player_folders):
-        if module_name.endswith(".py"):
-            module_path = f"{player_folders}/{module_name}"
-            spec = importlib.util.spec_from_file_location(module_name, module_path)
-            module = importlib.util.module_from_spec(spec)
-            sys.modules[module_name] = module
-            spec.loader.exec_module(module)
+    # Only use htho884.py from the players folder
+    player_file = os.path.join(os.path.dirname(__file__), "players", "htho884.py")
+    module_name = "htho884"
+    spec = importlib.util.spec_from_file_location(module_name, player_file)
+    module = importlib.util.module_from_spec(spec)
+    sys.modules[module_name] = module
+    spec.loader.exec_module(module)
 
-            if hasattr(module, "CustomAgent"):
-                player_name = f"{module_name[:-3]}"
-                agent_class = getattr(module, "CustomAgent")
-                agent_replay_dir = os.path.join(replay_dir, f"{player_name}")
-                os.makedirs(agent_replay_dir, exist_ok=True)
-                account_config = AccountConfiguration(player_name, None)
-                player = agent_class(
-                    account_configuration=account_config,
-                    battle_format="gen9ubers",
-                )
-                player._save_replays = agent_replay_dir
-                players.append(player)
+    if hasattr(module, "CustomAgent"):
+        player_name = module_name
+        agent_class = getattr(module, "CustomAgent")
+        agent_replay_dir = os.path.join(replay_dir, player_name)
+        os.makedirs(agent_replay_dir, exist_ok=True)
+        account_config = AccountConfiguration(player_name, None)
+        player = agent_class(
+            account_configuration=account_config,
+            battle_format="gen9ubers",
+        )
+        player._save_replays = agent_replay_dir
+        players.append(player)
     return players
-
 def gather_bots():
     bot_folders = os.path.join(os.path.dirname(__file__), "bots")
     bot_teams_folders = os.path.join(bot_folders, "teams")
