@@ -15,7 +15,7 @@ IVs: 0 Atk
 - Sticky Web
 - Moonblast
 - Bug Buzz
-- Psychic Noise
+- Energy Ball
 
 Eternatus @ Life Orb
 Ability: Pressure
@@ -34,20 +34,19 @@ Tera Type: Fighting
 EVs: 252 Atk / 4 SpD / 252 Spe  
 Adamant Nature  
 - Collision Course  
-- Dragon Claw  
+- Scale Shot  
 - Flare Blitz  
 - Iron Head  
 
-Iron Moth @ Booster Energy  
-Ability: Quark Drive  
-Tera Type: Fire  
-EVs: 124 HP / 132 SpA / 252 Spe  
-Timid Nature  
-IVs: 0 Atk  
-- Discharge  
-- Flamethrower  
-- Sludge Wave  
-- Energy Ball
+Ho-Oh @ Choice Scarf  
+Ability: Regenerator  
+Tera Type: Fairy  
+EVs: 252 Atk / 252 Spe  
+Jolly Nature  
+- Sacred Fire  
+- Brave Bird  
+- Earthquake  
+- Iron Head
 
 Zacian-Crowned @ Rusted Sword  
 Ability: Intrepid Sword  
@@ -176,9 +175,179 @@ class CustomAgent(Player):
             'sapsipper': PokemonType.GRASS,
             'lightningrod': PokemonType.ELECTRIC,
             'stormdrain': PokemonType.WATER,
+            'voltabsorb': PokemonType.ELECTRIC,
+            'motordrive': PokemonType.ELECTRIC,
+            'soundproof': None,  # Immune to sound-based moves (handled separately)
+            'bulletproof': None,  # Immune to ball/bomb/bullet moves (handled separately)
+            'overcoat': None,  # Immune to powder moves and weather effects
+            'magicguard': None,  # Immune to indirect damage
+            'wonderguard': None,  # Only damaged by super effective moves
+            'filter': None,  # Reduces super effective damage
+            'solidrock': None,  # Reduces super effective damage
+            'prismarmor': None,  # Reduces super effective damage
+            'shadowshield': None,  # Reduces damage when at full HP
+            'multiscale': None,  # Reduces damage when at full HP
         }
         
-        return immunity_map.get(ability_name) == move_type
+        # Check for type-based immunities
+        if immunity_map.get(ability_name) == move_type:
+            return True
+            
+        # Check for special ability immunities
+        if ability_name == 'soundproof':
+            # This would need move name checking, but we don't have that context here
+            # Return False for now as this method focuses on type immunities
+            return False
+            
+        return False
+
+    def would_be_immune_to_opponent_moves(self, candidate_pokemon, opp_types, opp_ability):
+        """
+        Check if a candidate Pokemon would be immune to opponent's likely moves.
+        This considers both type immunities and ability-based immunities.
+        """
+        if not candidate_pokemon.types or not opp_types:
+            return False, 0.0
+            
+        immunity_score = 0.0
+        
+        # Check type-based immunities
+        for opp_type in opp_types:
+            if opp_type is None:
+                continue
+                
+            # Check if candidate has immunity to this type
+            for candidate_type in candidate_pokemon.types:
+                if candidate_type is None:
+                    continue
+                    
+                # Check ability-based immunities
+                candidate_ability = getattr(candidate_pokemon, 'ability', None)
+                if candidate_ability and self.is_move_immune(opp_type, candidate_ability):
+                    immunity_score += 2.0
+                    print(f"DEBUG: {candidate_pokemon.species} immune to {opp_type} due to {candidate_ability}")
+                    break
+                    
+                # Check type chart immunities (0x effectiveness)
+                if hasattr(self, 'type_multiplier'):
+                    mult = self.type_multiplier(opp_type, [candidate_type], None)
+                    if mult == 0.0:
+                        immunity_score += 1.5
+                        print(f"DEBUG: {candidate_pokemon.species} type-immune to {opp_type}")
+                        break
+        
+        return immunity_score > 0.0, immunity_score
+
+    def check_weather_immunities(self, candidate_pokemon, battle):
+        """
+        Check if a Pokemon has immunities based on weather conditions.
+        """
+        if not hasattr(battle, 'weather') or not battle.weather:
+            return 0.0
+            
+        # Handle weather as either a string or dictionary
+        weather = battle.weather
+        if isinstance(weather, dict):
+            # If weather is a dictionary, try to get the weather name
+            weather_name = weather.get('name', '').lower() if hasattr(weather, 'get') else str(weather).lower()
+        else:
+            weather_name = str(weather).lower()
+            
+        immunity_score = 0.0
+        
+        # Check for weather-based immunities
+        if 'sandstorm' in weather_name:
+            # Rock, Ground, Steel types are immune to sandstorm damage
+            if candidate_pokemon.types:
+                for pokemon_type in candidate_pokemon.types:
+                    if pokemon_type in [PokemonType.ROCK, PokemonType.GROUND, PokemonType.STEEL]:
+                        immunity_score += 0.5
+                        break
+        elif 'hail' in weather_name:
+            # Ice types are immune to hail damage
+            if candidate_pokemon.types:
+                for pokemon_type in candidate_pokemon.types:
+                    if pokemon_type == PokemonType.ICE:
+                        immunity_score += 0.5
+                        break
+                        
+        return immunity_score
+
+    def check_status_immunities(self, candidate_pokemon, opp_types):
+        """
+        Check if a Pokemon has immunities to common status conditions.
+        This is useful for switching decisions against status-heavy opponents.
+        """
+        immunity_score = 0.0
+        
+        if not candidate_pokemon.types:
+            return immunity_score
+            
+        # Check for type-based status immunities
+        for pokemon_type in candidate_pokemon.types:
+            if pokemon_type == PokemonType.POISON:
+                # Poison types are immune to poison status
+                immunity_score += 0.5
+            elif pokemon_type == PokemonType.ELECTRIC:
+                # Electric types are immune to paralysis
+                immunity_score += 0.3
+            elif pokemon_type == PokemonType.FIRE:
+                # Fire types are immune to burn
+                immunity_score += 0.3
+            elif pokemon_type == PokemonType.ICE:
+                # Ice types are immune to freeze
+                immunity_score += 0.3
+                
+        # Check for ability-based status immunities
+        candidate_ability = getattr(candidate_pokemon, 'ability', None)
+        if candidate_ability:
+            ability_name = candidate_ability.lower()
+            if ability_name in ['limber', 'vitalspirit']:
+                # Immune to paralysis
+                immunity_score += 0.5
+            elif ability_name in ['waterveil', 'magmaarmor']:
+                # Immune to burn
+                immunity_score += 0.5
+            elif ability_name in ['insomnia', 'vitalspirit']:
+                # Immune to sleep
+                immunity_score += 0.5
+            elif ability_name in ['immunity', 'pastelveil']:
+                # Immune to poison
+                immunity_score += 0.5
+                
+        return immunity_score
+
+    def check_hazard_immunities(self, candidate_pokemon, battle):
+        """
+        Check if a Pokemon has immunities to entry hazards.
+        This is crucial for switching decisions when the opponent has set up hazards.
+        """
+        immunity_score = 0.0
+        
+        if not candidate_pokemon.types:
+            return immunity_score
+            
+        # Check for type-based hazard immunities
+        for pokemon_type in candidate_pokemon.types:
+            if pokemon_type == PokemonType.FLYING:
+                # Flying types are immune to Spikes and Toxic Spikes
+                immunity_score += 1.0
+                
+        # Check for ability-based hazard immunities
+        candidate_ability = getattr(candidate_pokemon, 'ability', None)
+        if candidate_ability:
+            ability_name = candidate_ability.lower()
+            if ability_name == 'levitate':
+                # Immune to Spikes and Toxic Spikes
+                immunity_score += 1.0
+            elif ability_name == 'magicguard':
+                # Immune to all indirect damage including hazards
+                immunity_score += 1.5
+            elif ability_name == 'overcoat':
+                # Immune to powder moves and weather effects
+                immunity_score += 0.5
+                
+        return immunity_score
 
     def estimated_effectiveness(self, move_type, opp_types, my_types, battle=None):
         eff = self.type_multiplier(move_type, opp_types, battle)
@@ -208,7 +377,7 @@ class CustomAgent(Player):
     def pick_best_switch(self, battle, opp_types, current_pokemon=None, super_effective_moves=None):
         """
         Enhanced method to pick the best switch using complex scoring system.
-        Considers offensive advantage, defensive risk, current bonus, and switch penalties.
+        Considers offensive advantage, defensive risk, current bonus, switch penalties, and move immunities.
         """
         if not battle.available_switches:
             return None
@@ -233,6 +402,11 @@ class CustomAgent(Player):
                 raw_mult = self.type_multiplier(move_type, opp_types, battle)
                 if raw_mult > 1.0:
                     super_effective_moves.append(mv)
+        
+        # Get opponent's ability for immunity checking
+        opp_ability = None
+        if hasattr(battle, 'opponent_active_pokemon') and battle.opponent_active_pokemon:
+            opp_ability = getattr(battle.opponent_active_pokemon, 'ability', None)
         
         # Initialize variables that will be used in both forced and regular switch scenarios
         current_defensive_risk = 1.0  # Default value
@@ -288,6 +462,46 @@ class CustomAgent(Player):
                     )
                 print(f"DEBUG: {candidate.species} defensive risk vs opponent: {defensive_risk:.2f} (current: {current_defensive_risk:.2f})")
                 
+                # IMMUNITY BONUS: Check if candidate is immune to opponent's likely moves
+                immunity_bonus = 0.0
+                if opp_ability and candidate.types:
+                    # Check if candidate is immune to any of opponent's types due to abilities
+                    for opp_type in opp_types:
+                        if opp_type and self.is_move_immune(opp_type, opp_ability):
+                            # Check if candidate would be immune to this move type
+                            for candidate_type in candidate.types:
+                                if candidate_type and self.is_move_immune(opp_type, getattr(candidate, 'ability', None)):
+                                    immunity_bonus += 2.0  # Significant bonus for immunity
+                                    print(f"DEBUG: {candidate.species} gets immunity bonus for {opp_type} moves")
+                                    break
+                
+                # Use the enhanced immunity checking method
+                has_immunity, immunity_score = self.would_be_immune_to_opponent_moves(candidate, opp_types, opp_ability)
+                if has_immunity:
+                    immunity_bonus += immunity_score
+                    print(f"DEBUG: {candidate.species} gets enhanced immunity bonus: {immunity_score:.2f}")
+                
+                # Check for weather-based immunities
+                weather_immunity_bonus = self.check_weather_immunities(candidate, battle)
+                if weather_immunity_bonus > 0.0:
+                    immunity_bonus += weather_immunity_bonus
+                    print(f"DEBUG: {candidate.species} gets weather immunity bonus: {weather_immunity_bonus:.2f}")
+                
+                # Check for status immunities
+                status_immunity_bonus = self.check_status_immunities(candidate, opp_types)
+                if status_immunity_bonus > 0.0:
+                    immunity_bonus += status_immunity_bonus
+                    print(f"DEBUG: {candidate.species} gets status immunity bonus: {status_immunity_bonus:.2f}")
+                
+                # Check for hazard immunities
+                hazard_immunity_bonus = self.check_hazard_immunities(candidate, battle)
+                if hazard_immunity_bonus > 0.0:
+                    immunity_bonus += hazard_immunity_bonus
+                    print(f"DEBUG: {candidate.species} gets hazard immunity bonus: {hazard_immunity_bonus:.2f}")
+                
+                # Total immunity bonus for scoring
+                total_immunity_bonus = immunity_bonus
+                
                 # For type-advantaged switches, we're more lenient on defensive risk
                 # Only reject if the defensive risk is significantly worse (2x or more)
                 # For forced switches, be even more lenient since we have to pick someone
@@ -314,8 +528,9 @@ class CustomAgent(Player):
                 if super_effective_moves:
                     candidate_switch_penalty = 1.0
                 
-                score = base_score + defensive_bonus + candidate_current_bonus - candidate_switch_penalty
-                print(f"DEBUG: {candidate.species} score breakdown: base={base_score:.2f}, def_bonus={defensive_bonus:.2f}, current_bonus={candidate_current_bonus:.2f}, switch_penalty={candidate_switch_penalty:.2f}, total={score:.2f}")
+                # Add immunity bonus to the score
+                score = base_score + defensive_bonus + candidate_current_bonus + total_immunity_bonus - candidate_switch_penalty
+                print(f"DEBUG: {candidate.species} score breakdown: base={base_score:.2f}, def_bonus={defensive_bonus:.2f}, current_bonus={candidate_current_bonus:.2f}, immunity_bonus={total_immunity_bonus:.2f}, switch_penalty={candidate_switch_penalty:.2f}, total={score:.2f}")
                 
                 # For forced switches, pick the best absolute score; for regular switches, only if better than current
                 if is_forced_switch:
@@ -477,30 +692,6 @@ class CustomAgent(Player):
             return self.create_order(fallback_switch)
 
     
-        # if self.check_side_conditions(battle):
-        # # Switch to Glimmora if available and use the first move available
-        #     for poke in battle.available_switches:
-        #         if getattr(poke, 'species', '').lower() == 'glimmora':
-        #             print("DEBUG: Switching to Glimmora for hazard control.")
-        #             return self.create_order(poke)
-        #     if me.species.lower() == 'glimmora' and battle.available_moves:
-        #         print("DEBUG: Glimmora is active, clearing hazards")
-        #         return self.create_order(list(battle.available_moves)[1])
-
-        # Only use Defog if Giratina is active AND there are actual hazards to clear
-        if me.species == 'ribombee':   
-            enemy_hazards = self.check_enemy_hazards(battle)
-            if not enemy_hazards:
-                print(f"DEBUG: Enemy has no spikes - using spikes")
-                return self.create_order(list(battle.available_moves)[0])
-            else:
-                print(f"DEBUG: Enemy already has spikes - not using spikes")  
-
-        if (str(me.species).lower() == 'eternatus' and (me.current_hp_fraction or 1.0) < 0.4):
-            for mv in battle.available_moves:
-                if getattr(mv, 'name', '').lower() == 'recover':
-                    return self.create_order(mv)
-
             
        
         for mv in battle.available_moves:
@@ -554,7 +745,37 @@ class CustomAgent(Player):
                 resisted_moves.append((mv, dmg, raw_mult))
                 print(f"DEBUG: {move_name} categorized as RESISTED")
 
-      
+        # Only use Defog if Giratina is active AND there are actual hazards to clear
+        if me.species == 'ribombee':   
+            enemy_hazards = self.check_enemy_hazards(battle)
+            if not enemy_hazards:
+                print(f"DEBUG: Enemy has no spikes - using spikes")
+                return self.create_order(list(battle.available_moves)[0])
+            else:
+                print(f"DEBUG: Enemy already has spikes - not using spikes")  
+
+        if me.species == 'eternatus' and (me.current_hp_fraction or 1.0) < 0.45:
+            for mv in battle.available_moves:
+                if getattr(mv, 'name', '').lower() == 'recover':
+                    return self.create_order(mv)
+
+
+        if me.item == 'choicescarf':
+            # If all available moves are resisted or immune, and a switch is available,
+            # switch to a pokemon with both defensive and offensive advantage.
+            if not super_effective_moves and not neutral_moves and resisted_moves:
+                # Try to switch to a Pokemon with advantage over the opponent's current active Pokemon
+                best_switch = self.pick_best_switch(
+                    battle,
+                    current_pokemon=me,
+                    opp_types=opp.types if hasattr(opp, "types") else [],
+                    super_effective_moves=super_effective_moves if super_effective_moves else None,
+                )
+                if best_switch is not None and best_switch.species != me.species:
+                    print(f"DEBUG: Switching to {best_switch.species} for advantage over {opp.species}")
+                    return self.create_order(best_switch)
+                # If no good switch found, continue as normal
+                
         # SPECIAL LOGIC: Handle opponent switches after KO
         if self.opponent_just_switched_after_ko:
             print(f"DEBUG: *** SPECIAL LOGIC: Opponent switched in {opp.species} after KO ***")
