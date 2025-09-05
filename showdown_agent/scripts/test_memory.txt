@@ -1,6 +1,0 @@
-kingambit,kowtowcleave,2
-kingambit,suckerpunch,1
-kingambit,ironhead,1
-fluttermane,moonblast,1
-fluttermane,shadowball,1
-fluttermane,mysticalfire,1

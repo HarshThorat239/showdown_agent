@@ -11,6 +11,8 @@ import poke_env as pke
 from poke_env import AccountConfiguration, LocalhostServerConfiguration
 from poke_env.player.player import Player
 from tabulate import tabulate
+import matplotlib.pyplot as plt
+import numpy as np
 
 N_CHALLENGES = 10  # battles per opponent
 
@@ -151,6 +153,67 @@ async def evaluate_vs_all(me: Player, bots: List[Player], n_challenges: int) -> 
         results[bot] = res[me_key][bot_key]
     return results
 
+def create_winrate_graph(wr_against_all: Dict[Player, float], username_by_agent: Dict[Player, str]):
+    """Create a bar graph showing win rates against each bot."""
+    # Extract data for plotting
+    bot_names = []
+    win_rates = []
+    
+    for bot, wr in wr_against_all.items():
+        bot_names.append(username_by_agent[bot])
+        win_rates.append(wr * 100)  # Convert to percentage
+    
+    # Create the plot
+    plt.figure(figsize=(12, 8))
+    bars = plt.bar(bot_names, win_rates, color=['#2E8B57' if wr >= 50 else '#DC143C' for wr in win_rates])
+    
+    # Customize the plot
+    plt.title('Win Rate Against Each Bot', fontsize=16, fontweight='bold', pad=20)
+    plt.xlabel('Bot Opponents', fontsize=12)
+    plt.ylabel('Win Rate (%)', fontsize=12)
+    plt.ylim(0, 100)
+    
+    # Add horizontal line at 50% for reference
+    plt.axhline(y=50, color='gray', linestyle='--', alpha=0.7, label='50% (Even)')
+    
+    # Add value labels on top of bars
+    for bar, wr in zip(bars, win_rates):
+        height = bar.get_height()
+        plt.text(bar.get_x() + bar.get_width()/2., height + 1,
+                f'{wr:.1f}%', ha='center', va='bottom', fontweight='bold')
+    
+    # Rotate x-axis labels for better readability
+    plt.xticks(rotation=45, ha='right')
+    
+    # Add grid for better readability
+    plt.grid(axis='y', alpha=0.3)
+    
+    # Add legend
+    plt.legend()
+    
+    # Adjust layout to prevent label cutoff
+    plt.tight_layout()
+    
+    # Save the graph
+    base_dir = os.path.dirname(__file__)
+    graph_path = os.path.join(base_dir, "winrate_graph.png")
+    plt.savefig(graph_path, dpi=300, bbox_inches='tight')
+    print(f"\n📊 Win rate graph saved to: {graph_path}")
+    
+    # Show the graph
+    plt.show()
+    
+    # Print summary statistics
+    avg_winrate = np.mean(win_rates)
+    best_opponent = bot_names[np.argmax(win_rates)]
+    worst_opponent = bot_names[np.argmin(win_rates)]
+    
+    print(f"\n📈 Summary Statistics:")
+    print(f"   Average Win Rate: {avg_winrate:.1f}%")
+    print(f"   Best Performance: {best_opponent} ({max(win_rates):.1f}%)")
+    print(f"   Worst Performance: {worst_opponent} ({min(win_rates):.1f}%)")
+    print(f"   Total Opponents: {len(bot_names)}")
+
 def main():
     # 1) Make sure the server is running:
     #    node pokemon-showdown start --no-security
@@ -213,6 +276,12 @@ def main():
     block("✅ Wins (wr > 0.50):", wins)
     block("❌ Losses (wr < 0.50):", losses)
     block("➖ Draws (wr = 0.50):", draws)
+    
+    # Generate and display the win rate graph
+    print("\n" + "="*60)
+    print("📊 GENERATING WIN RATE GRAPH...")
+    print("="*60)
+    create_winrate_graph(wr_against_all, username_by_agent)
 
 if __name__ == "__main__":
     main()
