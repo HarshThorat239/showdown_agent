@@ -18,7 +18,7 @@ N_CHALLENGES = 10  # battles per opponent
 
 def load_htho884() -> Player:
     base_dir = os.path.dirname(__file__)
-    module_path = os.path.join(base_dir, "players", "htho884.py")
+    module_path = os.path.join(base_dir, "players", "v1.py")
     if not os.path.exists(module_path):
         raise FileNotFoundError(f"Could not find {module_path}")
 
@@ -154,44 +154,55 @@ async def evaluate_vs_all(me: Player, bots: List[Player], n_challenges: int) -> 
     return results
 
 def create_winrate_graph(wr_against_all: Dict[Player, float], username_by_agent: Dict[Player, str]):
-    """Create a bar graph showing win rates against each bot."""
-    # Extract data for plotting
-    bot_names = []
-    win_rates = []
+    """Create a bar chart showing win rates against each bot opponent."""
+    # Prepare data for plotting
+    opponents = []
+    winrates = []
+    colors = []
     
     for bot, wr in wr_against_all.items():
-        bot_names.append(username_by_agent[bot])
-        win_rates.append(wr * 100)  # Convert to percentage
+        opponent_name = username_by_agent[bot]
+        opponents.append(opponent_name)
+        winrates.append(wr * 100)  # Convert to percentage
+        
+        # Color coding: green for wins, red for losses, yellow for draws
+        if wr > 0.5:
+            colors.append('#2E8B57')  # Sea green for wins
+        elif wr < 0.5:
+            colors.append('#DC143C')  # Crimson for losses
+        else:
+            colors.append('#FFD700')  # Gold for draws
     
     # Create the plot
     plt.figure(figsize=(12, 8))
-    bars = plt.bar(bot_names, win_rates, color=['#2E8B57' if wr >= 50 else '#DC143C' for wr in win_rates])
+    bars = plt.bar(range(len(opponents)), winrates, color=colors, alpha=0.7, edgecolor='black', linewidth=0.5)
     
     # Customize the plot
-    plt.title('Win Rate Against Each Bot', fontsize=16, fontweight='bold', pad=20)
+    plt.title('Win Rate Against Bot Opponents', fontsize=16, fontweight='bold', pad=20)
     plt.xlabel('Bot Opponents', fontsize=12)
     plt.ylabel('Win Rate (%)', fontsize=12)
+    plt.xticks(range(len(opponents)), opponents, rotation=45, ha='right')
     plt.ylim(0, 100)
     
-    # Add horizontal line at 50% for reference
-    plt.axhline(y=50, color='gray', linestyle='--', alpha=0.7, label='50% (Even)')
+    # Add a horizontal line at 50% (draw threshold)
+    plt.axhline(y=50, color='gray', linestyle='--', alpha=0.5, label='Draw Threshold (50%)')
     
     # Add value labels on top of bars
-    for bar, wr in zip(bars, win_rates):
+    for i, (bar, wr) in enumerate(zip(bars, winrates)):
         height = bar.get_height()
         plt.text(bar.get_x() + bar.get_width()/2., height + 1,
                 f'{wr:.1f}%', ha='center', va='bottom', fontweight='bold')
     
-    # Rotate x-axis labels for better readability
-    plt.xticks(rotation=45, ha='right')
-    
-    # Add grid for better readability
-    plt.grid(axis='y', alpha=0.3)
-    
     # Add legend
-    plt.legend()
+    from matplotlib.patches import Patch
+    legend_elements = [
+        Patch(facecolor='#2E8B57', label='Wins (>50%)'),
+        Patch(facecolor='#DC143C', label='Losses (<50%)'),
+        Patch(facecolor='#FFD700', label='Draws (=50%)')
+    ]
+    plt.legend(handles=legend_elements, loc='upper right')
     
-    # Adjust layout to prevent label cutoff
+    # Improve layout
     plt.tight_layout()
     
     # Save the graph
@@ -202,17 +213,6 @@ def create_winrate_graph(wr_against_all: Dict[Player, float], username_by_agent:
     
     # Show the graph
     plt.show()
-    
-    # Print summary statistics
-    avg_winrate = np.mean(win_rates)
-    best_opponent = bot_names[np.argmax(win_rates)]
-    worst_opponent = bot_names[np.argmin(win_rates)]
-    
-    print(f"\n📈 Summary Statistics:")
-    print(f"   Average Win Rate: {avg_winrate:.1f}%")
-    print(f"   Best Performance: {best_opponent} ({max(win_rates):.1f}%)")
-    print(f"   Worst Performance: {worst_opponent} ({min(win_rates):.1f}%)")
-    print(f"   Total Opponents: {len(bot_names)}")
 
 def main():
     # 1) Make sure the server is running:
@@ -242,6 +242,9 @@ def main():
     table = [[username_by_agent[b], wr_against_all[b] * 100] for b in bots]
     print("Winrates vs each opponent:")
     print(tabulate(table, headers=headers, floatfmt=".1f"))
+    
+    # Create and display the win rate graph
+    create_winrate_graph(wr_against_all, username_by_agent)
 
     # My results grouped
     my_row = wr_against_all
@@ -276,12 +279,6 @@ def main():
     block("✅ Wins (wr > 0.50):", wins)
     block("❌ Losses (wr < 0.50):", losses)
     block("➖ Draws (wr = 0.50):", draws)
-    
-    # Generate and display the win rate graph
-    print("\n" + "="*60)
-    print("📊 GENERATING WIN RATE GRAPH...")
-    print("="*60)
-    create_winrate_graph(wr_against_all, username_by_agent)
 
 if __name__ == "__main__":
     main()

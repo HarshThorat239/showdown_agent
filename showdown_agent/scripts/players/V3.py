@@ -239,15 +239,7 @@ class CustomAgent(Player):
                     
                     if hazard_detected:
                         return True
-                    else:
-                        # print(f"DEBUG: No hazard match found for '{condition_str}'")
-            else:
-                # print(f"DEBUG: No side conditions found")
-        else:
-            # print(f"DEBUG: battle object has no side_conditions attribute")
-        
-        # print(f"DEBUG: No hazards detected - continuing with normal move selection")
-        return False
+                    
     
     def check_hp(self, battle):
         me = battle.active_pokemon
@@ -284,15 +276,7 @@ class CustomAgent(Player):
                     
                     if hazard_detected:
                         return True
-                    else:
-                        # print(f"DEBUG: No hazard match found for '{condition_str}'")
-            else:
-                # print(f"DEBUG: No side conditions found")
-        else:
-            # print(f"DEBUG: battle object has no side_conditions attribute")
-        
-        # print(f"DEBUG: No hazards detected - continuing with normal move selection")
-        return False
+               
         
     
 
@@ -358,16 +342,14 @@ class CustomAgent(Player):
             if hazards_detected:
                 # print(f"DEBUG: Hazards detected - using mortal spin to clear them")
                 return self.create_order(list(battle.available_moves)[1])
-            else:
-                # print(f"DEBUG: Hazards detected but Defog not found, continuing with normal move selection")    
+           
                    
             enemy_hazards = self.check_enemy_hazards(battle)
 
             if not enemy_hazards:
                 # print(f"DEBUG: Enemy has no spikes - using spikes")
                 return self.create_order(list(battle.available_moves)[0])
-            else:
-                # print(f"DEBUG: Enemy already has spikes - not using spikes")          
+                    
 
             
             
@@ -462,7 +444,7 @@ class CustomAgent(Player):
                     return self.create_order(best_x4_move[0])
             
             # Check if opponent is below 80% HP
-            if opp_hp < 0.8:
+            if opp_hp < 0.8 :
                 # print(f"DEBUG: *** Opponent {opp.species} is at {opp_hp:.1%} HP - checking for x4/x2 effective moves ***")
                 
                 # Look for x2 effective moves
@@ -578,8 +560,8 @@ class CustomAgent(Player):
             if best_switch is not None and best_switch.species != me.species:
                 # print(f"DEBUG: Switching to type-advantaged {best_switch.species} (score {best_score:.2f})")
                 return self.create_order(best_switch)
-            else:
-                # print(f"DEBUG: Keeping current Pokemon {me.species} (best score {best_score:.2f})")
+            
+          
 
         # PRIORITY 2: Use super effective moves if available
         if super_effective_moves:

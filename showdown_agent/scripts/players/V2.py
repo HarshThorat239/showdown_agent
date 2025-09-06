@@ -282,9 +282,9 @@ class CustomAgent(Player):
         if me.species == 'giratinaorigin':
             if self.check_side_conditions(battle):
                 return self.create_order(list(battle.available_moves)[0]) 
-            if self.check_hp(battle):
-                self.curse = True
-                return self.create_order(list(battle.available_moves)[1])
+            # if self.check_hp(battle):
+            #     self.curse = True
+            #     return self.create_order(list(battle.available_moves)[1])
             #     available_moves_list = list(battle.available_moves)
             #                     # Check if Destiny Bond is available and we're very low on HP
             #     destiny_bond = next((move for move in available_moves_list 

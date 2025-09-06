@@ -1,0 +1,57 @@
+POKEMON PERFORMANCE STATISTICS
+==================================================
+
+Zacian-Crowned:
+  KO Rating: 1.44
+  Survivability: 3.2 turns/battle
+  KOs Dealt: 1735
+  KOs Taken: 352
+  Battles Participated: 958
+  Total Turns Survived: 3072
+  Damage Efficiency: 1.82
+
+Koraidon:
+  KO Rating: 1.03
+  Survivability: 2.4 turns/battle
+  KOs Dealt: 2232
+  KOs Taken: 859
+  Battles Participated: 1329
+  Total Turns Survived: 3243
+  Damage Efficiency: 1.33
+
+Kyogre:
+  KO Rating: 0.94
+  Survivability: 3.1 turns/battle
+  KOs Dealt: 1550
+  KOs Taken: 161
+  Battles Participated: 1483
+  Total Turns Survived: 4603
+  Damage Efficiency: 2.11
+
+Ho-Oh:
+  KO Rating: 0.63
+  Survivability: 2.3 turns/battle
+  KOs Dealt: 1393
+  KOs Taken: 569
+  Battles Participated: 1318
+  Total Turns Survived: 3045
+  Damage Efficiency: 3.60
+
+Eternatus:
+  KO Rating: 0.06
+  Survivability: 2.2 turns/battle
+  KOs Dealt: 130
+  KOs Taken: 61
+  Battles Participated: 1254
+  Total Turns Survived: 2742
+  Damage Efficiency: 0.96
+
+Ribombee:
+  KO Rating: -0.36
+  Survivability: 2.5 turns/battle
+  KOs Dealt: 102
+  KOs Taken: 563
+  Battles Participated: 1283
+  Total Turns Survived: 3194
+  Damage Efficiency: 2.06
+

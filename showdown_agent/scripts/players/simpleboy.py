@@ -4,70 +4,68 @@ from poke_env.player.baselines import SimpleHeuristicsPlayer
 
 team = """
 
-Kyogre @ Choice Specs  
-Ability: Drizzle  
-Tera Type: Water  
-EVs: 4 Def / 252 SpA / 252 Spe  
-Modest Nature  
-IVs: 0 Atk  
-- Water Spout  
-- Ice Beam  
-- Origin Pulse  
-- Thunder  
-
-Eternatus @ Life Orb  
+Deoxys-Speed @ Focus Sash  
 Ability: Pressure  
-Tera Type: Dragon  
-EVs: 4 Def / 252 SpA / 252 Spe  
-Modest Nature  
-IVs: 0 Atk  
-- Dynamax Cannon  
-- Fire Blast  
-- Sludge Bomb  
-- Recover  
-
-Giratina-Origin @ Griseous Core  
-Ability: Levitate  
-Shiny: Yes  
-Tera Type: Steel  
-EVs: 200 HP / 252 Atk / 40 SpD / 16 Spe  
-Adamant Nature  
-- Poltergeist  
-- Dragon Tail  
-- Defog  
-- Shadow Sneak  
-
-Koraidon @ Choice Scarf  
-Ability: Orichalcum Pulse  
 Tera Type: Ghost  
+EVs: 248 HP / 8 SpA / 252 Spe  
+Timid Nature  
+IVs: 0 Atk  
+- Thunder Wave  
+- Spikes  
+- Taunt  
+- Psycho Boost  
+
+Kingambit @ Dread Plate  
+Ability: Supreme Overlord  
+Tera Type: Dark  
+EVs: 56 HP / 252 Atk / 200 Spe  
+Adamant Nature  
+- Swords Dance  
+- Kowtow Cleave  
+- Iron Head  
+- Sucker Punch  
+
+Zacian-Crowned @ Rusted Sword  
+Ability: Intrepid Sword  
+Tera Type: Flying  
 EVs: 252 Atk / 4 SpD / 252 Spe  
 Jolly Nature  
-- Flare Blitz  
-- U-turn  
-- Low Kick  
-- Outrage  
+- Swords Dance  
+- Behemoth Blade  
+- Close Combat  
+- Wild Charge  
 
 Arceus-Fairy @ Pixie Plate  
 Ability: Multitype  
-Tera Type: Water  
-EVs: 248 HP / 164 Def / 96 Spe  
+Tera Type: Fire  
+EVs: 248 HP / 72 Def / 188 Spe  
 Bold Nature  
 IVs: 0 Atk  
+- Calm Mind  
 - Judgment  
+- Taunt  
 - Recover  
-- Stealth Rock  
-- Roar  
 
-Ting-Lu @ Custap Berry  
-Ability: Vessel of Ruin  
-Tera Type: Water  
-EVs: 248 HP / 8 Def / 252 SpD  
-Sassy Nature  
-IVs: 9 Spe  
-- Earthquake  
-- Ruination  
-- Whirlwind  
-- Spikes
+Eternatus @ Power Herb  
+Ability: Pressure  
+Tera Type: Fire  
+EVs: 124 HP / 252 SpA / 132 Spe  
+Modest Nature  
+IVs: 0 Atk  
+- Agility  
+- Meteor Beam  
+- Dynamax Cannon  
+- Fire Blast  
+
+Koraidon @ Life Orb  
+Ability: Orichalcum Pulse  
+Tera Type: Fire  
+EVs: 8 HP / 248 Atk / 252 Spe  
+Jolly Nature  
+- Swords Dance  
+- Scale Shot  
+- Flame Charge  
+- Close Combat
 
 """
 class CustomAgent(SimpleHeuristicsPlayer):

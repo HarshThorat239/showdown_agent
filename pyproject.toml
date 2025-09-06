@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "showdown_agent"
+version = "0.1.0"
+description = "Pokemon Showdown Agent"
+authors = [
+    {name = "CARES", email = "cares@aucklanduni.ac.nz"}
+]
+license = {text = "MIT"}
+readme = "README.md"
+requires-python = ">=3.10,<3.11"
+dependencies = [
+    "generic==1.1.4",
+    "gymnasium==1.1.1",
+    "matplotlib==3.8.2",
+    "numpy==2.2.5",
+    "poke_env==0.10.0",
+    "setuptools==59.6.0",
+    "tabulate==0.9.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "black",
+    "flake8",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["showdown_agent*"]
+

@@ -1,29 +1,25 @@
-from poke_env.battle import AbstractBattle, side_condition, pokemon_type, move
+from poke_env.battle import AbstractBattle, side_condition, pokemon_type
 from poke_env.player import Player
 from poke_env.battle.pokemon_type import PokemonType
+
+
+
 import poke_env.battle as battle
+
+import re
+
 
 
 team = """
-Ting-Lu @ Leftovers  
-Ability: Vessel of Ruin  
-Tera Type: Poison  
-EVs: 252 HP / 4 Atk / 252 SpD  
-Sassy Nature  
-- Spikes  
-- Earthquake  
-- Ruination  
-- Whirlwind  
-
-Koraidon @ Life Orb  
-Ability: Orichalcum Pulse  
-Tera Type: Fighting  
+Groudon @ Heat Rock  
+Ability: Drought  
+Tera Type: Fire  
 EVs: 252 Atk / 4 SpD / 252 Spe  
-Adamant Nature  
-- Collision Course  
-- Dragon Claw  
-- Flare Blitz  
-- Wild Charge  
+Jolly Nature  
+- Spikes  
+- Stealth Rock  
+- Precipice Blades  
+- Heat Crash  
 
 Flutter Mane @ Life Orb  
 Ability: Protosynthesis  
@@ -36,36 +32,49 @@ IVs: 0 Atk
 - Mystical Fire  
 - Power Gem  
 
-Arceus-Fairy @ Pixie Plate  
-Ability: Multitype  
-Tera Type: Fairy  
-EVs: 132 Def / 132 SpA / 244 Spe  
-Timid Nature  
-IVs: 0 Atk  
-- Judgment  
-- Flamethrower  
-- Psychic  
-- Aura Sphere  
-
-Zacian-Crowned @ Rusted Sword  
-Ability: Intrepid Sword  
-Tera Type: Fairy  
-EVs: 140 HP / 252 Atk / 116 Spe  
-Jolly Nature  
-- Sacred Sword  
-- Behemoth Blade  
-- Play Rough  
-- Ice Fang  
-
-Iron Bundle @ Booster Energy  
-Ability: Quark Drive  
-Tera Type: Ice  
+Eternatus @ Power Herb  
+Ability: Pressure  
+Tera Type: Fire  
 EVs: 252 SpA / 4 SpD / 252 Spe  
 Timid Nature  
-- Freeze-Dry  
-- Hydro Pump  
-- Flip Turn  
-- Ice Beam  
+IVs: 0 Atk  
+- Dynamax Cannon  
+- Sludge Bomb  
+- Flamethrower  
+- Meteor Beam  
+
+Venusaur @ Choice Specs  
+Ability: Chlorophyll  
+Tera Type: Steel  
+EVs: 4 HP / 252 SpA / 252 Spe  
+Modest Nature  
+IVs: 0 Atk  
+- Sludge Bomb  
+- Earth Power  
+- Solar Beam  
+- Weather Ball  
+
+Walking Wake @ Life Orb  
+Ability: Protosynthesis  
+Tera Type: Water  
+EVs: 252 SpA / 4 SpD / 252 Spe  
+Timid Nature  
+IVs: 0 Atk  
+- Hydro Steam  
+- Draco Meteor  
+- Dragon Pulse  
+- Flamethrower  
+
+Charizard @ Choice Scarf  
+Ability: Solar Power  
+Shiny: Yes  
+Tera Type: Fairy  
+EVs: 252 SpA / 4 SpD / 252 Spe  
+Timid Nature  
+- Solar Beam  
+- Fire Blast  
+- Air Slash  
+- Tera Blast  
 """
     # === FULL TYPE EFFECTIVENESS MATRIX ===
 TYPE_EFFECTIVENESS = {
@@ -89,7 +98,6 @@ TYPE_EFFECTIVENESS = {
     PokemonType.FAIRY:   {PokemonType.FIGHTING: 2.0, PokemonType.DRAGON: 2.0, PokemonType.DARK: 2.0, PokemonType.FIRE: 0.5, PokemonType.POISON: 0.5, PokemonType.STEEL: 0.5},
 }
 
-
 class CustomAgent(Player):
     def __init__(self, *args, **kwargs):
         global team
@@ -97,296 +105,78 @@ class CustomAgent(Player):
             team = ""
         super().__init__(team=team, *args, **kwargs)
 
-        # Palafin state
-     #   self.palafin_seen_once = False        # first time base Palafin has appeared
-     #   self.palafin_pivot_done = False       # once we Flip Turn, don't force it again
+    def team_preview(self, battle: AbstractBattle) -> int:
+        for i, (_, p) in enumerate(battle.team.items()):
+            if p.name and p.name.lower() == "groudon":
+                return i
+        return 0
 
-    def teampreview(self, battle: AbstractBattle) -> str:
-        # Lead with the first Pokémon, keep default order for the rest
-        order = "/team " + "".join(str(i) for i in range(1, len(battle.team) + 1))
-        return order
-
-    # ---------- TYPE HELPERS ----------
     def type_multiplier(self, atk_type, def_types):
         mult = 1.0
-        inner = TYPE_EFFECTIVENESS.get(atk_type, {})
         for t in def_types:
-            if t is None:
-                continue
-            mult *= inner.get(t, 1.0)
+            mult *= TYPE_EFFECTIVENESS.get(atk_type, {}).get(t, 1.0)
         return mult
-
-    def is_move_immune(self, move_type, opp_ability):
-        """Check if move is immune due to opponent's ability"""
-        if not opp_ability:
-            return False
-        
-        ability_name = opp_ability.lower()
-        immunity_map = {
-            'levitate': PokemonType.GROUND,
-            'flashfire': PokemonType.FIRE,
-            'waterabsorb': PokemonType.WATER,
-            'dryskin': PokemonType.WATER,
-            'sapsipper': PokemonType.GRASS,
-            'lightningrod': PokemonType.ELECTRIC,
-            'stormdrain': PokemonType.WATER,
-        }
-        
-        return immunity_map.get(ability_name) == move_type
 
     def estimated_effectiveness(self, move_type, opp_types, my_types):
         eff = self.type_multiplier(move_type, opp_types)
         if move_type in my_types:
-            eff *= 1.5
+            eff *= 1.5  # STAB
         return eff
 
-    def estimate_damage_frac(self, mv, my_types, opp_types):
-        bp = getattr(mv, "base_power", 0) or 0
-        if bp <= 0:
+    def estimate_damage_frac(self, move, my_types, opp_types):
+        if not move.base_power or move.base_power <= 0:
             return 0.0
-        
-        # Get move type - handle both direct type and type_id
-        move_type = getattr(mv, 'type', None)
-        if move_type is None:
-            move_type = getattr(mv, 'type_id', None)
-        
-        if move_type is None:
-            return 0.0
-            
-        eff = self.estimated_effectiveness(move_type, opp_types, my_types)
-        return max(0.0, min((bp / 100.0) * eff, 1.0))
-
-    def opponent_has_advantage(self, my_types, opp_types, thresh=1.0):
-        return any(self.type_multiplier(otype, my_types) > thresh for otype in opp_types)
+        eff = self.estimated_effectiveness(move.type, opp_types, my_types)
+        return max(0.0, min((move.base_power / 100.0) * eff, 1.0))
 
     def pick_best_switch(self, battle, opp_types):
         best_mon, best_score = None, float("-inf")
         for mon in battle.available_switches:
-            # Defensive risk: how hard opponent's typing hits this mon
             worst_incoming = max(self.type_multiplier(otype, mon.types) for otype in opp_types)
-            
-            # Offensive advantage: best of this mon's types vs opponent's types
-            best_offense = 0.0
-            if mon.types:
-                best_offense = max(self.type_multiplier(ct, opp_types) for ct in mon.types if ct is not None)
-            
-            # Prioritize type advantage (super effective) and defensive safety
-            # Score = (offensive advantage * 2) / (defensive risk + 0.5)
-            # This heavily weights offensive advantage while still considering defense
-            score = (best_offense * 2.0) / (worst_incoming + 0.5)
-            
+            best_offense = max(1.5 * self.type_multiplier(ct, opp_types) for ct in mon.types)
+            score = best_offense / (worst_incoming + 1e-6)
             if score > best_score:
                 best_score, best_mon = score, mon
-                # print(f"DEBUG: {mon.species} scored {score:.2f} (offense: {best_offense:.1f}, defense risk: {worst_incoming:.1f})")
-        
-        
         return best_mon
 
-    #def _is_flip_turn(self, mv) -> bool:
-        # robust check by id and name
-    #    mid = (getattr(mv, "id", "") or "").lower()
-    #    if mid == "flipturn":
-    #        return True
-    #    mname = (getattr(mv, "name", "") or getattr(mv, "display_name", "") or "").lower().replace(" ", "")
-    #    return mname == "flipturn"
-
-    # ---------- POLICY ----------
     def choose_move(self, battle: AbstractBattle):
         opp = battle.opponent_active_pokemon
-        me  = battle.active_pokemon
+        me = battle.active_pokemon
         opp_types = opp.types
-        my_types  = me.types
-        opp_hp    = opp.current_hp_fraction or 1.0
-        # Defensive risk of staying in: how hard opp's typing hits our current active typing
-        active_defensive_risk = max(
-            (self.type_multiplier(ot, my_types) for ot in opp_types if ot is not None),
-            default=1.0,
-        )
+        my_types = me.types
+        opp_hp = opp.current_hp_fraction or 1.0
 
-        # If forced to switch (e.g., after a pivot), pick best counter
-        if not battle.available_moves and battle.available_switches:
-            counter = self.pick_best_switch(battle, opp_types)
-            if counter:
-                return self.create_order(counter)
-            return self.create_order(list(battle.available_switches)[0])
-
-        # Check if current Pokemon is Ting-Lu and prioritize setup moves
-        current_species = getattr(me, 'species', '').lower()
-        if 'ting-lu' in current_species or 'tinglu' in current_species:
-            setup_moves = ['spikes']
-            for mv in battle.available_moves:
-                move_name = getattr(mv, 'name', getattr(mv, 'display_name', '')).lower().replace(' ', '')
-                if move_name in setup_moves:
-                    # print(f"DEBUG: Ting-Lu using setup move: {move_name}")
-                    return self.create_order(mv)
-
-        # --- PALAFIN (base form): always Flip Turn on first appearance ---
-       # species = (getattr(me, "species", "") or getattr(me, "name", "")).lower()
-       # is_palafin_base = ("palafin" in species) and ("hero" not in species)
-       # if is_palafin_base and not self.palafin_pivot_done:
-       #     for mv in battle.available_moves:
-       #         if self._is_flip_turn(mv):
-       #             self.palafin_seen_once = True
-       #             self.palafin_pivot_done = True
-       #             return self.create_order(mv)
-       #     # If Flip Turn isn't usable (disabled/PP), fall through to normal logic
-
-        # --- NEW PRIORITY-BASED MOVE SELECTION ---
         moves = []
-        super_effective_moves = []
-        
-        neutral_moves = []
-        resisted_moves = []
-        
         for mv in battle.available_moves:
-            # Optional: avoid re-using Flip Turn after the initial pivot
-       #     if self.palafin_pivot_done and self._is_flip_turn(mv):
-       #         continue
-        #    if not mv.base_power or mv.base_power <= 0:
-        #        continue
-            
-            # Get move type - handle both direct type and type_id
-            move_type = getattr(mv, 'type', None)
-            if move_type is None:
-                move_type = getattr(mv, 'type_id', None)
-            
-            if move_type is None:
+            if not mv.base_power or mv.base_power <= 0:
                 continue
-            
-            # Debug output for troubleshooting
-            move_name = getattr(mv, 'name', getattr(mv, 'display_name', 'Unknown'))
-                
-            raw_mult = self.type_multiplier(move_type, opp_types)
-            if raw_mult == 0.0:
-                continue
-            
-            # Check for ability-based immunities
-            opp_ability = getattr(opp, 'ability', None)
-            if self.is_move_immune(move_type, opp_ability):
-                # print(f"DEBUG: Move {move_name} is immune due to {opp_ability}")
+            raw_mult = self.type_multiplier(mv.type, opp_types)
+            if raw_mult == 0.0:  # skip immune
                 continue
             dmg = self.estimate_damage_frac(mv, my_types, opp_types)
             moves.append((mv, dmg, raw_mult))
-            # print(f"DEBUG: Move {move_name} (type: {move_type}) vs {opp_types} = {raw_mult}x effectiveness")
-            
-            
-            # Categorize moves by effectiveness
-            if raw_mult > 1.0:
-                super_effective_moves.append((mv, dmg, raw_mult))
-                # print(f"DEBUG: {move_name} categorized as SUPER EFFECTIVE")
-            elif abs(raw_mult - 1.0) < 1e-9:
-                neutral_moves.append((mv, dmg, raw_mult))
-                # print(f"DEBUG: {move_name} categorized as NEUTRAL")
-            else:
-                resisted_moves.append((mv, dmg, raw_mult))
-                # print(f"DEBUG: {move_name} categorized as RESISTED")
 
-        # print(f"DEBUG: Found {len(super_effective_moves)} super effective, {len(neutral_moves)} neutral, {len(resisted_moves)} resisted moves")
-
-        # Check if we can KO with any move (but be more conservative)
-        for m, dmg, mult in sorted(moves, key=lambda x: x[1], reverse=True):
-            # Only consider it a guaranteed KO if damage is significantly higher than HP
-            # and the move is at least neutral effectiveness
-            if dmg >= opp_hp + 0.1 and mult >= 1.0:
-                move_name = getattr(m, 'name', getattr(m, 'display_name', 'Unknown'))
-                # print(f"DEBUG: *** GUARANTEED KO MOVE SELECTED: {move_name} (damage: {dmg:.3f} vs HP: {opp_hp:.3f}) ***")
+        # KO check
+        for m, dmg, _ in sorted(moves, key=lambda x: x[1], reverse=True):
+            if dmg >= opp_hp - 1e-6:
                 return self.create_order(m)
 
-        # NEW RULE: If any bench Pokemon has a type that is super-effective vs opponent, switch to it
-        # BUT only if its defensive risk is strictly lower than our current defensive risk
-        # We pick among qualifying candidates the one that maximizes (type advantage) / (worst incoming disadvantage)
-        # print(f"DEBUG: Checking for type-advantaged switches...")
-        if battle.available_switches:
-            best_switch = None
-            best_score = float("-inf")
-            for candidate in battle.available_switches:
-                # Offensive advantage: best of candidate's types vs opponent's types
-                offensive_advantage = 0.0
-                if candidate.types:
-                    offensive_advantage = max(
-                        self.type_multiplier(ct, opp_types) for ct in candidate.types if ct is not None
-                    )
-                # Only consider candidates with clear offensive advantage (>1x) AND strictly better defense than current
-                if offensive_advantage > 1.0:
-                    # Defensive risk: how hard opp's typing hits candidate's typing
-                    defensive_risk = 1.0
-                    if candidate.types:
-                        defensive_risk = max(
-                            self.type_multiplier(ot, candidate.types) for ot in opp_types if ot is not None
-                        )
-                    if not (defensive_risk < active_defensive_risk):
-                        continue
-                    score = offensive_advantage / (defensive_risk + 1e-6)
-                    if score > best_score:
-                        best_score = score
-                        best_switch = candidate
-            if best_switch is not None:
-                # print(f"DEBUG: Switching to type-advantaged {best_switch.species} (score {best_score:.2f})")
-                return self.create_order(best_switch)
+        # Prefer SE > neutral > resisted
+        se = [(m, dmg) for m, dmg, raw in moves if raw > 1.0]
+        nt = [(m, dmg) for m, dmg, raw in moves if abs(raw - 1.0) < 1e-9]
+        if se:
+            return self.create_order(max(se, key=lambda x: x[1])[0])
+        if nt:
+            return self.create_order(max(nt, key=lambda x: x[1])[0])
 
-        # PRIORITY 1: Use super effective moves if available
-        if super_effective_moves:
-            # print(f"DEBUG: Found {len(super_effective_moves)} super effective moves:")
-            for mv, dmg, mult in super_effective_moves:
-                mv_name = getattr(mv, 'name', getattr(mv, 'display_name', 'Unknown'))
-                # print(f"DEBUG:   - {mv_name}: damage={dmg:.3f}, effectiveness={mult}")
-            
-            # Sort by effectiveness first, then by damage within same effectiveness
-            best_se_move = max(super_effective_moves, key=lambda x: (x[2], x[1]))  # (effectiveness, damage)
-            move_name = getattr(best_se_move[0], 'name', getattr(best_se_move[0], 'display_name', 'Unknown'))
-            # print(f"DEBUG: Selected SUPER EFFECTIVE move: {move_name} (damage: {best_se_move[1]:.3f}, effectiveness: {best_se_move[2]})")
-            # print(f"DEBUG: *** RETURNING SUPER EFFECTIVE MOVE: {move_name} ***")
-            return self.create_order(best_se_move[0])
-
-        # PRIORITY 2: If no super effective moves, consider switching to a better Pokemon
-        if battle.available_switches:
+        # Switch if only resisted and switch available
+        if moves and battle.available_switches:
             counter = self.pick_best_switch(battle, opp_types)
             if counter:
-                # Check if the counter has super effective moves against opponent
-                counter_has_se = False
-                for mv in counter.moves:
-                    if hasattr(mv, 'type') and mv.type:
-                        eff = self.type_multiplier(mv.type, opp_types)
-                        if eff > 1.0:
-                            counter_has_se = True
-                            break
-                
-                # Switch if counter has super effective moves or if we're at a disadvantage,
-                # BUT only if its defensive risk is strictly lower than our current defensive risk
-                disadvantaged = self.opponent_has_advantage(my_types, opp_types, thresh=1.0)
-                counter_defensive_risk = max(
-                    (self.type_multiplier(ot, counter.types) for ot in opp_types if ot is not None),
-                    default=1.0,
-                )
-                if (counter_has_se or disadvantaged) and (counter_defensive_risk < active_defensive_risk):
-                    # print(f"DEBUG: Switching to {counter.species} (has SE: {counter_has_se}, disadvantaged: {disadvantaged}, def_risk {counter_defensive_risk:.2f} < {active_defensive_risk:.2f})")
-                    return self.create_order(counter)
+                return self.create_order(counter)
 
-        # PRIORITY 3: Use neutral moves if available
-        if neutral_moves:
-            best_neutral_move = max(neutral_moves, key=lambda x: x[1])
-            move_name = getattr(best_neutral_move[0], 'name', getattr(best_neutral_move[0], 'display_name', 'Unknown'))
-            # print(f"DEBUG: Selected NEUTRAL move: {move_name} (damage: {best_neutral_move[1]:.3f})")
-            return self.create_order(best_neutral_move[0])
+        # Else best damage
+        if moves:
+            return self.create_order(max(moves, key=lambda x: x[1])[0])
 
-        # PRIORITY 4: If only resisted moves remain, try switching one more time
-        if resisted_moves and battle.available_switches:
-            counter = self.pick_best_switch(battle, opp_types)
-            if counter:
-                counter_defensive_risk = max(
-                    (self.type_multiplier(ot, counter.types) for ot in opp_types if ot is not None),
-                    default=1.0,
-                )
-                if counter_defensive_risk < active_defensive_risk:
-                    # print(f"DEBUG: Switching due to only resisted moves available (safer defense {counter_defensive_risk:.2f} < {active_defensive_risk:.2f})")
-                    return self.create_order(counter)
-
-        # PRIORITY 5: Use best resisted move as last resort
-        if resisted_moves:
-            best_resisted_move = max(resisted_moves, key=lambda x: x[1])
-            move_name = getattr(best_resisted_move[0], 'name', getattr(best_resisted_move[0], 'display_name', 'Unknown'))
-            # print(f"DEBUG: Selected RESISTED move: {move_name} (damage: {best_resisted_move[1]:.3f})")
-            return self.create_order(best_resisted_move[0])
-
-        # Fallback to random move if no damaging moves available
         return self.choose_random_move(battle)

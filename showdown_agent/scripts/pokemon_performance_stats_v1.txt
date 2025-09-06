@@ -1,0 +1,57 @@
+POKEMON PERFORMANCE STATISTICS - V1 PLAYER
+==================================================
+
+Flutter Mane:
+  KO Rating: 1.41
+  Survivability: 3.5 turns/battle
+  KOs Dealt: 1855
+  KOs Taken: 446
+  Battles Participated: 998
+  Total Turns Survived: 3540
+  Damage Efficiency: 3.13
+
+Zacian-Crowned:
+  KO Rating: 0.95
+  Survivability: 2.5 turns/battle
+  KOs Dealt: 2348
+  KOs Taken: 976
+  Battles Participated: 1446
+  Total Turns Survived: 3659
+  Damage Efficiency: 1.80
+
+Koraidon:
+  KO Rating: 0.54
+  Survivability: 3.7 turns/battle
+  KOs Dealt: 1360
+  KOs Taken: 697
+  Battles Participated: 1221
+  Total Turns Survived: 4522
+  Damage Efficiency: 1.22
+
+Arceus-Fairy:
+  KO Rating: 0.24
+  Survivability: 2.2 turns/battle
+  KOs Dealt: 417
+  KOs Taken: 89
+  Battles Participated: 1339
+  Total Turns Survived: 2926
+  Damage Efficiency: 0.63
+
+Iron Bundle:
+  KO Rating: -0.29
+  Survivability: 3.3 turns/battle
+  KOs Dealt: 847
+  KOs Taken: 1247
+  Battles Participated: 1380
+  Total Turns Survived: 4522
+  Damage Efficiency: 1.12
+
+Ting-Lu:
+  KO Rating: -0.65
+  Survivability: 2.8 turns/battle
+  KOs Dealt: 178
+  KOs Taken: 787
+  Battles Participated: 931
+  Total Turns Survived: 2620
+  Damage Efficiency: 0.52
+
